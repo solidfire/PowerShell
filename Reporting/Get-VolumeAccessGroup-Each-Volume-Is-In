@@ -1,0 +1,20 @@
+# Identify the Volume Access Groups each volume is part of
+
+$result = @()
+$volumes = Get-SFVolume
+foreach($vol in $volumes){
+    $volaccessgroups = $vol.VolumeAccessGroupIDs
+    foreach($vagID in $volaccessgroups){
+        $vag = Get-SFVolumeAccessGroup $vagID
+        # Store Volume Access Group data in object
+        $object = New-Object -TypeName PSObject -Property @{
+              VolumeName = $vol.VolumeName
+              VolumeAccessGroupName = $vag.VolumeAccessGroupName
+        }
+        $result += $object
+    }
+ }
+ $result | Sort VolumeName
+
+
+ 
