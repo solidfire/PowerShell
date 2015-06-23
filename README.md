@@ -1,5 +1,7 @@
 # PowerShell
-Collection of scripts, functions, and examples using the SolidFire Tools for PowerShell
+Collection of scripts, functions, and examples using the SolidFire Tools for PowerShell.
+
+The SolidFire Tools for PowerShell are in beta release.  You can access the module and documentation through our support FTP site.  Contact your SE if you do not currently have access.
 
 This repository serves as a space for development on various scripts and functions to assist in managing SolidFire systems using PowerShell.  All scripts and functions are delivered as is and are not directly supported by SolidFire support.  If you have a question about a script or function, or have a need not already presented in this repository, please feel free to email us at powershell@solidfire.com
 
