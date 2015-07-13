@@ -1,6 +1,6 @@
 ﻿<#
 
-            SolidFire Best Practices Implementation Script
+         SolidFire VMware Best Practices Implementation Script
 
           This script simplifies implementation of recommended 
                 configurations for VMware environments
@@ -20,9 +20,29 @@ Requirements:
 2. User must have privileges to make changes to advanced settings
 3. Evaluation of each segment's configuration changes as it relates
    to your environment.  Not all recommendations apply to everyone
+   
+   PLEASE READ ALL SCRIPT BLOCKS!
 #>
 
-######  VMware Host Selection ######
+######  User Input Section ########
+
+<# User Checklist. Choose:
+1. Verbose and Confirm selection
+2. VMhosts to apply
+3. Options to apply
+#>
+
+######  1. Verbose Output ######
+# Verbose writes output letting user know what is happening throughout the script.
+$verbose = $true
+
+######  1b. Confirm ######
+# Instructs the script whether to confirm your command or not.
+# False means user will receive no confiromation.
+
+$Confirm = $false
+
+######  2. VMware Host Selection ######
 <# Choose the vSphere host filter.
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !! Requires active connection to your vCenter server !!
@@ -35,7 +55,7 @@ If ((Get-PSSnapin "VMware.VimAutomation.Core" -ErrorAction SilentlyContinue) -eq
     $vmhosts = Get-VMhost
 }
 
-######  Interactive Mode ########
+######  3. Options to Apply ######
 <# Beneath this section choose the components that you want to include.  
 
 Options included in script.
@@ -45,18 +65,19 @@ Options included in script.
 4 | Turn Off DelayedAck for Random Workloads !!! Only for throughput heavy workloads or latency senstive applications
 5 | Create Custom SATP Rule for SolidFire
 
+
+Use if you need to include only specific settings. 
+Must be comma-separated or all
+
+Examples
+$apply = 2,3,5
+$apply = "all"
 #>
-
-$apply = ""
-
-# Use if you need to include only specific settings. Must be comma-separated
-# Example $apply = 2,3,5
 
 $apply = 4
 
-#$apply = "all"
 
-$verbose = $true
+
 
 #######      The Script blocks   #######
 if($verbose = $true){
@@ -88,24 +109,25 @@ Default value is 4MB
 SolidFire recommended value is 16MB
 
 Per ESXi Host Setting
+
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!      Only applied for Nitrogen release and later                        !!!
 !!! This setting will result in poor xcopy and write-same offload in Carbon !!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 Alternate method of implementation:
 esxcfg-advcfg -s 16384 /DataMover/MaxHWTransferSize
-or 
+  or 
 esxcli system settings advanced set -i 16384 -o /DataMover/MaxHWTransferSize
 #>
 
-foreach ($esxi in $vmhosts){
-    #$esxi | Get-AdvancedSetting -Name "DataMover.MaxHWTransferSize" | Set-AdvancedSetting -Value 16384
-	#[AP] - Added the "-Confirm:$false" for obvious reasons
-	 $esxi | Get-AdvancedSetting -Name DataMover.MaxHWTransferSize | Set-AdvancedSetting -Value 4096 -Confirm:$false
+foreach ($esx in $vmhosts){
+    
+    $esx | Get-AdvancedSetting -Name "DataMover.MaxHWTransferSize" | Set-AdvancedSetting -Value 16384 -Confirm:$($Confirm)    
     
     # Output completion to screen if $verbose = $true
     if($verbose = $true){
-        Write-Output ("MaxHWTransferSize size set to 16MB for " + $esxi.name)
+        Write-Output ("MaxHWTransferSize size set to 16MB for " + $esx.name)
     }
 }
 }
@@ -130,20 +152,24 @@ Alternate method of implementation:
 esxcli storage core device set -d naa.xxxx -O 64
 #>
 
-$dsnro = 256
-foreach ($esxi in $vmhosts)
+$dsnro = 64
+foreach ($esx in $vmhosts)
 {
-    $esxcli=get-esxcli -VMHost $esxi
-    $devices = $esxi | Get-ScsiLun | Where{$_.Vendor -match "SolidFir"}
+    $esxcli=get-esxcli -VMHost $esx
+    $devices = $esx | Get-ScsiLun | Where{$_.Vendor -match "SolidFir"}
     foreach ($device in $devices)
     {
-        $esxcli.storage.core.device.set($null, $device.CanonicalName, $null, $null, $null, $null, $null, $dsnro, $null) 
-		#[AP] - Added this line in case we recommend setting QFullSampleSize and QFullThreshold in addition to DSNRO
-		#$esxcli.storage.core.device.set($null, $device.Device, $null, $null, $null, 32, 16, $dsnro, $null)
-
+        If($esx.Version.Split(".")[0] -ge "6"){
+            #vSphere 6.x hosts or greater
+            $esxcli.storage.core.device.set($null, $null, $device.CanonicalName, $null, $null, $null, $null, $null, $null, $null, $null, $dsnro, $null, $null)
+        }else{
+            #vSphere 5.x hosts
+            $esxcli.storage.core.device.set($null, $device.CanonicalName, $null, $null, $null, $null, $null, $dsnro, $null)
+        }
+        
         # Output completion to screen if $verbose = $true
         if($verbose = $true){
-            Write-Output ("DSNRO for " + $device.CanonicalName + " on host " + $esxi.name + " set to " + $dsnro)
+            Write-Output ("DSNRO for " + $device.CanonicalName + " on host " + $esx.name + " set to " + $dsnro)
         }
     }
 }
@@ -165,14 +191,23 @@ Alternate method of implementation:
 esxcli system module parameters set -m iscsi_vmk -p iscsivmk_LunQDepth=256
 #>
 
-foreach ($esxi in $vmhosts){
-    $esxcli = get-esxcli -VMHost $esxi
-    $esxcli.system.module.parameters.set($null,"iscsi_vmk","iscsivmk_LunQDepth=256")
+foreach ($esx in $vmhosts){
+    $esxcli = get-esxcli -VMHost $esx
+
+
+    If($esx.Version.Split(".")[0] -ge "6"){
+        #vSphere 6.x hosts or greater
+        $esxcli.system.module.parameters.set($null, $null,"iscsi_vmk","iscsivmk_LunQDepth=256")
+    }else{
+        #vSphere 5.x command
+        $esxcli.system.module.parameters.set($null,"iscsi_vmk","iscsivmk_LunQDepth=256")
+    }
+
     $esxcli.system.module.parameters.list("iscsi_vmk") | Where{$_.Name -eq "iscsivmk_LunQDepth"}
 
     # Output completion to screen if $verbose = $true
     if($verbose = $true){
-            Write-Output ("Queue depth for " + $vmhost.Name + " set to 256")
+            Write-Output ("Queue depth for " + $esx.Name + " set to 256")
     }
 }
 }
@@ -187,38 +222,29 @@ if($verbose = $true){
 <# 
 4 | Turn Off DelayedAck for Random Workloads
 
-!!! Only for throughput heavy workload or latency senstive applications. !!!
-This is a global ESXi host setting that applies to all software iSCSI initiator targets on the host.
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Only for throughput heavy workload or latency senstive applications.    !!!
+!!! This is a global ESXi host setting that applies to all software iSCSI   !!!
+!!! initiator targets on the host.                                          !!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 Default application value is 1 (On)
 Modified application value is 0 (Off)
 
-Alternate method of implementation
+Alternate method of implementation:
 vmkiscsi-tool vmhba38 -W -a delayed_ack=0
 
 NOTES from https://communities.vmware.com/message/1830738  
 #>
 
-foreach($esxi in $vmhosts){
+foreach($esx in $vmhosts){
+    $adapterID = $esx.ExtensionData.config.StorageDevice.HostBusAdapter | Where{$_.Model -match "iSCSI"}
 
-	#[AP] - Added the following lines: <addition>
-	$HostView = Get-VMHost $esxi | Get-View  
-	$storagesystemID = $HostView.configmanager.StorageSystem  
-	$adapterID = ($HostView.config.storagedevice.HostBusAdapter | where {$_.Model -match "iSCSI Software"}).device  
-	
-    #$adapterID = $esxi.ExtensionData.config.StorageDevice.HostBusAdapter | Where{$_.Model -match "iSCSI"}
-    #$storagesystemID = $esxi.ExtensionData.configmanager.StorageSystem 
-
-    $options = New-Object VMWare.Vim.HostInternetScsiHbaParamValue[] (1)  
-    $options[0] = New-Object VMware.Vim.HostInternetScsiHbaParamValue  
-    $options[0].key = "DelayedAck"  
-    $options[0].value = $false
-    $esxiStorageSystem = Get-View -ID $storagesystemID
-    $esxiStorageSystem.UpdateInternetScsiAdvancedOptions($adapterID, $null, $options)
+    $esxcli.iscsi.adapter.param.set($adapterID.device, $null, "DelayedAck", "false")
 
     # Output completion to screen if $verbose = $true
     if($verbose = $true){
-        Write-Output ("DelayedAck turned off for " + $esxi.name)
+        Write-Output ("DelayedAck turned off for " + $esx.name)
     }
 }
 }
@@ -233,7 +259,7 @@ if($verbose = $true){
 <# 
 5 | Create Custom SATP Rule for SolidFire
 
-Alternate method of implementation
+Alternate method of implementation:
 esxcli storage nmp satp rule add -s VMW_SATP_DEFAULT_AA -P VMW_PSP_RR -O iops=“1” -V “SolidFir" -M “SSD SAN” -e “SolidFire custom SATP rule" 
 
 add(boolean boot, string claimoption, string description, string device, string driver, boolean force, string model, string option, string psp, string pspoption, string satp, string
@@ -251,19 +277,19 @@ transport, string type, string vendor)
 !!! Reboot host if you have already presented SolidFire storage to the host !!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+To remove the claim rule:
+$esxcli.storage.nmp.satp.rule.remove($false, $null, "SolidFire custom SATP rule", $null, $null, "SSD SAN", $null, "VMW_PSP_RR", "iops=10", "VMW_SATP_DEFAULT_AA", $null, $null, "SolidFir")
 #>
 
-foreach($esxi in $vmhosts){
+#>
+foreach($esx in $vmhosts){
 
-    $esxcli = Get-Esxcli -VMHost $esxi
-    #$esxcli.storage.nmp.satp.rule.add($false,$null,“SolidFire custom SATP rule",$null,$null,$true,“SSD SAN”,$null,"VMW_PSP_RR","iops='1'","VMW_SATP_DEFAULT_AA",$null,$null,“SolidFir")
-	#[AP] - The below string fixed it.
-	$esxcli.storage.nmp.satp.rule.add($null, $null, "SolidFire Custom SATP", $null, $null, $null, "SSD SAN", $null, "VMW_PSP_RR", "iops=1", "VMW_SATP_DEFAULT_AA", $null, $null, "SolidFir")
-    #[AP] - This will error if the rule already exists. Should list the SATP rules first and see if we find the string "SolidFir" in the vendor string
+    $esxcli = Get-Esxcli -VMHost $esx
+    $esxcli.storage.nmp.satp.rule.add($false, $null, "SolidFire custom SATP rule", $null, $null, $true, "SSD SAN", $null, "VMW_PSP_RR", "iops=10", "VMW_SATP_DEFAULT_AA", $null, $null, "SolidFir")
     
-	# Output completion to screen if $verbose = $true
+    # Output completion to screen if $verbose = $true
     if($verbose = $true){
-        Write-Output ("Custom SATP rule created for " + $esxi.name)
+        Write-Output ("Custom SATP rule created for " + $esx.name)
     }
 }
 
