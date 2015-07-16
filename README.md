@@ -7,11 +7,11 @@ This repository serves as a space for development on various scripts and functio
 
 All scripts and functions will leverage the SolidFire Tools for PowerShell.  Some scripts or functions may also leverage other PowerShell tools such as VMware's PowerCLI or Cisco's UCSPowerTool.  Scripts or functions using other modules or snapins will be noted.
 
-# Getting Started
+## Getting Started
 Files located in this directory provide a self-paced lab guide providing basic functionality to get started.
 
-# Reporting
+## Reporting
 Provides scripts for reporting useful information from a SolidFire system.  Reports may also include scripts that report against other application or infrastructure components.
 
-# VMware
+## VMware
 The scripts and functions in the VMware directory are directly related to managing SolidFire in a VMware environment.  This will include scripts to report on VM to volume mappings, creating policies, managing ESXi host to volume access group mappings, etc.  We will also include scripts for help with implementation of SolidFire best practices.
