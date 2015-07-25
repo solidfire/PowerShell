@@ -1,23 +1,6 @@
-﻿# Display VolumeIDs in Volume Access Groups
+﻿# Display Volume Names in Volume Access Group
 
-Get-SFVolumeAccessGroup | Select VolumeAccessGroupName, VolumeID
-
-
-# Display Volume Names in Volume Access Groups
-
-$result = @()
-$vags = Get-SFVolumeAccessGroup
- foreach($vag in $vags){
-    $volumeIDs = $vag.VolumeID
-    foreach($volID in $volumeIDs){
-        $object = New-Object -TypeName PSObject -Property @{
-              Name = $vag.VolumeAccessGroupName
-              VolumeName = (Get-SFVolume $volID).VolumeName
-        }
-        $result += $object
-    }
- }
- $result | Sort VolumeAccessGroupName
+Get-SFVolumeAccessGroup -VolumeAccessGroupName 'name' | Get-SFVolume
 
 
 # Display InitiatorIQNs for each VolumeAccessGroup
@@ -34,3 +17,8 @@ $vags = Get-SFVolumeAccessGroup
     }
  }
  $result | Sort VolumeAccessGroupName
+
+
+# Add volume(s) to Volume Access Group
+Get-SFVolume "vol1","vol2" | Add-SFVolumeToVolumeAccessGroup -VolumeAccessGroupID 1
+
