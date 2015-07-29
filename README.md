@@ -15,3 +15,7 @@ Provides scripts for reporting useful information from a SolidFire system.  Repo
 
 ## VMware
 The scripts and functions in the VMware directory are directly related to managing SolidFire in a VMware environment.  This will include scripts to report on VM to volume mappings, creating policies, managing ESXi host to volume access group mappings, etc.  We will also include scripts for help with implementation of SolidFire best practices.
+
+## Support
+This script/resource is written as best effort and provides no warranty expressed or implied.  SolidFire support is not responsible for the content of this resource.  Please contact the original author if you have questions about this script/resource.  Please help support and answer questions for content you develop and make this community great
+
