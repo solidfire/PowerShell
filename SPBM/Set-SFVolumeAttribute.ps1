@@ -42,7 +42,7 @@ param(
         Position=0,
         Mandatory=$True,
         HelpMessage="Enter the SolidFire Volume.")]
-        [SolidFire.Core.Objects.SFVolumeInfo[]]
+        [SolidFire.Core.Objects.SFVolume[]]
         $Volume,
         [Parameter(
         Position=1,
@@ -55,17 +55,25 @@ param(
         Mandatory=$True,
         HelpMessage="Enter the SolidFire Volume attribute value."
         )]
+        [String]
         $AttributeValue
 
 )
-Begin{
-$attribute = @{"$($AttributeName)" = "$($AttributeValue)"}
 
-}
 # Set Attributes
 
 Process{
-$volume | %{Set-SFVolume -VolumeID $_.VolumeID -Attributes $attribute -Confirm:$False}
+$attributes = $volume | Select -ExpandProperty Attributes
+
+If($attributes.ContainsKey($AttributeName)){
+$attributes.Set_Item($AttributeName,$AttributeValue)
+
+}ElseIf(!($attributes.ContainsKey($AttributeName))){
+
+$attributes.Add($AttributeName,$AttributeValue)
+}
+
+$Volume | Set-SFVolume -Attributes $attributes -Confirm:$False
 }
 
 }

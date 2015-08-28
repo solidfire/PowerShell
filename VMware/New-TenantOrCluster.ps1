@@ -161,8 +161,8 @@ $vmhost = $vmhosts | select -First 1
 Write-Verbose "Creating the new datastores on ESXi host $($vmhost.Name)"
 
 foreach($volume in $volumes){
-    $canonicalname = "naa." + $volume.Scsi_NAA_DeviceID
-    New-Datastore -VMhost $vmhost -Name $volume.VolumeName -Path $canonicalname -Vmfs -FileSystemVersion 5
+    $canonicalname = "naa." + $volume.ScsiNAADeviceID
+    New-Datastore -VMhost $vmhost -Name $volume.Name -Path $canonicalname -Vmfs -FileSystemVersion 5
 }
 Write-Verbose "Creating the new datastores on ESXi host $($vmhost.Name) Complete"
 

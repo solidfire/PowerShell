@@ -44,7 +44,7 @@ param(
 
 Process{
     $scsiID = ((Get-ScsiLun -Datastore $datastore).CanonicalName).Split(".")[1]
-    $result = Get-SFVolume | Where{$_.Scsi_NAA_DeviceID -eq $scsiID}
+    $result = Get-SFVolume | Where{$_.ScsiNAAdeviceID -eq $scsiID}
     Return $result
 }
 

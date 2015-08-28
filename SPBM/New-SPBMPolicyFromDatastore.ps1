@@ -1,7 +1,5 @@
 ﻿function New-SPBMPolicyFromDatastore{
 # Dynamically create SPBM Policy from ground up.
-
-
 [CmdletBinding(ConfirmImpact="Low")]
 param(
 		[Parameter(

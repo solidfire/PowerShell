@@ -5,7 +5,7 @@ param(
         Position=0,
         Mandatory=$True,
         HelpMessage="Enter the SolidFire volume")]
-		[SolidFire.Core.Objects.SFVolumeInfo[]]
+		[SolidFire.Core.Objects.SFVolume[]]
         $Volume,
         [Parameter(
         ValueFromPipeline=$false,

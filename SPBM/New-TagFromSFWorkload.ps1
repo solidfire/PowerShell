@@ -41,7 +41,7 @@ param(
         ValueFromPipeline=$true,
         Position=0,
         Mandatory=$True)]
-        [SolidFire.Core.Objects.SFVolumeInfo[]]
+        [SolidFire.Core.Objects.SFVolume[]]
         $Volume,
         [Parameter(
         Position=1,
