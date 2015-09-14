@@ -20,33 +20,33 @@ param(
 Begin{}
 Process{
 # Get Volume
-Write-Host "Getting the SolidFire Volume" -ForegroundColor Yellow
+Write-Verbose "Getting the SolidFire Volume" 
 $volume = Get-SFVolumeFromDatastore -datastore $datastore
 
 # Get Workload
 $workload = ($volume).Attributes.$($attribute)
-Write-Host "Collected workload $workload"
+Write-Verbose "Collected workload $workload"
 
 # Create Tag
-Write-Host "Creating a new Tag from Workload" -ForegroundColor Yellow
+Write-Verbose "Creating a new Tag from Workload" 
 $volume | New-TagFromSFWorkload
-Write-Host "Completed Tag creation for workload $workload" -ForegroundColor Green
+Write-Verbose "Completed Tag creation for workload $workload" 
 
 
 # Assign Tag to Datastore
-Write-Host "Assigning a new Tag to Datastore" -ForegroundColor Yellow
+Write-Verbose "Assigning a new Tag to Datastore" 
 $datastore | Set-SFWorkloadTagToDatastore
-Write-Host "Completed assigning new Tag to Datastore" -ForegroundColor Green
+Write-Verbose "Completed assigning new Tag to Datastore" 
 
 
 
 # Check if Policy exists. Create if it does not.
 $policyname = (Get-SFSpbmPolicyName -Volume $volume)
-Write-Host "Creating Storage Policy" -ForegroundColor Yellow
-
-if(!(Get-SPBMStoragePolicy -Name $policyname -ErrorAction SilentlyContinue)){
+Write-Verbose "Creating Storage Policy" 
+$checkpolicy = Get-SPBMStoragePolicy -Name $policyname -ErrorAction SilentlyContinue
+if($checkpolicy -eq $null){
     New-SPBMPolicyFromSFWorkload -Volume $volume
 }
-Write-Host "Policy created successfully" -ForegroundColor Green
+Write-Verbose "Policy created successfully" 
 }
 }

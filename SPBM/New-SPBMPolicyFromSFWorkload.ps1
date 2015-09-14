@@ -1,4 +1,38 @@
 ﻿function New-SPBMPolicyFromSFWorkload{
+<#
+    .Synopsis
+	
+ 	 Creates a policy based on a SolidFire volume QOS profile and attributes..
+	 
+	.Description 
+	 
+ 	 Creates a policy based on a SolidFire volume QOS profile and attributes..
+
+
+	.Parameter Volume
+	
+	 Represents a SolidFire volume object.
+
+	.Parameter AttributeName
+	
+	 SolidFire attribute name.  This key allows lookup of appropriate values used in policy creation.
+	 
+	.Example
+	
+	 Get-SFVolume Cluster01-1 | New-SPBMPolicyFromSFWorkload -AttributeName Workload
+	 
+	.Link
+	 http://www.github.com/solidfire/powershell
+	 
+	.Notes
+	
+	====================================================================
+	Disclaimer: This script is written as best effort and provides no 
+	warranty expressed or implied. Please contact the author(s) if you 
+	have questions about this script before running or modifying
+	====================================================================
+#>
+
 param(
 		[Parameter(
         ValueFromPipeline=$true,

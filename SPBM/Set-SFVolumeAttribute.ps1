@@ -2,12 +2,14 @@
 <#
     .Synopsis
 	
- 	 Sets attribute on SolidFire Volume.
+ 	 Easily sets attributes on SolidFire Volume.
 	 
 	.Description 
  	 
      Sets attribute on SolidFire Volume.
-     WARNING: It overrights all attributes in current version.
+     This function supplements and uses the SolidFire Tools for PowerShell
+     Primary value of this function is to quickly modify and add attributes.
+     This is helpful since the default behavior of the api call overwrites
 
 	.Parameter Volume
 	
@@ -74,6 +76,7 @@ $attributes.Add($AttributeName,$AttributeValue)
 }
 
 $Volume | Set-SFVolume -Attributes $attributes -Confirm:$False
+
 }
 
 }

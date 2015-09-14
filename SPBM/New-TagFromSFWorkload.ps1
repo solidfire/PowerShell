@@ -48,7 +48,7 @@ param(
         Mandatory=$False,
         HelpMessage="Enter category name."
         )]
-        $category = "*Solidfire*",
+        $category = "*SolidFire*",
         [Parameter(
         Position=2,
         Mandatory=$False,
@@ -67,24 +67,23 @@ If(!($defaultviserver)){
     Break
 }
 
-# Collect value for the attribute provided
-$workload = ($volume).Attributes.$($attribute)
-
-<#
-If((Get-Tag -Name $workload)){
-    Write-Output "The Tag for $workload already exists"
-    Break
-}
-#>
-
-
-$cat = Get-TagCategory $category | Select -First 1
-
 }
 
 # Runs one time for every object piped in
 PROCESS {
 
+# Collect value for the attribute provided
+$workload = ($volume).Attributes.$($attribute)
+$tagexists = Get-Tag -Name $workload -ErrorAction SilentlyContinue
+
+If($tagexists -ne $null){
+    Write-Output "The Tag for $workload already exists"
+    Break
+}
+
+
+
+$cat = Get-TagCategory $category -ErrorAction SilentlyContinue | Select -First 1
 
 If($workload -ne $null){
     

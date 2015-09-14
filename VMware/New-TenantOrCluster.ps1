@@ -153,10 +153,10 @@ Write-Verbose "Adding the ESXi host IQNs to the Volume Access Group Complete"
 # Rescan all of the HBAs so that the storage devices can be seen.
 Write-Verbose "Rescanning the HBAs to identify storage devices"
 
-$vmhosts | Get-VMhostStorage -RescanAllHba
-
 # Collect Host information from Cluster (One Host required to add storage in cluster)
 $vmhost = $vmhosts | select -First 1
+
+$vmhosts | Get-VMhostStorage -RescanAllHba
 
 Write-Verbose "Creating the new datastores on ESXi host $($vmhost.Name)"
 

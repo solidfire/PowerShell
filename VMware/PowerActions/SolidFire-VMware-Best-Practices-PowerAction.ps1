@@ -55,7 +55,7 @@ $apply = "all"
 
 #######      The Script blocks   #######
 if($verbose = $true){
-Write-Output "
+Write-Host "
       ______________            ___
      /__/__\__\__\__\       ___/__/
     /_ /__/_\__\__\__\  ___/__/__/ 
@@ -74,7 +74,7 @@ Write-Output "
 if($apply -contains 1 -or $apply -eq "all"){
 
 if($verbose = $true){
-    Write-Output "Increasing MaxHWTransferSize size from 4MB to 16MB"
+    Write-Host "Increasing MaxHWTransferSize size from 4MB to 16MB"
 }
 <#
 1 | Increase MaxHWTransferSize size from 4MB to 16MB (only for Nitrogen) 
@@ -101,7 +101,7 @@ foreach ($esx in $vmhosts){
     
     # Output completion to screen if $verbose = $true
     if($verbose = $true){
-        Write-Output ("MaxHWTransferSize size set to 16MB for " + $esx.name)
+        Write-Host ("MaxHWTransferSize size set to 16MB for " + $esx.name)
     }
 }
 }
@@ -110,7 +110,7 @@ foreach ($esx in $vmhosts){
 #########    Begin Block 2 | DSNRO    ################################
 if($apply -contains 2 -or $apply -eq "all"){
 if($verbose = $true){
-    Write-Output "Setting DSNRO to 64"
+    Write-Host "Setting DSNRO to 64"
 }
 <#
 2 | Set DSNRO (Disk Scheduler Number Req Outstanding for a volume
@@ -143,7 +143,7 @@ foreach ($esx in $vmhosts)
         
         # Output completion to screen if $verbose = $true
         if($verbose = $true){
-            Write-Output ("DSNRO for " + $device.CanonicalName + " on host " + $esx.name + " set to " + $dsnro)
+            Write-Host ("DSNRO for " + $device.CanonicalName + " on host " + $esx.name + " set to " + $dsnro)
         }
     }
 }
@@ -153,7 +153,7 @@ foreach ($esx in $vmhosts)
 #########    Begin Block 3 | Queue Depth    ##########################
 if($apply -contains 3 -or $apply -eq "all"){
 if($verbose = $true){
-    Write-Output "Setting Queue Depth for Software iSCSI initiators to 256"
+    Write-Host "Setting Queue Depth for Software iSCSI initiators to 256"
 }
 <#
 3 | Set Queue Depth for Software iSCSI initiator to 256
@@ -181,7 +181,7 @@ foreach ($esx in $vmhosts){
 
     # Output completion to screen if $verbose = $true
     if($verbose = $true){
-            Write-Output ("Queue depth for " + $esx.Name + " set to 256")
+            Write-Host ("Queue depth for " + $esx.Name + " set to 256")
     }
 }
 }
@@ -191,7 +191,7 @@ foreach ($esx in $vmhosts){
 #########    Begin Block 4 | DelayedAck    ###########################
 if($apply -contains 4 -or $apply -eq "all"){
 if($verbose = $true){
-    Write-Output "Turning off DelayedAck"
+    Write-Host "Turning off DelayedAck"
 }
 <# 
 4 | Turn Off DelayedAck for Random Workloads
@@ -218,7 +218,7 @@ foreach($esx in $vmhosts){
 
     # Output completion to screen if $verbose = $true
     if($verbose = $true){
-        Write-Output ("DelayedAck turned off for " + $esx.name)
+        Write-Host ("DelayedAck turned off for " + $esx.name)
     }
 }
 }
@@ -228,7 +228,7 @@ foreach($esx in $vmhosts){
 #########    Begin Block 5 | SATP Rule    ############################
 if($apply -contains 5 -or $apply -eq "all"){
 if($verbose = $true){
-    Write-Output "Creating Custom SATP Rule"
+    Write-Host "Creating Custom SATP Rule"
 }
 <# 
 5 | Create Custom SATP Rule for SolidFire
@@ -263,7 +263,7 @@ foreach($esx in $vmhosts){
     
     # Output completion to screen if $verbose = $true
     if($verbose = $true){
-        Write-Output ("Custom SATP rule created for " + $esx.name)
+        Write-Host ("Custom SATP rule created for " + $esx.name)
     }
 }
 
