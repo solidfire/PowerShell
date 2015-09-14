@@ -15,8 +15,6 @@ The contents in this script serves to provide examples of cmdlets required to co
 - Rescans the HBAs.
 #>
 
-break
-
 #Connect to SF Cluster
 
 Connect-SFCluster -Target clusterMVIP -UserName admin -ClearPassword pass
