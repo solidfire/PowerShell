@@ -23,14 +23,15 @@ param
    [VMware.VimAutomation.ViCore.Types.V1.DatastoreManagement.Datastore[]]
    $vParam,
    [Parameter(Mandatory=$true)]
+   $Cluster,
+   [Parameter(Mandatory=$true)]
    $AttributeName,
    [Parameter(Mandatory=$true)]
    $AttributeValue
 );
 Import-Module SolidFire | Out-Null
-Import-Module SolidFire-SPBM | Out-Null
+Import-Module "C:\Program Files\WindowsPowerShell\Modules\SolidFire\SolidFire-SPBM.psm1" | Out-Null
 
-$cluster = "wolverine.pm.solidfire.net"
 $sfcred = Get-Credential
 
 Connect-SFCluster -Target $cluster -Credential $sfcred | Out-Null
@@ -39,7 +40,7 @@ foreach($datastore in $vParam){
 
 $scsiID = ((Get-ScsiLun -Datastore $datastore).CanonicalName).Split(".")[1]
 $volume = Get-SFVolume | Where{$_.ScsiNAADeviceID -eq $scsiID}
-$volume | Set-SFVolumeAttribute -AttributeName $AttributeName -AttributeValue $AttributeValue
+$volume | Set-SFVolumeAttribute -AttributeName $AttributeName -AttributeValue $AttributeValue | Out-Null
 
 Write-Host "$($datastore.name) updated with $AttributeName value set to $AttributeValue"
 

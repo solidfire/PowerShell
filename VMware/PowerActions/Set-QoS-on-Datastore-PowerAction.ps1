@@ -16,24 +16,30 @@ have questions about this script before running or modifying
 ====================================================================
 #>
 
-param(
-[Parameter(Mandatory=$true)]
-[VMware.VimAutomation.ViCore.Impl.V1.DatastoreManagement.VmfsDatastoreImpl]
-$vParam,
-[Parameter(Mandatory=$true)]
-$minIops,
-[Parameter(Mandatory=$true)]
-$maxIops,
-[Parameter(Mandatory=$true)]
-$burstIops
+param
+(
+   [Parameter(Mandatory=$true)]
+   [VMware.VimAutomation.ViCore.Types.V1.DatastoreManagement.Datastore]
+   $vParam,
+   [Parameter(Mandatory=$true)]
+   $cluster,
+   [Parameter(Mandatory=$true)]
+   $minIOPs,
+   [Parameter(Mandatory=$true)]
+   $maxIOPs,
+   [Parameter(Mandatory=$true)]
+   $burstIOPs
+
 );
 Import-Module SolidFire | Out-Null
-$cluster = "wolverine.pm.solidfire.net"
-$sfcred = Get-Credential
-Connect-SFCluster -Target $cluster -Credential $sfcred | Out-Null
-
-foreach($datastore in $vParam){
-$scsiID = ((Get-ScsiLun -Datastore $datastore).CanonicalName).Split(".")[1]
-$volume = Get-SFVolume | Where{$_.ScsiNAADeviceID -eq $scsiID}
-Set-SFVolume -VolumeID $volume.VolumeID -MinIOPS $minIops -MaxIOPS $maxIops -BurstIOPS $burstIops -Confirm:$false
+$cred = Get-Credential
+Connect-SFCluster -Target $cluster -Credential $cred | Out-Null
+If($sfconnection -eq $null){
+Write-Host "Connection to cluster failed"
+break
 }
+
+$scsiID = ((Get-ScsiLun -Datastore $vParam).CanonicalName).Split(".")[1]
+$volume = Get-SFVolume | Where{$_.ScsiNAADeviceID -eq $scsiID}
+Set-SFVolume -VolumeID $volume.VolumeID -MinIOPS $minIOPs -MaxIOPS $maxIOPs -BurstIOPS $burstIOPs -Confirm:$false | Out-Null
+Write-Host "QoS on Volume $($volume.name) was updated | $minIOPs / $maxIOPs / $burstIOPs"

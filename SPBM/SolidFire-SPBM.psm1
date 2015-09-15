@@ -94,8 +94,8 @@ $policy = "$($attribute.Workload)-$min-$max-$burst"
 }else{
 $policy = "$min-$max-$burst"
 }
-$row = "" | Select VolumeName,PolicyName
-#$row.VolumeName = $Volume.VolumeName
+$row = "" | Select Name,PolicyName
+$row.Name = $Volume.Name
 $row.PolicyName = $policy
 
 $result += $row
@@ -336,34 +336,34 @@ param(
 Begin{}
 Process{
 # Get Volume
-Write-Host "Getting the SolidFire Volume" -ForegroundColor Yellow
+Write-Verbose "Getting the SolidFire Volume" 
 $volume = Get-SFVolumeFromDatastore -datastore $datastore
 
 # Get Workload
 $workload = ($volume).Attributes.$($attribute)
-Write-Host "Collected workload $workload"
+Write-Verbose "Collected workload $workload"
 
 # Create Tag
-Write-Host "Creating a new Tag from Workload" -ForegroundColor Yellow
+Write-Verbose "Creating a new Tag from Workload" 
 $volume | New-TagFromSFWorkload
-Write-Host "Completed Tag creation for workload $workload" -ForegroundColor Green
+Write-Verbose "Completed Tag creation for workload $workload" 
 
 
 # Assign Tag to Datastore
-Write-Host "Assigning a new Tag to Datastore" -ForegroundColor Yellow
+Write-Verbose "Assigning a new Tag to Datastore" 
 $datastore | Set-SFWorkloadTagToDatastore
-Write-Host "Completed assigning new Tag to Datastore" -ForegroundColor Green
+Write-Verbose "Completed assigning new Tag to Datastore" 
 
 
 
 # Check if Policy exists. Create if it does not.
 $policyname = (Get-SFSpbmPolicyName -Volume $volume)
-Write-Host "Creating Storage Policy" -ForegroundColor Yellow
-
-if(!(Get-SPBMStoragePolicy -Name $policyname -ErrorAction SilentlyContinue)){
+Write-Verbose "Creating Storage Policy" 
+$checkpolicy = Get-SPBMStoragePolicy -Name $policyname -ErrorAction SilentlyContinue
+if($checkpolicy -eq $null){
     New-SPBMPolicyFromSFWorkload -Volume $volume
 }
-Write-Host "Policy created successfully" -ForegroundColor Green
+Write-Verbose "Policy created successfully" 
 }
 }
 function New-SPBMPolicyFromSFWorkload{
@@ -481,7 +481,7 @@ param(
         Mandatory=$False,
         HelpMessage="Enter category name."
         )]
-        $category = "*Solidfire*",
+        $category = "*SolidFire*",
         [Parameter(
         Position=2,
         Mandatory=$False,
@@ -500,24 +500,23 @@ If(!($defaultviserver)){
     Break
 }
 
-# Collect value for the attribute provided
-$workload = ($volume).Attributes.$($attribute)
-
-<#
-If((Get-Tag -Name $workload)){
-    Write-Output "The Tag for $workload already exists"
-    Break
-}
-#>
-
-
-$cat = Get-TagCategory $category | Select -First 1
-
 }
 
 # Runs one time for every object piped in
 PROCESS {
 
+# Collect value for the attribute provided
+$workload = ($volume).Attributes.$($attribute)
+$tagexists = Get-Tag -Name $workload -ErrorAction SilentlyContinue
+
+If($tagexists -ne $null){
+    Write-Output "The Tag for $workload already exists"
+    Break
+}
+
+
+
+$cat = Get-TagCategory $category -ErrorAction SilentlyContinue | Select -First 1
 
 If($workload -ne $null){
     

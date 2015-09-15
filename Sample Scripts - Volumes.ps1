@@ -1,39 +1,44 @@
 ﻿# Display Volume Name and Volume size in GB
-Get-SFVolume | Select VolumeName, @{N='TotalSizeGB';E={[math]::Round($_.TotalSize/1GB*(1/0.9313),1) }}
+Get-SFVolume | Select Name, @{N='TotalSizeGB';E={[math]::Round($_.TotalSize/1GB*(1/0.9313),1) }}
 
 # Display Volume Name and QoS information
-Get-SFVolume | Select VolumeName, @{N='MinIOPS';E={$_.QoS.MinIOPS}}, @{N='MaxIOPS';E={$_.QoS.MaxIOPS}}, @{N='BurstIOPS';E={$_.QoS.BurstIOPS}}
+Get-SFVolume | Select Name, @{N='MinIOPS';E={$_.QoS.MinIOPS}}, @{N='MaxIOPS';E={$_.QoS.MaxIOPS}}, @{N='BurstIOPS';E={$_.QoS.BurstIOPS}}
 
-# Display the VolumeName, VolumeIQN, SCSI NAA
-Get-SFVolume | Select VolumeName, VolumeIQN, Scsi_NAA_DeviceID
-
-# Display Volumes from a Range
-$range | %{Get-SFVolume -StartVolumeID $_ -Limit 1}
+# Display the Name, IQN, SCSI NAA
+Get-SFVolume | Select Name, IQN, ScsiNAADeviceID
 
 # Display Volumes for an Account or list of accounts or accountIDs
 $accounts = "Josh","Aaron"
-$accounts | Get-SFAccountByName | Get-SFVolumesForAccount
+$accounts | Get-SFAccount | Get-SFVolume
 # or
 $accountids = 5,6,7
-$accountids | Get-SFVolumesForAccounts
+Get-SFVolume -AccountID $accountids
 
 
 # Display the VolumeAccessGroups each volume is assigned
 $result = @()
 $volumes = Get-SFVolume
 foreach($vol in $volumes){
-    $volaccessgroups = $vol.VolumeAccessGroupIDs
+    $volaccessgroups = $vol.VolumeAccessGroups
     foreach($vagID in $volaccessgroups){
         $vag = Get-SFVolumeAccessGroup $vagID
         # Store Volume Access Group data in object
         $object = New-Object -TypeName PSObject -Property @{
-              VolumeName = $vol.VolumeName
+              Name = $vol.Name
               VolumeAccessGroupName = $vag.VolumeAccessGroupName
         }
         $result += $object
     }
  }
- $result | Sort VolumeName
+ $result | Sort Name
+
+# Set Attribute
+# !!!! Note !!! Doing it this way will OVERWRITE your attributes for the volume.
+# We recommend using the Set-SFVolumeAttribute function in the SPBM module for modifying volume attributes.
+
+$attribute = @{"Workload" = "Standard"}
+Get-SFVolume Dev* | Set-SFVolume -Attributes $attribute
+
 
  
  

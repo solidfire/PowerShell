@@ -11,35 +11,40 @@ Identifies the SolidFire Volume Access Group the ESXi host is connected.
 
 #>
 
-param(
-[Parameter(Mandatory=$true)]
-[VMware.VimAutomation.ViCore.Types.V1.Inventory.VMHost]
-$vhost,
-[Parameter(Mandatory=$true)]
-$sfcluster
+param
+(
+   [Parameter(Mandatory=$true)]
+   [VMware.VimAutomation.ViCore.Types.V1.Inventory.VMHost[]]
+   $vhosts,
+   [Parameter(Mandatory=$true)]
+   $sfcluster
 );
 
 If(!(Get-Module SolidFire)){
-Import-Module SolidFire
+Import-Module SolidFire | Out-Null
 }
+$cred = Get-Credential
+Connect-SFCluster -Target $sfcluster -Credential $cred | Out-Null
+foreach($vhost in $vhosts){
+$IQNs = $vhost | Select name,@{n="IQN";e={$_.ExtensionData.Config.StorageDevice.HostBusAdapter.IscsiName}}
 
-$sfcluster = 'xnode-api-dev1.pm.solidfire.net'
-Connect-SFCluster -Target $sfcluster -UserName admin -ClearPassword solidfire
-$vhost = Get-VMHost | select -First 1
-
-$IQNs = Get-VMHost | Select name,@{n="IQN";e={$_.ExtensionData.Config.StorageDevice.HostBusAdapter.IscsiName}}
-
-$result = @()
+$output = @()
 foreach($vmhost in $IQNs){
 	foreach($iqn in $vmhost.IQN){ 
         $vag = Get-SFVolumeAccessGroup | Where{$_.Initiators -match $iqn}
 	 
 	     $a = New-Object System.Object
 	     $a | Add-Member -Type NoteProperty -Name VMhost -Value $vmhost.Name
-	     $a | Add-Member -Type NoteProperty -Name VolumeAccessGroup -Value $vag.VolumeAccessGroupName
-	     $a | Add-Member -Type NoteProperty -Name IQN -Value $vmhost.IQN
+       If($vag -eq $null){
+	     $a | Add-Member -Type NoteProperty -Name VolumeAccessGroup -Value "Unassociated"
+	     }Else{
+       $a | Add-Member -Type NoteProperty -Name VolumeAccessGroup -Value $vag.VolumeAccessGroupName
+       }
+       $a | Add-Member -Type NoteProperty -Name IQN -Value $vmhost.IQN
 
-$result += $a
+$output += $a
+Write-Host "ESXi Host      | Volume Access Group |   Host IQN"
+Write-Host "$($a.VMHost)  |  $($a.VolumeAccessGroup)  |  $($a.IQN)"
 }
 }
-Write-Host $result
+}

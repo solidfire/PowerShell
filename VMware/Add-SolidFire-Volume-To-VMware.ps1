@@ -1,4 +1,6 @@
 <#
+A more complete script is available in the New-TenantOrCluster function.
+
 This script file  contains elements that can be used for connecting SolidFire volumes to a VMware vSphere environment.
 
 This is NOT an end to end script with logic, error-handling, and full capabilities.
@@ -83,7 +85,7 @@ Get-VMhost | Get-VMhostStorage -RescanAllHba -RescanVMFs
 
 $vmhost = Get-VMhost | Select -First 1
 foreach($volume in $volumes){
-$canonicalname = "naa." + $volume.Scsi_NAA_DeviceID
+$canonicalname = "naa." + $volume.ScsiNAADeviceID
 New-Datastore -VMhost $vmhost -Name $volume.VolumeName -Path $canonicalname -Vmfs -FileSystemVersion 5
 }
 
