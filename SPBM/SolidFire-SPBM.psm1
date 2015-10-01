@@ -85,9 +85,14 @@ PROCESS {
 $qos = $Volume | Select -ExpandProperty QoS
 $attribute = $Volume | Select -ExpandProperty Attributes
 
-$min = ($qos.MinIOPS.ToString()).Replace("000","K")
-$max = ($qos.MaxIOPS.ToString()).Replace("000","K")
-$burst = ($qos.BurstIOPS.ToString()).Replace("000","K")
+$min = Replace-TrailingZeroesWithK -name $qos.MinIOPS
+$max = Replace-TrailingZeroesWithK -name $qos.MaxIOPS
+$burst = Replace-TrailingZeroesWithK -name $qos.BurstIOPS
+
+
+#$min = ($qos.MinIOPS.ToString()).Replace("000","K")
+#$max = ($qos.MaxIOPS.ToString()).Replace("000","K")
+#$burst = ($qos.BurstIOPS.ToString()).Replace("000","K")
 
 if($attribute.$($attributename)){
 $policy = "$($attribute.Workload)-$min-$max-$burst"
@@ -106,6 +111,24 @@ END {
 $result
 }
 
+}
+function Replace-TrailingZeroesWithK{
+
+param(
+		[Parameter(
+        Mandatory=$True)]
+        $name
+)
+
+If($name.ToString().EndsWith("000")){
+$front = $name.ToString().SubString(0,$name.ToString().Length-3)
+$end = ($name.ToString()).Substring($name.ToString().Length-3)
+
+$replace = $front + ($end).Replace("000","K")
+}Else{
+$replace = $name.ToString()
+}
+Return $replace
 }
 Function Get-SFVolumeFromDatastore{
 <#
