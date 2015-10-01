@@ -21,7 +21,7 @@ You can learn more about this and more in future blog posts at http://developer.
 Natively Set-SFVolume replaces attribute values with the hash table provided when called.  The Set-SFVolumeAttribute is designed to add some extra logic that will be made available in a later build.  If the key exists it will simply update the value.  If it does not exist it will simply add the key:value pair to the attributes of the volume.  The function collects any existing attributes so that when the call is made those values are not replaced.
 
 # Version Note
-These functions are built using SolidFire Tools for PowerShell 1.0RC.  
+These functions are built using SolidFire Tools for PowerShell 1.0.  
 As such some parameter and property names may have changed slightly since the beta release.
 These were necessary improvements to improve ease of use and consistency.
 If you are running the beta build and would like to take advantage of these functions please email us at powershell@solidfire.com
