@@ -380,7 +380,7 @@ Write-Verbose "Completed assigning new Tag to Datastore"
 
 
 # Check if Policy exists. Create if it does not.
-$policyname = (Get-SFSpbmPolicyName -Volume $volume)
+$policyname = (Get-SFSpbmPolicyName -Volume $volume).PolicyName
 Write-Verbose "Creating Storage Policy" 
 $checkpolicy = Get-SPBMStoragePolicy -Name $policyname -ErrorAction SilentlyContinue
 if($checkpolicy -eq $null){
