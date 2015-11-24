@@ -52,7 +52,7 @@ param(
         ValueFromPipeline=$true,
         Position=0,
         Mandatory=$True,
-        HelpMessage="Enter the Datastore.")]
+        HelpMessage="Enter the ESXi Host.")]
         [VMware.VimAutomation.ViCore.Types.V1.Inventory.VMHost[]]
         $vmhost,
         [Parameter(
