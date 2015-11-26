@@ -19,31 +19,63 @@
 	 
 	.Parameter Cluster
 	
-     Represents a vSphere cluster.
+     Represents a vSphere cluster where the volumes should be added.
 	
 	.Parameter qtyVolumes
 
      The number of volumes that need to be added to the cluster.
+
+    .Parameter StartingNumber
+
+     The first number that should be represented in the range for the new volumes.
 	 
     .Parameter sizeGB
 
-     Size of each new volume in GB
+     Size of each new volume in GB.
+
+    .Parameter Tenant
+
+     Name of tenant to be used as account name.
 
 	.Parameter min
 
-     Minimum IOPs value
+     Minimum IOPs value.
 
     .Parameter max
 
-     Minimum IOPs value
+     Minimum IOPs value.
 
     .Parameter burst
      
-     Minimum IOPs value
+     Minimum IOPs value.
+
+    .Parameter InitiatorSecret
+
+     Custom initiator secret for the account. Must be between 12 and 16 characters in length.
+
+    .Parameter TargetSecret
+
+     Custom target secret for the account. Must be between 12 and 16 characters in length.
+
 	
     .Example
 	
 	 New-TenantOrCluster -Cluster Cluster02 -qtyVolumes 4 -sizeGB 1024 -min 1000 -max 1200 -burst 2000
+
+     Basic usage of the New-TenantOrCluster function to deploy 4 volumes.
+
+    .Example
+
+     New-TenantOrCluster -Cluster Cluster02 -Tenant DeveloperA -qtyVolumes 4 -sizeGB 1024 -min 1000 -max 1200 -burst 2000
+
+     Creates volumes for an account based on Tenant name to specified cluster.
+
+    .Example
+
+     New-TenantOrCluster -Cluster Cluster01 -Tenant Engineering -InitiatorSecret sdl29sl19sdk -TargetSecret e9dlxwps8c!s -qtyVolumes 10 -StartingNumber 11 -sizeGB 2048 -min 3000 -max 4000 -burst 6000
+
+     Creates volumes for an account based on Tenant name to specified cluster. Custom Target and Initiator secrets are provided and a starting volume number provided.
+     Specifically useful when adding additional volumes to existing cluster or tenant.
 	 
 	.Link
 	 http://www.github.com/solidfire/powershell
@@ -68,60 +100,90 @@ param(
         Mandatory=$true,
         HelpMessage="Enter quantity of Volumes."
         )]
-        $qtyVolumes,
+        [Int]$qtyVolumes,
         [Parameter(
         Position=2,
         Mandatory=$True,
         HelpMessage="Enter the size of volumes in GB."
         )]
-        $sizeGB,
+        [Int]$sizeGB,
+        [Parameter(Mandatory=$false)]
+        [String]$Tenant,
+        [Parameter(Mandatory=$false)]
+        [Int]$StartingNumber,
         [Parameter(Mandatory=$true)]
-        $min,
+        [Int]$min,
         [Parameter(Mandatory=$true)]
-        $max,
+        [Int]$max,
         [Parameter(Mandatory=$true)]
-        $burst
+        [Int]$burst,
+        [Parameter(Mandatory=$false,
+        ParameterSetName='CustomSecrets')]
+        [ValidateLength(12,16)]
+        [String]$InitiatorSecret="",
+        [Parameter(Mandatory=$false,
+        ParameterSetName='CustomSecrets')]
+        [ValidateLength(12,16)]
+        [String]$TargetSecret=""
 
 )
 
 
-# Optional - 12-16 Characters
-$initiatorSecret = ""
-$targetSecret = ""
+# Choose tenant name for account name if specified. Otherwise use Cluster name for account.
+If($tenant -ne ""){
+    $accountname = $Tenant
+}Else{
+    $accountname = $Cluster
+}
 
-$accountname = $Cluster
 
-
+# Check if account exists. If not then the account is created.
+If(!(Get-SFAccount $accountname -ErrorAction SilentlyContinue)){
 # Create the account for the cluster/tenant
 Write-Verbose "Creating the account $($accountname)"
 
-
-if($initiatorSecret -or $targetSecret -eq ""){
-    New-SFAccount -UserName $accountname
-}Else{
-    New-SFAccount -UserName $accountname -InitiatorSecret $initiatorSecret -TargetSecret $targetSecret
-}
+    if($initiatorSecret -or $targetSecret -eq ""){
+        New-SFAccount -UserName $accountname
+    }Else{
+        New-SFAccount -UserName $accountname -InitiatorSecret $initiatorSecret -TargetSecret $targetSecret
+    }
 Write-Verbose "Creating the account $($accountname) complete"
-
+}
 
 # Create Volumes
 Write-Verbose "Creating the volumes"
 
-1..$($qtyVolumes) | %{New-SFVolume -Name ("$accountname-$_") -AccountID (Get-SFAccount $accountname).AccountID -TotalSize $sizeGB -GB -Enable512e:$true -MinIOPS $min -MaxIOPS $max -BurstIOPS $burst}
+# Create numeric range based on provided values for volume numbering.
+If($StartingNumber -ne $null){
+    $lastnumber = $StartingNumber + ($qtyVolumes - 1)
+    $volnumbers = $StartingNumber..$lastnumber
+}Else{
+    $volnumbers = 1..$($qtyVolumes)
+}
+
+# Ensure that all of the volumes are numerically consistent. Places a '0' before volumes 1-9. i.e. 01-09
+$volnumbers = $volnumbers | %{$_.ToString("00")}
+
+$volnumbers | %{New-SFVolume -Name ("$accountname-$_") -AccountID (Get-SFAccount $accountname).AccountID -TotalSize $sizeGB -GB -Enable512e:$true -MinIOPS $min -MaxIOPS $max -BurstIOPS $burst}
+
 Write-Verbose "Creating the volumes complete"
 
 $volumes = Get-SFVolume "$accountname-*"
 
-
-
-# Gather Volumes
 # Create Volume Access Group and Add volumes
 Write-Verbose "Creating the volume access group $($accountname)"
 
-New-SFVolumeAccessGroup -Name $accountname -VolumeIDs $volumes.VolumeID
+If(!(Get-SFVolumeAccessGroup -VolumeAccessGroupName $accountname)){
+
+    New-SFVolumeAccessGroup -Name $accountname -VolumeIDs $volumes.VolumeID
 
 Write-Verbose "Creating the volume access group $($accountname) complete"
 
+}Else{
+Write-Verbose "Adding volumes to existing volume access group $($accountname)"
+    $volumes | Add-SFVolumeToVolumeAccessGroup -VolumeAccessGroupID (Get-SFVolumeAccessGroup $accountname).VolumeAccessGroupID
+Write-Verbose "Adding volumes to existing volume access group $($accountname) complete"
+}
 
 # Collects cluster's SVIP dynamically
 $SVIP = (Get-SFClusterInfo).Svip
