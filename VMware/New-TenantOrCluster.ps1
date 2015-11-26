@@ -56,7 +56,6 @@
     .Parameter TargetSecret
 
      Custom target secret for the account. Must be between 12 and 16 characters in length.
-
 	
     .Example
 	
@@ -110,7 +109,7 @@ param(
         [Parameter(Mandatory=$false)]
         [String]$Tenant,
         [Parameter(Mandatory=$false)]
-        [Int]$StartingNumber,
+        [Int]$StartingNumber=0,
         [Parameter(Mandatory=$true)]
         [Int]$min,
         [Parameter(Mandatory=$true)]
@@ -136,6 +135,9 @@ If($tenant -ne ""){
     $accountname = $Cluster
 }
 
+###################
+# Account creation
+###################
 
 # Check if account exists. If not then the account is created.
 If(!(Get-SFAccount $accountname -ErrorAction SilentlyContinue)){
@@ -150,11 +152,14 @@ Write-Verbose "Creating the account $($accountname)"
 Write-Verbose "Creating the account $($accountname) complete"
 }
 
+#################
 # Create Volumes
+#################
+
 Write-Verbose "Creating the volumes"
 
 # Create numeric range based on provided values for volume numbering.
-If($StartingNumber -ne $null){
+If($StartingNumber -ne 0){
     $lastnumber = $StartingNumber + ($qtyVolumes - 1)
     $volnumbers = $StartingNumber..$lastnumber
 }Else{
@@ -168,12 +173,16 @@ $volnumbers | %{New-SFVolume -Name ("$accountname-$_") -AccountID (Get-SFAccount
 
 Write-Verbose "Creating the volumes complete"
 
-$volumes = Get-SFVolume "$accountname-*"
+$volumes = $volnumbers | %{Get-SFVolume -Name ("$accountname-$_")}
 
+
+#############################################
 # Create Volume Access Group and Add volumes
+#############################################
+
 Write-Verbose "Creating the volume access group $($accountname)"
 
-If(!(Get-SFVolumeAccessGroup -VolumeAccessGroupName $accountname)){
+If(!(Get-SFVolumeAccessGroup -VolumeAccessGroupName $accountname -ErrorAction SilentlyContinue)){
 
     New-SFVolumeAccessGroup -Name $accountname -VolumeIDs $volumes.VolumeID
 
@@ -191,25 +200,40 @@ $SVIP = (Get-SFClusterInfo).Svip
 # Collect all of the ESXi hosts in the cluster that will connect to the volumes in the access group
 $vmhosts = Get-Cluster $cluster | Get-VMHost
 
-# Add iSCSI Target on each VMhost
-Write-Verbose "Adding the SolidFire SVIP $($SVIP) as a target"
+# Validate whether the ESXi host already has the SVIP as a send target on the iSCSI HBA Adapter.
+foreach($vmhost in $vmhosts){
+    If(!($vmhost | Get-VMHostHba -Type IScsi | Get-IScsiHbaTarget | Where{$_.Address -eq $SVIP -and $_.Type -eq "Send"})){
+        Write-Verbose "Adding the SolidFire SVIP $($SVIP) as a target"
+        $vmhost | Get-VMHostHba -Type IScsi | New-IScsiHbaTarget -Address $SVIP -Port 3260
+        # Add iSCSI Target on each VMhost
+        Write-Verbose "Adding the SolidFire SVIP $($SVIP) as a target complete"
+    }Else{
+    Write-Verbose "SolidFire SVIP $($SVIP) is already present"
+    }
+}
 
-$vmhosts | Get-VMHostHba -Type IScsi | New-IScsiHbaTarget -Address $SVIP -Port 3260
-
-Write-Verbose "Adding the SolidFire SVIP $($SVIP) as a target complete"
-
-
+###################################
+# Add IQNs to Volume Access Group
+###################################
+$vid = (Get-SFVolumeAccessGroup $accountname).VolumeAccessGroupID
 # Collect IQNs for each host iSCSI adapater
 $IQNs = $vmhosts | Select name,@{n="IQN";e={$_.ExtensionData.Config.StorageDevice.HostBusAdapter.IscsiName}}
 
-# Add IQNs to Volume Access Group
-Write-Verbose "Adding the ESXi host IQNs to the Volume Access Group"
 
-$vid = (Get-SFVolumeAccessGroup $accountname).VolumeAccessGroupID
-$IQNs | %{Add-SFInitiatorToVolumeAccessGroup -VolumeAccessGroupID $vid -Initiators $_.IQN}
-# Note: % is PowerShell for forEach
+ForEach($IQN in $IQNs){
+    If((Get-SFVolumeAccessGroup -VolumeAccessGroupID $vid | Select -ExpandProperty Initiators) -notcontains $IQN.IQN){
+        Write-Verbose "Adding the ESXi host IQN $($IQN.IQN) to the Volume Access Group"
 
-Write-Verbose "Adding the ESXi host IQNs to the Volume Access Group Complete"
+        $IQN | Add-SFInitiatorToVolumeAccessGroup -VolumeAccessGroupID $vid -Initiators $_.IQN
+        # Note: % is PowerShell for forEach
+        
+        Write-Verbose "Adding the ESXi host IQNs to the Volume Access Group Complete"
+
+    }Else{
+        Write-Verbose "The IQN $($IQN.IQN) is already Present in the Volume Access Group"
+    }
+
+}
 
 
 # Rescan all of the HBAs so that the storage devices can be seen.
@@ -220,6 +244,12 @@ $vmhost = $vmhosts | select -First 1
 
 $vmhosts | Get-VMhostStorage -RescanAllHba
 
+
+###################################
+# Creating Datastores on ESXi Host
+###################################
+
+
 Write-Verbose "Creating the new datastores on ESXi host $($vmhost.Name)"
 
 foreach($volume in $volumes){
@@ -228,11 +258,10 @@ foreach($volume in $volumes){
 }
 Write-Verbose "Creating the new datastores on ESXi host $($vmhost.Name) Complete"
 
+
 # Rescan HBAs
 Write-Verbose "Rescanning the HBAs to connect all datastores"
 
 $vmhosts | Get-VMhostStorage -RescanAllHba -RescanVMFs
 Write-Verbose "Rescan Complete"
-
-
 }
