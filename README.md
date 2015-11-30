@@ -22,6 +22,9 @@ The SPBM functions extend capabilities by allowing administrators to implement v
 ## VMware
 The scripts and functions in the VMware directory are directly related to managing SolidFire in a VMware environment.  This will include scripts to report on VM to volume mappings, creating policies, managing ESXi host to volume access group mappings, etc.  We will also include scripts for help with implementation of SolidFire best practices.
 
+## Microsoft
+Example scripts referenced in the Configuring Windows Server 2012 R2 Hyper-V for SolidFire configuration guide available on solidfire.com 
+
 ## Support
 The complimenting scripts and resources are written as best effort and provide no warranty expressed or implied.  SolidFire support is not responsible for the content of this resource outside of the core module. Please contact the original author if you have questions about a script/resource. Please help support and answer questions for content you contribute and make this community great. You can engage with other users of this content at developer.solidfire.com
 
