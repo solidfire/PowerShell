@@ -87,7 +87,6 @@
 	have questions about this script before running or modifying
 	====================================================================
 #>
-
 param(
 		[Parameter(
         ValueFromPipeline=$true,
@@ -126,7 +125,6 @@ param(
         [String]$TargetSecret=""
 
 )
-
 
 # Choose tenant name for account name if specified. Otherwise use Cluster name for account.
 If($tenant -ne ""){
@@ -180,18 +178,18 @@ $volumes = $volnumbers | %{Get-SFVolume -Name ("$accountname-$_")}
 # Create Volume Access Group and Add volumes
 #############################################
 
-Write-Verbose "Creating the volume access group $($accountname)"
+Write-Verbose "Creating the volume access group $($Cluster)"
 
-If(!(Get-SFVolumeAccessGroup -VolumeAccessGroupName $accountname -ErrorAction SilentlyContinue)){
+If(!(Get-SFVolumeAccessGroup -VolumeAccessGroupName $Cluster -ErrorAction SilentlyContinue)){
 
-    New-SFVolumeAccessGroup -Name $accountname -VolumeIDs $volumes.VolumeID
+    New-SFVolumeAccessGroup -Name $Cluster -VolumeIDs $volumes.VolumeID
 
-Write-Verbose "Creating the volume access group $($accountname) complete"
+Write-Verbose "Creating the volume access group $($Cluster) complete"
 
 }Else{
-Write-Verbose "Adding volumes to existing volume access group $($accountname)"
-    $volumes | Add-SFVolumeToVolumeAccessGroup -VolumeAccessGroupID (Get-SFVolumeAccessGroup $accountname).VolumeAccessGroupID
-Write-Verbose "Adding volumes to existing volume access group $($accountname) complete"
+Write-Verbose "Adding volumes to existing volume access group $($Cluster)"
+    $volumes | Add-SFVolumeToVolumeAccessGroup -VolumeAccessGroupID (Get-SFVolumeAccessGroup $Cluster).VolumeAccessGroupID
+Write-Verbose "Adding volumes to existing volume access group $($Cluster) complete"
 }
 
 # Collects cluster's SVIP dynamically
@@ -215,7 +213,7 @@ foreach($vmhost in $vmhosts){
 ###################################
 # Add IQNs to Volume Access Group
 ###################################
-$vid = (Get-SFVolumeAccessGroup $accountname).VolumeAccessGroupID
+$vid = (Get-SFVolumeAccessGroup $Cluster).VolumeAccessGroupID
 # Collect IQNs for each host iSCSI adapater
 $IQNs = $vmhosts | Select name,@{n="IQN";e={$_.ExtensionData.Config.StorageDevice.HostBusAdapter.IscsiName}}
 
