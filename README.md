@@ -15,7 +15,7 @@ All scripts and functions will leverage the SolidFire PowerShell Tools.  Some sc
 Files located in the [Getting Started](https://github.com/solidfire/PowerShell/blob/master/Getting%20Started) directory provide a self-paced lab guide providing basic functionality to get started.
 
 ## Install
-Download Installer: [SolidFire PowerShell 1.2 Installer](https://github.com/solidfire/PowerShell/raw/master/Install/SolidFire_PowerShell_1_2_0_37-install.msi) 
+Download Installer: [SolidFire PowerShell 1.2 Installer](https://github.com/solidfire/PowerShell/raw/master/Install/SolidFire_PowerShell_1_2_1_1-install.msi) 
 
 Instructions: Double-click the downloaded .msi file and follow the instructions in the install wizard. Additional details can be found in the [SolidFire PowerShell User Guide](https://github.com/solidfire/PowerShell/raw/master/Install/SolidFire%20PowerShell%20Tools%20User%20Guide_v1.2.pdf).
 
