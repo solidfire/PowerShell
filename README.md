@@ -3,7 +3,7 @@
 ## Version 1.2 
 #### Released 23-Mar-2016
 
-[V1.2 Release Notes](https://github.com/solidfire/PowerShell/raw/master/Install/SolidFire%20PowerShell%20Tools%20Release%20Notes_v1.2.pdf)
+[V1.2 Release Notes](https://github.com/solidfire/PowerShell/blob/master/Install/SolidFire%20PowerShell%20Tools%20Release%20Notes%20v1.2.1.1.pdf)
 
 Collection of scripts, functions, and examples using the SolidFire Tools for PowerShell. This repository serves as a space for development on various scripts and functions to assist in managing SolidFire systems using PowerShell.
 
@@ -17,7 +17,7 @@ Files located in the [Getting Started](https://github.com/solidfire/PowerShell/b
 ## Install
 Download Installer: [SolidFire PowerShell 1.2 Installer](https://github.com/solidfire/PowerShell/raw/master/Install/SolidFire_PowerShell_1_2_1_1-install.msi) 
 
-Instructions: Double-click the downloaded .msi file and follow the instructions in the install wizard. Additional details can be found in the [SolidFire PowerShell User Guide](https://github.com/solidfire/PowerShell/raw/master/Install/SolidFire%20PowerShell%20Tools%20User%20Guide_v1.2.pdf).
+Instructions: Double-click the downloaded .msi file and follow the instructions in the install wizard. Additional details can be found in the [SolidFire PowerShell User Guide](https://github.com/solidfire/PowerShell/blob/master/Install/SolidFire%20PowerShell%20Tools%20User%20Guide_v1.2.pdf).
 
 ## Reporting
 Provides scripts for reporting useful information from a SolidFire system.  Reports may also include scripts that report against other application or infrastructure components.
