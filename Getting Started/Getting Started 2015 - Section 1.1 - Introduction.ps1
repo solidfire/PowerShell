@@ -81,7 +81,7 @@ Part 2.1.2 - Connecting to SolidFire
 
 
 # Lab Group 1
-Connect-SFCluster -Target 192.168.0.100 -UserName <username> -ClearPassword <password>
+Connect-SFCluster -Target 192.168.0.100 -UserName <username> -Password <password>
 
 # Connect-SFCluster also supports stored credentials.
 
