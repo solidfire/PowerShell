@@ -34,7 +34,7 @@ Part 3.1.2 - List Volumes
 #>
 
 Get-SFVolume | Select -First 1
-Get-SFVolume | Select VolumeID, VolumeName, VolumeIQN, Scsi_NAA_DeviceID, Scsi_EUI_DeviceID
+Get-SFVolume | Select VolumeID, Name, IQN, ScsiNAADeviceID, ScsiEUIDeviceID
 
 
 <#
