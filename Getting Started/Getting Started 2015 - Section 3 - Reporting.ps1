@@ -47,7 +47,7 @@ Part 3.1.3 - List Volume Access Groups
 Get-SFVolumeAccessGroup
 
 # Returns name of all volumes that are part of a Volume Access Group
-Get-SFVolumeAccessGroup | select -ExpandProperty VolumeID | Get-SFVolume | Select VolumeName
+Get-SFVolumeAccessGroup | select -ExpandProperty Volumes | Get-SFVolume | Select Name
 
 <#
 ##############################
