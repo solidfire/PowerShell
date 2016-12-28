@@ -85,4 +85,4 @@ Get-SFClusterCapacity
 # Volume efficiency, latency
 Get-SFVolumeEfficiency
 Get-SFVolumeStats | select VolumeID, AccountID, LatencyUSec | Sort-Object -descending -property LatencyUSec | Select-Object -first 5
-
+Get-SFVolumeStats | Select WriteLatencyUSec | Measure-Object -Average -property WriteLatencyUSec
