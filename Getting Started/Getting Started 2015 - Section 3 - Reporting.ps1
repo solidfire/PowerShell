@@ -82,7 +82,8 @@ Part 4 - More Content - Interesting commands not directly related to VMware
 # Cluster configuration, capacity 
 Get-SFConfig
 Get-SFClusterCapacity
-# Volume efficiency, latency
+# Volume efficiency, stats (latency, unaligned I/O)
 Get-SFVolumeEfficiency
 Get-SFVolumeStats | select VolumeID, AccountID, LatencyUSec | Sort-Object -descending -property LatencyUSec | Select-Object -first 5
 Get-SFVolumeStats | Select WriteLatencyUSec | Measure-Object -Average -Max -property WriteLatencyUSec
+Get-SFVolumeStats | where-Object {$_.UnalignedWrites -gt 100} | select-Object AccountID, VolumeID, UnalignedReads, UnalignedWrites | Sort-Object -descending -property UnalignedWrites, UnalignedReads
