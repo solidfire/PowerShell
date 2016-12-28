@@ -74,8 +74,15 @@ Part 3.3 - More Content - ESXi Host to VAG mapping
 
 
 
-# Other interesting reporting commands not specifically used with VMware
+<#
+##############################
+Part 4 - More Content - Interesting commands not directly related to VMware
+##############################
+#>
+# Cluster configuration, capacity 
 Get-SFConfig
 Get-SFClusterCapacity
-Get-SFVolumeStat
+# Volume efficiency, latency
 Get-SFVolumeEfficiency
+Get-SFVolumeStats | select VolumeID, AccountID, LatencyUSec | Sort-Object -descending -property LatencyUSec | Select-Object -first 5
+
