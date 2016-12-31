@@ -47,7 +47,7 @@ Part 3.1.3 - List Volume Access Groups
 Get-SFVolumeAccessGroup
 
 # Returns name of all volumes that are part of a Volume Access Group
-Get-SFVolumeAccessGroup | select -ExpandProperty VolumeID | Get-SFVolume | Select VolumeName
+Get-SFVolumeAccessGroup | select -ExpandProperty Volumes | Get-SFVolume | Select Name
 
 <#
 ##############################
@@ -74,8 +74,16 @@ Part 3.3 - More Content - ESXi Host to VAG mapping
 
 
 
-# Other interesting reporting commands not specifically used with VMware
+<#
+##############################
+Part 4 - More Content - Interesting commands not directly related to VMware
+##############################
+#>
+# Cluster configuration, capacity 
 Get-SFConfig
 Get-SFClusterCapacity
-Get-SFVolumeStat
+# Volume efficiency, stats (latency, unaligned I/O)
 Get-SFVolumeEfficiency
+Get-SFVolumeStats | select VolumeID, AccountID, LatencyUSec | Sort-Object -descending -property LatencyUSec | Select-Object -first 5
+Get-SFVolumeStats | Select WriteLatencyUSec | Measure-Object -Average -Max -property WriteLatencyUSec
+Get-SFVolumeStats | where-Object {$_.UnalignedWrites -gt 100} | select-Object AccountID, VolumeID, UnalignedReads, UnalignedWrites | Sort-Object -descending -property UnalignedWrites, UnalignedReads
