@@ -1,21 +1,21 @@
-#Install SolidFire PowerShell on Linux
+# Install SolidFire PowerShell on Linux
 
-![solidfire-powershell-logo](../../Installer/product.png) ![linux-logo](linux-logo-small.png)
+![solidfire-powershell-logo](../../docs/product.png) ![linux-logo](linux-logo-small.png)
 
 The commands should be run in a terminal session on the machine you want to install on. You don't have to be in a specific directory to execute any of these commands. You will need sudo access. 
 
 ## First, Install PowerShell bits
 
-####Ubuntu 14.04
+#### Ubuntu 14.04
 
 Using [Ubuntu 14.04][], download the Debian package
-`powershell_6.0.0-alpha.13-1ubuntu1.14.04.1_amd64.deb`
+`powershell_6.0.0-alpha.14-1ubuntu1.14.04.1_amd64.deb`
 from the [releases][] page onto the Ubuntu machine.
 
 Then execute the following in the terminal:
 
 ```sh
-sudo dpkg -i powershell_6.0.0-alpha.13-1ubuntu1.14.04.1_amd64.deb
+sudo dpkg -i powershell_6.0.0-alpha.14-1ubuntu1.14.04.1_amd64.deb
 sudo apt-get install -f
 ```
 
@@ -31,16 +31,16 @@ sudo apt-get remove powershell
 
 [Ubuntu 14.04]: http://releases.ubuntu.com/14.04/
 
-####Ubuntu 16.04
+#### Ubuntu 16.04
 
 Using [Ubuntu 16.04][], download the Debian package
-`powershell_6.0.0-alpha.13-1ubuntu1.16.04.1_amd64.deb`
+`powershell_6.0.0-alpha.14-1ubuntu1.16.04.1_amd64.deb`
 from the [releases][] page onto the Ubuntu machine.
 
 Then execute the following in the terminal:
 
 ```sh
-sudo dpkg -i powershell_6.0.0-alpha.13-1ubuntu1.16.04.1_amd64.deb
+sudo dpkg -i powershell_6.0.0-alpha.14-1ubuntu1.16.04.1_amd64.deb
 sudo apt-get install -f
 ```
 
@@ -58,7 +58,7 @@ sudo apt-get remove powershell
 
 This works for Debian Stretch (now testing) as well.
 
-####CentOS 7
+#### CentOS 7
 
 Using [CentOS 7][], download the RPM package
 `powershell-6.0.0_alpha.13-1.el7.centos.x86_64.rpm`
@@ -67,13 +67,13 @@ from the [releases][] page onto the CentOS machine.
 Then execute the following in the terminal:
 
 ```sh
-sudo yum install ./powershell-6.0.0_alpha.13-1.el7.centos.x86_64.rpm
+sudo yum install ./powershell-6.0.0_alpha.14-1.el7.centos.x86_64.rpm
 ```
 
 You can also install the RPM without the intermediate step of downloading it:
 
 ```sh
-sudo yum install https://github.com/PowerShell/PowerShell/releases/download/v6.0.0-alpha.13/powershell-6.0.0_alpha.13-1.el7.centos.x86_64.rpm
+sudo yum install https://github.com/PowerShell/PowerShell/releases/download/v6.0.0-alpha.14/powershell-6.0.0_alpha.14-1.el7.centos.x86_64.rpm
 ```
 
 This package works on Oracle Linux 7. It should work on Red Hat Enterprise Linux 7 too.
@@ -86,7 +86,7 @@ sudo yum remove powershell
 
 [CentOS 7]: https://www.centos.org/download/
     
-##Next, Install SolidFire Bits
+## Next, Install SolidFire Bits
 
 1. Create a directory for the SolidFire module:
 
@@ -98,7 +98,7 @@ sudo yum remove powershell
    
 1. [OPTIONAL but recommended] Setup the SolidFire PowerShell initializer script:
 
-	    echo ". /usr/local/share/powershell/Modules/SolidFire/Initialize-SFEnvironment.ps1" > /opt/microsoft/powershell/6.0.0-alpha.13/profile.ps1
+	    echo ". /usr/local/share/powershell/Modules/SolidFire/Initialize-SFEnvironment.ps1" > /opt/microsoft/powershell/6.0.0-alpha.14/profile.ps1
 	
 	This will ensure the SolidFire PowerShell module is imported and initialized when you start up the PowerShell shell 
 
@@ -106,9 +106,9 @@ sudo yum remove powershell
 
         powershell
 
-##Paths
+## Paths
 
-* `$PSHOME` is `/opt/microsoft/powershell/6.0.0-alpha.13/`
+* `$PSHOME` is `/opt/microsoft/powershell/6.0.0-alpha.14/`
 * User profiles will be read from `~/.config/powershell/profile.ps1`
 * Default profiles will be read from `$PSHOME/profile.ps1`
 * User modules will be read from `~/.local/share/powershell/Modules`

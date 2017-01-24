@@ -1,6 +1,6 @@
-#Install SolidFire PowerShell on Mac OS 10.11
+# Install SolidFire PowerShell on Mac OS 10.11
 
-![solidfire-powershell-logo](../../Installer/product.png) ![apple-logo](apple-logo-small.png)
+![solidfire-powershell-logo](../../docs/product.png) ![apple-logo](apple-logo-small.png)
 
 ## Installation Instructions
 
@@ -17,13 +17,13 @@ The commands should be run in a terminal session on the machine you want to inst
 
 1. Download the PowerShell for Mac bits:
 
-        wget https://github.com/PowerShell/PowerShell/releases/download/v6.0.0-alpha.13/powershell-6.0.0-alpha.13.pkg
+        wget https://github.com/PowerShell/PowerShell/releases/download/v6.0.0-alpha.14/powershell-6.0.0-alpha.14.pkg
 
 1. Install the package you just downloaded:
 
-        sudo installer -pkg powershell-6.0.0-alpha.13.pkg -target / 
+        sudo installer -pkg powershell-6.0.0-alpha.14.pkg -target / 
     
-###Next, Install SolidFire Bits
+### Next, Install SolidFire Bits
 
 1. Create a directory for the SolidFire module:
 
@@ -35,7 +35,7 @@ The commands should be run in a terminal session on the machine you want to inst
    
 1. [OPTIONAL] Setup the SolidFire PowerShell initializer script:
 
-	    echo ". /usr/local/share/powershell/Modules/SolidFire/Initialize-SFEnvironment.ps1" > /usr/local/microsoft/powershell/6.0.0-alpha.13/profile.ps1
+	    echo ". /usr/local/share/powershell/Modules/SolidFire/Initialize-SFEnvironment.ps1" > /usr/local/microsoft/powershell/6.0.0-alpha.14/profile.ps1
 	
 	This will ensure the SolidFire PowerShell module is imported and initialized when you start up the PowerShell shell 
 
@@ -43,9 +43,9 @@ The commands should be run in a terminal session on the machine you want to inst
 
         powershell
 
-##Paths
+## Paths
 
-* `$PSHOME` is `/usr/local/microsoft/powershell/6.0.0-alpha.13/`
+* `$PSHOME` is `/usr/local/microsoft/powershell/6.0.0-alpha.14/`
 * User profiles will be read from `~/.config/powershell/profile.ps1`
 * Default profiles will be read from `$PSHOME/profile.ps1`
 * User modules will be read from `~/.local/share/powershell/Modules`
@@ -56,5 +56,5 @@ The commands should be run in a terminal session on the machine you want to inst
 The profiles respect PowerShell's per-host configuration,
 so the default host-specific profiles exists at `Microsoft.PowerShell_profile.ps1` in the same locations.
 
-`$PSHOME` is `/usr/local/microsoft/powershell/6.0.0-alpha.13/`,
+`$PSHOME` is `/usr/local/microsoft/powershell/6.0.0-alpha.14/`,
 and the symlink is placed at `/usr/local/bin/powershell`.
