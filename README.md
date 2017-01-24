@@ -4,13 +4,13 @@
 
 ![logo](docs/product.png)
 
-##Description
+## Description
 
 The SolidFire PowerShell Tools is a collection of Microsoft® Windows® PowerShell functions that use SolidFire API to control a SolidFire storage system. These functions allow administrators to query for information, make changes to objects in a storage system, and develop complex scripts on a single platform. Users can implement this module with other modules and snap-ins, such as VMware® PowerCLI and Cisco® UCS PowerTool, to extend capabilities throughout the infrastructure.
 
 Any user with a SolidFire storage system and Windows PowerShell can take advantage of the SolidFire PowerShell Tools. Users of the SolidFire PowerShell Tools should have an understanding of Windows PowerShell functions.
 
-##Installation
+## Installation
 
 The SolidFire Powershell Module can be installed on the following systems:
 
@@ -44,7 +44,7 @@ The complimenting scripts and resources are written as best effort and provide n
 
 If you have any questions or comments about this product, open an issue on our [GitHub repo](https://github.com/solidfire/powershell) or reach out to the online developer community at [ThePub](http://netapp.io). Your feedback helps us focus our efforts on new features and capabilities.
 
-##Release History
+## Release History
 
 | Version      | Release Date   |
 |--------------|----------------|
