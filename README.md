@@ -1,7 +1,6 @@
 # SolidFire PowerShell Tools
 
-## Version 1.3 
-#### Released 24-Jan-2017
+### Version 1.3 (github)
 
 ![logo](docs/product.png)
 
@@ -24,18 +23,6 @@ The SolidFire Powershell Module can be installed on the following systems:
 
 [V1.3 Release Notes](https://github.com/solidfire/PowerShell/blob/master/Install/SolidFire%20PowerShell%20Tools%20Release%20Notes%20v1.3.pdf)
 
-Collection of scripts, functions, and examples using the SolidFire Tools for PowerShell. This repository serves as a space for development on various scripts and functions to assist in managing SolidFire systems using PowerShell.
-
-You can access the SolidFire PowerShell Tools in the Install section below or through NetApp's SolidFire Support FTP site.
-
-All scripts and functions will leverage the SolidFire PowerShell Tools.  Some scripts or functions may also leverage other PowerShell tools such as VMware's PowerCLI or Cisco's UCSPowerTool.  Scripts or functions using other modules or snapins will be noted. 
-
-
-## Install
-Download Installer: [SolidFire PowerShell 1.3 Installer](https://github.com/solidfire/PowerShell/raw/master/Install/SolidFire_PowerShell_1_3_0_124-install.msi) 
-
-Instructions: Double-click the downloaded .msi file and follow the instructions in the install wizard. Additional details can be found in the [SolidFire PowerShell User Guide](https://github.com/solidfire/PowerShell/blob/master/Install/SolidFire%20PowerShell%20Tools%20User%20Guide_v1.3.pdf).
-
 ## Getting Started
 Files located in the [Getting Started](https://github.com/solidfire/PowerShell/blob/master/Getting%20Started) directory provide a self-paced lab guide providing basic functionality to get started.
 
@@ -51,16 +38,17 @@ The scripts and functions in the VMware directory are directly related to managi
 ## Microsoft
 Example scripts referenced in the Configuring Windows Server 2012 R2 Hyper-V for SolidFire configuration guide available on solidfire.com 
 
-## Support
-The complimenting scripts and resources are written as best effort and provide no warranty expressed or implied.  SolidFire support is not responsible for the content of this resource outside of the core module. Please contact the original author if you have questions about a script/resource. Please help support and answer questions for content you contribute and make this community great. You can engage with other users of this content at [ThePub](http://netapp.io).
+## Getting Help
 
-If you have any questions or comments about this product, contact <ng-sf-host-integrations-sdk@netapp.com> or reach out to the online developer community at [ThePub](http://netapp.io). Your feedback helps us focus our efforts on new features and capabilities.
+The complimenting scripts and resources are written as best effort and provide no warranty expressed or implied.  SolidFire support is not responsible for the content of this resource outside of the core module. Please contact the original author if you have questions about a script/resource. Please help support and answer questions for content you contribute and make this community great.
+
+If you have any questions or comments about this product, open an issue on our [GitHub repo](https://github.com/solidfire/powershell) or reach out to the online developer community at [ThePub](http://netapp.io). Your feedback helps us focus our efforts on new features and capabilities.
 
 ##Release History
 
 | Version      | Release Date   |
 |--------------|----------------|
-| 1.3.0.124    | 24-JAN-2017 	  | 
+| 1.3.0.124    | 25-JAN-2017 	  | 
 | 1.2.1.1      | 26-MAY-2016    |
 | 1.2.0.37     | 22-MAR-2016    |
 | 1.1.0.37     | 17-DEC-2015    |   
