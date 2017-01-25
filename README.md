@@ -1,23 +1,30 @@
 # SolidFire PowerShell Tools
 
-## Version 1.2 
-#### Released 23-Mar-2016
+### Version 1.3 (github)
 
-[V1.2 Release Notes](https://github.com/solidfire/PowerShell/blob/master/Install/SolidFire%20PowerShell%20Tools%20Release%20Notes%20v1.2.1.1.pdf)
+![logo](docs/product.png)
 
-Collection of scripts, functions, and examples using the SolidFire Tools for PowerShell. This repository serves as a space for development on various scripts and functions to assist in managing SolidFire systems using PowerShell.
+## Description
 
-You can access the SolidFire PowerShell Tools in the [Install](https://github.com/solidfire/PowerShell/tree/master/Install) directory of this repo or through SolidFire Support's FTP site.
+The SolidFire PowerShell Tools is a collection of Microsoft® Windows® PowerShell functions that use SolidFire API to control a SolidFire storage system. These functions allow administrators to query for information, make changes to objects in a storage system, and develop complex scripts on a single platform. Users can implement this module with other modules and snap-ins, such as VMware® PowerCLI and Cisco® UCS PowerTool, to extend capabilities throughout the infrastructure.
 
-All scripts and functions will leverage the SolidFire PowerShell Tools.  Some scripts or functions may also leverage other PowerShell tools such as VMware's PowerCLI or Cisco's UCSPowerTool.  Scripts or functions using other modules or snapins will be noted. 
+Any user with a SolidFire storage system and Windows PowerShell can take advantage of the SolidFire PowerShell Tools. Users of the SolidFire PowerShell Tools should have an understanding of Windows PowerShell functions.
+
+## Installation
+
+The SolidFire Powershell Module can be installed on the following systems:
+
+| System                    | Installation                              |
+|---------------------------|-------------------------------------------|
+| Windows                   | [Instructions](docs/windows/README.md)    |
+| Mac                       | [Instructions](docs/mac/README.md)        |
+| Linux (Ubuntu/Centos)     | [Instructions](docs/linux/README.md)      |
+| Docker                    | [Instructions](docs/docker/README.md)     |
+
+[V1.3 Release Notes](https://github.com/solidfire/PowerShell/blob/master/Install/NetApp_SolidFire_PowerShell_Tools_Release_Notes_v1.3.pdf)
 
 ## Getting Started
 Files located in the [Getting Started](https://github.com/solidfire/PowerShell/blob/master/Getting%20Started) directory provide a self-paced lab guide providing basic functionality to get started.
-
-## Install
-Download Installer: [SolidFire PowerShell 1.2 Installer](https://github.com/solidfire/PowerShell/raw/master/Install/SolidFire_PowerShell_1_2_1_1-install.msi) 
-
-Instructions: Double-click the downloaded .msi file and follow the instructions in the install wizard. Additional details can be found in the [SolidFire PowerShell User Guide](https://github.com/solidfire/PowerShell/blob/master/Install/SolidFire%20PowerShell%20Tools%20User%20Guide_v1.2.pdf).
 
 ## Reporting
 Provides scripts for reporting useful information from a SolidFire system.  Reports may also include scripts that report against other application or infrastructure components.
@@ -31,11 +38,20 @@ The scripts and functions in the VMware directory are directly related to managi
 ## Microsoft
 Example scripts referenced in the Configuring Windows Server 2012 R2 Hyper-V for SolidFire configuration guide available on solidfire.com 
 
-## Support
-The complimenting scripts and resources are written as best effort and provide no warranty expressed or implied.  SolidFire support is not responsible for the content of this resource outside of the core module. Please contact the original author if you have questions about a script/resource. Please help support and answer questions for content you contribute and make this community great. You can engage with other users of this content at [developer.solidfire.com](http://developer.solidfire.com).
+## Getting Help
 
-All scripts and functions are delivered as is and are not directly supported by SolidFire support.  If you have a question about a script or function, or have a need not already presented in this repository, please feel free to browse the articles and forume or talk with us on the SolidFire developer community at [developer.solidfire.com](http://developer.solidfire.com).
+The complimenting scripts and resources are written as best effort and provide no warranty expressed or implied.  SolidFire support is not responsible for the content of this resource outside of the core module. Please contact the original author if you have questions about a script/resource. Please help support and answer questions for content you contribute and make this community great.
 
+If you have any questions or comments about this product, open an issue on our [GitHub repo](https://github.com/solidfire/powershell) or reach out to the online developer community at [ThePub](http://netapp.io). Your feedback helps us focus our efforts on new features and capabilities.
+
+## Release History
+
+| Version      | Release Date   |
+|--------------|----------------|
+| 1.3.0.124    | 25-JAN-2017 	  | 
+| 1.2.1.1      | 26-MAY-2016    |
+| 1.2.0.37     | 22-MAR-2016    |
+| 1.1.0.37     | 17-DEC-2015    |   
 
 ## Archive
 Previous versions of SolidFire PowerShell Tools can be found in the [archive](https://github.com/solidfire/PowerShell/tree/master/Install/Archive).
