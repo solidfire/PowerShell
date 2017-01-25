@@ -14,11 +14,11 @@
             <dev:version/>
         </command:details>
         <maml:description>
-            <maml:para>Add-SFDrives is used to add one or more available drives to the cluster enabling the drives to host a portion of the cluster&apos;s data. When a new drive is made available to the cluster, either through a newly added node or by being inserted into an existing node, it is marked as &quot;available&quot; and must be added via AddDrives before it is utilized. Use the ListDrives method to display drives that are &quot;available&quot; to be added. When multiple drives are being added, it is more efficient to add them in a single AddDrives method rather than multiple individual methods with a single drive. This reduces the amount of data balancing that must occur to even out the storage load on the cluster.
+            <maml:para>Adds one or more available drives to the cluster, enabling the drives to host a portion of the cluster&apos;s data. When a new drive is made available to the cluster, either through a newly added node or by being inserted into an existing node, it is marked as &quot;available&quot; and must be added via AddDrives before it is utilized. Use the ListDrives method to display drives that are &quot;available&quot; to be added. When multiple drives are being added, it is more efficient to add them in a single AddDrives method rather than multiple individual methods with a single drive. This reduces the amount of data balancing that must occur to even out the storage load on the cluster.
 
 When adding a drive, the system automatically determines the &quot;type&quot; of drive it should be.
 
-The method returns immediately, however it may take some period of time for the data in the cluster to be fully rebalanced using the newly added drives. As the new drive(s) are syncing on the system, you can use the ListSyncJobs method to see how the drive(s) are being rebalanced and the progress of adding the new drive.</maml:para>
+The method returns immediately; however, it may take time for the data in the cluster to be fully rebalanced using the newly added drives. As the new drive(s) are syncing on the system, you can use the ListSyncJobs method to see how the drive(s) are being rebalanced and the progress of adding the new drive.</maml:para>
         </maml:description>
         <command:syntax>
             <command:syntaxItem>
@@ -34,11 +34,11 @@ The method returns immediately, however it may take some period of time for the 
                 <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                     <maml:name>Target</maml:name>
                     <maml:description>
-                        <maml:para>Add-SFDrives is used to add one or more available drives to the cluster enabling the drives to host a portion of the cluster&amp;apos;s data. When a new drive is made available to the cluster, either through a newly added node or by being inserted into an existing node, it is marked as &amp;quot;available&amp;quot; and must be added via AddDrives before it is utilized. Use the ListDrives method to display drives that are &amp;quot;available&amp;quot; to be added. When multiple drives are being added, it is more efficient to add them in a single AddDrives method rather than multiple individual methods with a single drive. This reduces the amount of data balancing that must occur to even out the storage load on the cluster.
+                        <maml:para>Adds one or more available drives to the cluster, enabling the drives to host a portion of the cluster&amp;apos;s data. When a new drive is made available to the cluster, either through a newly added node or by being inserted into an existing node, it is marked as &amp;quot;available&amp;quot; and must be added via AddDrives before it is utilized. Use the ListDrives method to display drives that are &amp;quot;available&amp;quot; to be added. When multiple drives are being added, it is more efficient to add them in a single AddDrives method rather than multiple individual methods with a single drive. This reduces the amount of data balancing that must occur to even out the storage load on the cluster.
 
 When adding a drive, the system automatically determines the &amp;quot;type&amp;quot; of drive it should be.
 
-The method returns immediately, however it may take some period of time for the data in the cluster to be fully rebalanced using the newly added drives. As the new drive(s) are syncing on the system, you can use the ListSyncJobs method to see how the drive(s) are being rebalanced and the progress of adding the new drive.</maml:para>
+The method returns immediately; however, it may take time for the data in the cluster to be fully rebalanced using the newly added drives. As the new drive(s) are syncing on the system, you can use the ListSyncJobs method to see how the drive(s) are being rebalanced and the progress of adding the new drive.</maml:para>
                     </maml:description>
                     <command:parameterValue required="true" variableLength="False">List[string]</command:parameterValue>
                     <dev:defaultValue/>
@@ -46,11 +46,11 @@ The method returns immediately, however it may take some period of time for the 
                 <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                     <maml:name>SFConnection</maml:name>
                     <maml:description>
-                        <maml:para>Add-SFDrives is used to add one or more available drives to the cluster enabling the drives to host a portion of the cluster&amp;apos;s data. When a new drive is made available to the cluster, either through a newly added node or by being inserted into an existing node, it is marked as &amp;quot;available&amp;quot; and must be added via AddDrives before it is utilized. Use the ListDrives method to display drives that are &amp;quot;available&amp;quot; to be added. When multiple drives are being added, it is more efficient to add them in a single AddDrives method rather than multiple individual methods with a single drive. This reduces the amount of data balancing that must occur to even out the storage load on the cluster.
+                        <maml:para>Adds one or more available drives to the cluster, enabling the drives to host a portion of the cluster&amp;apos;s data. When a new drive is made available to the cluster, either through a newly added node or by being inserted into an existing node, it is marked as &amp;quot;available&amp;quot; and must be added via AddDrives before it is utilized. Use the ListDrives method to display drives that are &amp;quot;available&amp;quot; to be added. When multiple drives are being added, it is more efficient to add them in a single AddDrives method rather than multiple individual methods with a single drive. This reduces the amount of data balancing that must occur to even out the storage load on the cluster.
 
 When adding a drive, the system automatically determines the &amp;quot;type&amp;quot; of drive it should be.
 
-The method returns immediately, however it may take some period of time for the data in the cluster to be fully rebalanced using the newly added drives. As the new drive(s) are syncing on the system, you can use the ListSyncJobs method to see how the drive(s) are being rebalanced and the progress of adding the new drive.</maml:para>
+The method returns immediately; however. it may take some period of time for the data in the cluster to be fully rebalanced using the newly added drives. As the new drive(s) are syncing on the system, you can use the ListSyncJobs method to see how the drive(s) are being rebalanced and the progress of adding the new drive.</maml:para>
                     </maml:description>
                     <command:parameterValue required="true" variableLength="False">List[SFConnection]</command:parameterValue>
                     <dev:defaultValue/>
@@ -61,7 +61,7 @@ The method returns immediately, however it may take some period of time for the 
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>DriveID</maml:name>
                 <maml:description>
-                    <maml:para>The list of drive IDs to add to the cluster
+                    <maml:para>The list of drive IDs to add to the cluster.
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">long[]</command:parameterValue>
@@ -168,7 +168,7 @@ The method returns immediately, however it may take some period of time for the 
             <dev:version/>
         </command:details>
         <maml:description>
-            <maml:para>Adds initiator(s) to the existing initiators in a Volume access group. Initiators can only exist in a single volume access group.  If an initiator exists in another volume access group then an error is thrown to notify user.</maml:para>
+            <maml:para>Adds initiator(s) to the existing initiators in a volume access group. Initiators can only exist in a single volume access group.  If an initiator exists in another volume access group then an error is thrown to notify user.</maml:para>
         </maml:description>
         <command:syntax>
             <command:syntaxItem>
@@ -192,7 +192,7 @@ The method returns immediately, however it may take some period of time for the 
                 <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                     <maml:name>Target</maml:name>
                     <maml:description>
-                        <maml:para>Adds initiator(s) to the existing initiators in a Volume access group. Initiators can only exist in a single volume access group.  If an initiator exists in another volume access group then an error is thrown to notify user.</maml:para>
+                        <maml:para>Adds initiator(s) to the existing initiators in a volume access group. Initiators can only exist in a single volume access group.  If an initiator exists in another volume access group then an error is thrown to notify user.</maml:para>
                     </maml:description>
                     <command:parameterValue required="true" variableLength="False">List[string]</command:parameterValue>
                     <dev:defaultValue/>
@@ -200,7 +200,7 @@ The method returns immediately, however it may take some period of time for the 
                 <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                     <maml:name>SFConnection</maml:name>
                     <maml:description>
-                        <maml:para>Adds initiator(s) to the existing initiators in a Volume access group. Initiators can only exist in a single volume access group.  If an initiator exists in another volume access group then an error is thrown to notify user.</maml:para>
+                        <maml:para>Adds initiator(s) to the existing initiators in a volume access group. Initiators can only exist in a single volume access group.  If an initiator exists in another volume access group then an error is thrown to notify user.</maml:para>
                     </maml:description>
                     <command:parameterValue required="true" variableLength="False">List[SFConnection]</command:parameterValue>
                     <dev:defaultValue/>
@@ -211,7 +211,7 @@ The method returns immediately, however it may take some period of time for the 
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="1" aliases="None">
                 <maml:name>Initiators</maml:name>
                 <maml:description>
-                    <maml:para>List of initiator names (IQNs and WWPNs) to include in the volume access group
+                    <maml:para>List of initiator names (IQNs and WWPNs) to include in the volume access group.
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">string[]</command:parameterValue>
@@ -248,7 +248,7 @@ The method returns immediately, however it may take some period of time for the 
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>VolumeAccessGroupID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a volume access group ID or list of volume access group IDs
+                    <maml:para>Enter a volume access group ID or list of volume access group IDs.
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="False">long</command:parameterValue>
@@ -304,7 +304,7 @@ The method returns immediately, however it may take some period of time for the 
                 </maml:introduction>
                 <dev:code>Add-SFInitiatorToVolumeAccessGroup -VolumeAccessGroupID 5 -Initiators &quot;iqn.1994-05.com.redhat:8afd1bec9877&quot;,&quot;iqn.1998-01.com.vmware:pcl-1&quot;</dev:code>
                 <dev:remarks>
-                    <maml:para>Add a pair of iSCSI initiators (IQNs) to a volume access group.</maml:para>
+                    <maml:para>Adds a pair of iSCSI initiators (IQNs) to a volume access group.</maml:para>
                 </dev:remarks>
             </command:example>
             <command:example>
@@ -314,7 +314,7 @@ The method returns immediately, however it may take some period of time for the 
                 </maml:introduction>
                 <dev:code>Add-SFInitiatorToVolumeAccessGroup -VolumeAccessGroupID 5 -Initiators &quot;21:00:00:0e:1e:09:bb:8a&quot;</dev:code>
                 <dev:remarks>
-                    <maml:para>Add a fibre channel initiator (WWPN) to a volume access group.</maml:para>
+                    <maml:para>Adds a Fibre Channel initiator (WWPN) to a volume access group.</maml:para>
                 </dev:remarks>
             </command:example>
         </command:examples>
@@ -371,7 +371,7 @@ Accepts piped input from Get-SFPendingNode.</maml:para>
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName, FromRemainingArguments)" position="0" aliases="None">
                 <maml:name>PendingNodeID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter one or more pending Node IDs
+                    <maml:para>Enter one or more pending Node IDs.
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">long[]</command:parameterValue>
@@ -439,7 +439,7 @@ Accepts piped input from Get-SFPendingNode.</maml:para>
                 </maml:introduction>
                 <dev:code>Add-SFNode -PendingNodeID 5</dev:code>
                 <dev:remarks>
-                    <maml:para>Add a single pending node to the cluster.</maml:para>
+                    <maml:para>Adds a single pending node to the cluster.</maml:para>
                 </dev:remarks>
             </command:example>
             <command:example>
@@ -591,7 +591,7 @@ Accepts piped input from Get-SFPendingNode.</maml:para>
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="false" position="3" aliases="None">
                 <maml:name>Network</maml:name>
                 <maml:description>
-                    <maml:para>This parameter along with the cidr variable is used to control which network the access and community string apply to. The special value of &amp;apos;default&amp;apos; is used to specify an entry that applies to all networks. The cidr mask is ignored when network value is either a host name or default.
+                    <maml:para>This parameter, along with the cidr variable, is used to control which network the access and community string apply to. The special value of &amp;apos;default&amp;apos; is used to specify an entry that applies to all networks. The cidr mask is ignored when network value is either a host name or default.
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="False">string</command:parameterValue>
@@ -656,7 +656,7 @@ Accepts piped input from Get-SFPendingNode.</maml:para>
                 </maml:introduction>
                 <dev:code>Add-SFSnmpNetwork -Access ro -Cidr 24 -Community readonly -Network 10.10.10.0</dev:code>
                 <dev:remarks>
-                    <maml:para>Adds a readonly network (10.10.10.0) to the community &quot;readonly&quot;.</maml:para>
+                    <maml:para>Adds a read-only network (10.10.10.0) to the community &quot;readonly&quot;.</maml:para>
                 </dev:remarks>
             </command:example>
         </command:examples>
@@ -966,7 +966,7 @@ Accepts piped input from Get-SFPendingNode.</maml:para>
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="false" position="1" aliases="None">
                 <maml:name>Name</maml:name>
                 <maml:description>
-                    <maml:para>The name of the user. Must contain at least one character, but no longer than 32 characters. No blank space.
+                    <maml:para>The name of the user. Must contain at least one character but be no longer than 32 characters. No blank space.
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="False">string</command:parameterValue>
@@ -1089,7 +1089,7 @@ Accepts piped input from Get-SFPendingNode.</maml:para>
             <dev:version/>
         </command:details>
         <maml:description>
-            <maml:para>Adds volume(s) to the existing volumes in a Volume access group. Volumes can exist in multiple volume access groups.</maml:para>
+            <maml:para>Adds volume(s) to the existing volumes in a volume access group. Volumes can exist in multiple volume access groups.</maml:para>
         </maml:description>
         <command:syntax>
             <command:syntaxItem>
@@ -1113,7 +1113,7 @@ Accepts piped input from Get-SFPendingNode.</maml:para>
                 <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                     <maml:name>Target</maml:name>
                     <maml:description>
-                        <maml:para>Adds volume(s) to the existing volumes in a Volume access group. Volumes can exist in multiple volume access groups.</maml:para>
+                        <maml:para>Adds volume(s) to the existing volumes in a volume access group. Volumes can exist in multiple volume access groups.</maml:para>
                     </maml:description>
                     <command:parameterValue required="true" variableLength="False">List[string]</command:parameterValue>
                     <dev:defaultValue/>
@@ -1121,7 +1121,7 @@ Accepts piped input from Get-SFPendingNode.</maml:para>
                 <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                     <maml:name>SFConnection</maml:name>
                     <maml:description>
-                        <maml:para>Adds volume(s) to the existing volumes in a Volume access group. Volumes can exist in multiple volume access groups.</maml:para>
+                        <maml:para>Adds volume(s) to the existing volumes in a volume access group. Volumes can exist in multiple volume access groups.</maml:para>
                     </maml:description>
                     <command:parameterValue required="true" variableLength="False">List[SFConnection]</command:parameterValue>
                     <dev:defaultValue/>
@@ -1156,7 +1156,7 @@ Accepts piped input from Get-SFPendingNode.</maml:para>
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>VolumeAccessGroupID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a volume access group ID or list of volume access group IDs
+                    <maml:para>Enter a volume access group ID or list of volume access group IDs.
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="False">long</command:parameterValue>
@@ -1254,7 +1254,7 @@ Accepts piped input from Get-SFPendingNode.</maml:para>
         <command:details>
             <command:name>Complete-SFClusterPairing</command:name>
             <maml:description>
-                <maml:para>[Cluster] Used to create an encoded key from a cluster that is used to pair with another cluster.</maml:para>
+                <maml:para>[Cluster] Creates an encoded key from a cluster that is used to pair with another cluster.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -1386,7 +1386,7 @@ Accepts piped input from Get-SFPendingNode.</maml:para>
         <command:details>
             <command:name>Complete-SFVolumePairing</command:name>
             <maml:description>
-                <maml:para>[Cluster] Used to complete the pairing of two volumes.</maml:para>
+                <maml:para>[Cluster] Completes the pairing of two volumes.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -1712,7 +1712,7 @@ Multiple connections are supported.  Each successful connection is stored in the
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                 <maml:name>Node</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a valid SF node FQDN or IP address
+                    <maml:para>Enter a valid SF node FQDN or IP address
 </maml:para>
                 </maml:description>
                 <dev:type>
@@ -1724,7 +1724,7 @@ Multiple connections are supported.  Each successful connection is stored in the
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="false" position="2" aliases="None">
                 <maml:name>Password</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a valid password
+                    <maml:para>Enter a valid password
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="False">string</command:parameterValue>
@@ -1762,7 +1762,7 @@ Multiple connections are supported.  Each successful connection is stored in the
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="false" position="0" aliases="None">
                 <maml:name>Target</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a valid SolidFire cluster or node FQDN or IP address
+                    <maml:para>Enter a valid SolidFire cluster or node FQDN or IP address
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="False">string</command:parameterValue>
@@ -1788,7 +1788,7 @@ Multiple connections are supported.  Each successful connection is stored in the
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="false" position="1" aliases="None">
                 <maml:name>Username</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a valid user name
+                    <maml:para>Enter a valid user name
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="False">string</command:parameterValue>
@@ -2074,7 +2074,7 @@ Note:  Credentials stored in this manner can be saved to a file with the Export-
         <command:details>
             <command:name>Disable-SFEncryptionAtRest</command:name>
             <maml:description>
-                <maml:para>[Cluster] Used to remove the encryption that was previously applied to the cluster using the Enable-SFEncryptionAtRest CmdLet.</maml:para>
+                <maml:para>[Cluster] Removes the encryption that was previously applied to the cluster using the Enable-SFEncryptionAtRest CmdLet.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -2433,7 +2433,7 @@ Note: This process is asynchronous and returns a response before encryption is d
         <command:details>
             <command:name>Enable-SFEncryptionAtRest</command:name>
             <maml:description>
-                <maml:para>[Cluster] Used to enable the (AES) 256-bit encryption at rest so the cluster can manage the encryption key used for the drives on each node.</maml:para>
+                <maml:para>[Cluster] Enables the (AES) 256-bit encryption at rest so the cluster can manage the encryption key used for the drives on each node.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -2564,7 +2564,7 @@ Note: This process is asynchronous and returns a response before encryption is e
         <command:details>
             <command:name>Enable-SFFeature</command:name>
             <maml:description>
-                <maml:para>EnableFeature allows you to enable cluster features that are disabled by default.</maml:para>
+                <maml:para>Enables cluster features that are disabled by default.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -2913,7 +2913,7 @@ This currently only supports vvols, but others will be added later.</maml:para>
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>AccountID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter an account ID or list of account IDs
+                    <maml:para>Enter an account ID or list of account IDs
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">long[]</command:parameterValue>
@@ -2950,7 +2950,7 @@ This currently only supports vvols, but others will be added later.</maml:para>
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>Username</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a username or list of usernames
+                    <maml:para>Enter a username or list of usernames
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">string[]</command:parameterValue>
@@ -3193,7 +3193,7 @@ To get the most recent metrics prior to a GC event is completed use the -ForceGe
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>Account</maml:name>
                 <maml:description>
-                    <maml:para>Please enter an account ID
+                    <maml:para>Enter an account ID
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">Account[]</command:parameterValue>
@@ -3206,7 +3206,7 @@ To get the most recent metrics prior to a GC event is completed use the -ForceGe
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>AccountID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter an account ID
+                    <maml:para>Enter an account ID
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">long[]</command:parameterValue>
@@ -3397,7 +3397,7 @@ To get the most recent metrics prior to a GC event is completed use the -ForceGe
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>Name</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a node name or list of node names
+                    <maml:para>Enter a node name or list of node names
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">string[]</command:parameterValue>
@@ -3410,7 +3410,7 @@ To get the most recent metrics prior to a GC event is completed use the -ForceGe
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>NodeID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a node ID or list of node IDs
+                    <maml:para>Enter a node ID or list of node IDs
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">long[]</command:parameterValue>
@@ -3643,7 +3643,7 @@ Jobs still in process with return a status of &quot;running&quot;.  When complet
         <command:details>
             <command:name>Get-SFAsyncStatus</command:name>
             <maml:description>
-                <maml:para>You can use ListAsyncResults to list the results of all currently running and completed asynchronous methods on the system. Querying asynchronous results with ListAsyncResults does not cause completed asyncHandles to expire; you can use GetAsyncResult to query any of the asyncHandles returned by ListAsyncResults.</maml:para>
+                <maml:para>Gets the results of all currently running and completed asynchronous methods on the system.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -3653,7 +3653,7 @@ Jobs still in process with return a status of &quot;running&quot;.  When complet
             <dev:version/>
         </command:details>
         <maml:description>
-            <maml:para>You can use ListAsyncResults to list the results of all currently running and completed asynchronous methods on the system. Querying asynchronous results with ListAsyncResults does not cause completed asyncHandles to expire; you can use GetAsyncResult to query any of the asyncHandles returned by ListAsyncResults.</maml:para>
+            <maml:para>Gets the results of all currently running and completed asynchronous methods on the system. Querying asynchronous results does not cause completed asyncHandles to expire; you can use Get-SFAsyncResult to query any of the asyncHandles returned by Get-SFAsyncResult.</maml:para>
         </maml:description>
         <command:syntax>
             <command:syntaxItem>
@@ -3669,7 +3669,7 @@ Jobs still in process with return a status of &quot;running&quot;.  When complet
                 <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                     <maml:name>Target</maml:name>
                     <maml:description>
-                        <maml:para>You can use ListAsyncResults to list the results of all currently running and completed asynchronous methods on the system. Querying asynchronous results with ListAsyncResults does not cause completed asyncHandles to expire; you can use GetAsyncResult to query any of the asyncHandles returned by ListAsyncResults.</maml:para>
+                        <maml:para>Gets the results of all currently running and completed asynchronous methods on the system. Querying asynchronous results does not cause completed asyncHandles to expire; you can use Get-SFAsyncResult to query any of the asyncHandles returned by Get-SFAsyncResult.</maml:para>
                     </maml:description>
                     <command:parameterValue required="true" variableLength="False">List[string]</command:parameterValue>
                     <dev:defaultValue/>
@@ -3677,7 +3677,7 @@ Jobs still in process with return a status of &quot;running&quot;.  When complet
                 <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                     <maml:name>SFConnection</maml:name>
                     <maml:description>
-                        <maml:para>You can use ListAsyncResults to list the results of all currently running and completed asynchronous methods on the system. Querying asynchronous results with ListAsyncResults does not cause completed asyncHandles to expire; you can use GetAsyncResult to query any of the asyncHandles returned by ListAsyncResults.</maml:para>
+                        <maml:para>Gets the results of all currently running and completed asynchronous methods on the system. Querying asynchronous results does not cause completed asyncHandles to expire; you can use Get-SFAsyncResult to query any of the asyncHandles returned by Get-SFAsyncResult.</maml:para>
                     </maml:description>
                     <command:parameterValue required="true" variableLength="False">List[SFConnection]</command:parameterValue>
                     <dev:defaultValue/>
@@ -3983,7 +3983,7 @@ Jobs still in process with return a status of &quot;running&quot;.  When complet
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>VolumeID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a volume ID or list of volume IDs
+                    <maml:para>Enter a volume ID or list of volume IDs
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">long[]</command:parameterValue>
@@ -4559,7 +4559,7 @@ BlockFullness:
         <command:details>
             <command:name>Get-SFClusterHardwareInfo</command:name>
             <maml:description>
-                <maml:para>You can use the GetClusterHardwareInfo method to retrieve the hardware status and information for all Fibre Channel nodes, iSCSI nodes and drives in the cluster. This generally includes manufacturers, vendors, versions, and other associated hardware identification information.</maml:para>
+                <maml:para>Gets the hardware status and information for all Fibre Channel nodes, iSCSI nodes, and drives in the cluster. This generally includes manufacturers, vendors, versions, and other associated hardware identification information.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -4912,7 +4912,7 @@ BlockFullness:
         <command:details>
             <command:name>Get-SFClusterState</command:name>
             <maml:description>
-                <maml:para>[Node] Gets the state of node within Cluster.</maml:para>
+                <maml:para>[Node] Gets the state of nodes within Cluster.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -5605,7 +5605,7 @@ NOTE: This method is available only through the a Node connection</maml:para>
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>Name</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a volume name or list of volume names
+                    <maml:para>Enter a volume name or list of volume names
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">string[]</command:parameterValue>
@@ -5642,7 +5642,7 @@ NOTE: This method is available only through the a Node connection</maml:para>
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>VolumeID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a volume ID or list of volume IDs
+                    <maml:para>Enter a volume ID or list of volume IDs
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">long[]</command:parameterValue>
@@ -5772,7 +5772,7 @@ NOTE: This method is available only through the a Node connection</maml:para>
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>DriveID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a drive ID or list of drive IDs
+                    <maml:para>Enter a drive ID or list of drive IDs
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">long[]</command:parameterValue>
@@ -6037,7 +6037,7 @@ NOTE: This method is available only through the a Node connection</maml:para>
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>DriveID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a drive ID, or list of Drive IDs.
+                    <maml:para>Enter a drive ID, or list of Drive IDs.
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">long[]</command:parameterValue>
@@ -6196,7 +6196,7 @@ NOTE: This method is available only through the a Node connection</maml:para>
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>DriveID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a drive ID
+                    <maml:para>Enter a drive ID
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="False">long</command:parameterValue>
@@ -6209,7 +6209,7 @@ NOTE: This method is available only through the a Node connection</maml:para>
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="0" aliases="None">
                 <maml:name>DriveIDs</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a drive ID or list of drive IDs
+                    <maml:para>Enter a drive ID or list of drive IDs
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">long[]</command:parameterValue>
@@ -6366,7 +6366,7 @@ NOTE: This method is available only through the a Node connection</maml:para>
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="1" aliases="None">
                 <maml:name>EndEventID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter an ending event ID
+                    <maml:para>Enter an ending event ID
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="False">long</command:parameterValue>
@@ -6379,7 +6379,7 @@ NOTE: This method is available only through the a Node connection</maml:para>
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="1" aliases="None">
                 <maml:name>MaxEvents</maml:name>
                 <maml:description>
-                    <maml:para>Please enter the maximum number of events to return
+                    <maml:para>Enter the maximum number of events to return
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="False">long</command:parameterValue>
@@ -6404,7 +6404,7 @@ NOTE: This method is available only through the a Node connection</maml:para>
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>StartEventID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a starting event ID
+                    <maml:para>Enter a starting event ID
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="False">long</command:parameterValue>
@@ -6489,7 +6489,7 @@ NOTE: This method is available only through the a Node connection</maml:para>
         <command:details>
             <command:name>Get-SFFeatureStatus</command:name>
             <maml:description>
-                <maml:para>GetFeatureStatus allows you to retrieve the status of a cluster feature.</maml:para>
+                <maml:para>Gets the status of a cluster feature.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -6898,7 +6898,7 @@ This currently only supports the vvol feature, but it will support others at a l
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>GroupSnapshotID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a group snapshot ID or list of group snapshot IDs
+                    <maml:para>Enter a group snapshot ID or list of group snapshot IDs
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">long[]</command:parameterValue>
@@ -6911,7 +6911,7 @@ This currently only supports the vvol feature, but it will support others at a l
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>GroupSnapshotName</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a snapshot name or list of snapshot names
+                    <maml:para>Enter a snapshot name or list of snapshot names
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">string[]</command:parameterValue>
@@ -7055,7 +7055,7 @@ This currently only supports the vvol feature, but it will support others at a l
         <command:details>
             <command:name>Get-SFHardwareConfig</command:name>
             <maml:description>
-                <maml:para>GetHardwareConfig enables you to display the hardware configuration information for a node. NOTE: This method is available only through the per-node API endpoint 5.0 or later.</maml:para>
+                <maml:para>Gets the hardware configuration information for a node. NOTE: This method is available only through the per-node API endpoint 5.0 or later.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -7138,7 +7138,7 @@ This currently only supports the vvol feature, but it will support others at a l
         <command:details>
             <command:name>Get-SFHardwareInfo</command:name>
             <maml:description>
-                <maml:para>GetHardwareInfo allows you to return hardware information and status for a single node. This generally includes manufacturers, vendors, versions, drives, and other associated hardware identification information.</maml:para>
+                <maml:para>Gets hardware information and status for a single node. This generally includes manufacturers, vendors, versions, drives, and other associated hardware identification information.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -7224,8 +7224,8 @@ This currently only supports the vvol feature, but it will support others at a l
     <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10">
         <command:details>
             <command:name>Get-SFInitiator</command:name>
-            <maml:description>
-            </maml:description>
+            <maml:description>			 <maml:para>Lists initiator IQNs or WWPNs.</maml:para> 
+            </maml:description>
             <maml:copyright>
                 <maml:para/>
             </maml:copyright>
@@ -7728,7 +7728,7 @@ This currently only supports the vvol feature, but it will support others at a l
         <command:details>
             <command:name>Get-SFLoginSessionInfo</command:name>
             <maml:description>
-                <maml:para>[Cluster] Returns the period of time a login authentication is valid for both login shells and the TUI.</maml:para>
+                <maml:para>[Cluster] Gets the period of time a login authentication is valid for both login shells and the TUI.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -7899,7 +7899,7 @@ This currently only supports the vvol feature, but it will support others at a l
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>VolumeAccessGroup</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a volume access group
+                    <maml:para>Enter a volume access group
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">VolumeAccessGroup[]</command:parameterValue>
@@ -7912,7 +7912,7 @@ This currently only supports the vvol feature, but it will support others at a l
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>VolumeAccessGroupID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a volume access group ID
+                    <maml:para>Enter a volume access group ID
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">long[]</command:parameterValue>
@@ -8125,7 +8125,7 @@ This currently only supports the vvol feature, but it will support others at a l
         <command:details>
             <command:name>Get-SFNodeHardwareInfo</command:name>
             <maml:description>
-                <maml:para>GetNodeHardwareInfo is used to return all the hardware info and status for the node specified. This generally includes manufacturers, vendors, versions, and other associated hardware identification information.</maml:para>
+                <maml:para>Gets all the hardware info and status for the node specified. This generally includes manufacturers, vendors, versions, and other associated hardware identification information.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -8229,7 +8229,7 @@ This currently only supports the vvol feature, but it will support others at a l
         <command:details>
             <command:name>Get-SFNodeStats</command:name>
             <maml:description>
-                <maml:para>[Cluster] Get-SFNodeStats is used to return the high-level activity measurements for a lide of nodes or all nodes.</maml:para>
+                <maml:para>[Cluster] Gets the high-level activity measurements for a node or all nodes.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -8239,7 +8239,7 @@ This currently only supports the vvol feature, but it will support others at a l
             <dev:version/>
         </command:details>
         <maml:description>
-            <maml:para>Get-SFNodeStats is used to return the high-level activity measurements for a lide of nodes or all nodes.</maml:para>
+            <maml:para>Gets the high-level activity measurements for a node or all nodes.</maml:para>
         </maml:description>
         <command:syntax>
             <command:syntaxItem>
@@ -8255,7 +8255,7 @@ This currently only supports the vvol feature, but it will support others at a l
                 <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                     <maml:name>Target</maml:name>
                     <maml:description>
-                        <maml:para>Get-SFNodeStats is used to return the high-level activity measurements for a lide of nodes or all nodes.</maml:para>
+                        <maml:para>Gets the high-level activity measurements for a node or all nodes.</maml:para>
                     </maml:description>
                     <command:parameterValue required="true" variableLength="False">List[string]</command:parameterValue>
                     <dev:defaultValue/>
@@ -8263,7 +8263,7 @@ This currently only supports the vvol feature, but it will support others at a l
                 <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                     <maml:name>SFConnection</maml:name>
                     <maml:description>
-                        <maml:para>Get-SFNodeStats is used to return the high-level activity measurements for a lide of nodes or all nodes.</maml:para>
+                        <maml:para>Gets the high-level activity measurements for a node or all nodes.</maml:para>
                     </maml:description>
                     <command:parameterValue required="true" variableLength="False">List[SFConnection]</command:parameterValue>
                     <dev:defaultValue/>
@@ -8274,7 +8274,7 @@ This currently only supports the vvol feature, but it will support others at a l
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>NodeID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a node ID or list of node IDs
+                    <maml:para>Enter a node ID or list of node IDs.
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">long[]</command:parameterValue>
@@ -8349,7 +8349,7 @@ This currently only supports the vvol feature, but it will support others at a l
             <dev:version/>
         </command:details>
         <maml:description>
-            <maml:para>Get-SFNtpInfo is used to return the current network time protocol (NTP) configuration information.</maml:para>
+            <maml:para>Gets the current network time protocol (NTP) configuration information.</maml:para>
         </maml:description>
         <command:syntax>
             <command:syntaxItem>
@@ -8357,7 +8357,7 @@ This currently only supports the vvol feature, but it will support others at a l
                 <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                     <maml:name>Target</maml:name>
                     <maml:description>
-                        <maml:para>Get-SFNtpInfo is used to return the current network time protocol (NTP) configuration information.</maml:para>
+                        <maml:para>Gets the current network time protocol (NTP) configuration information.</maml:para>
                     </maml:description>
                     <command:parameterValue required="true" variableLength="False">List[string]</command:parameterValue>
                     <dev:defaultValue/>
@@ -8365,7 +8365,7 @@ This currently only supports the vvol feature, but it will support others at a l
                 <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                     <maml:name>SFConnection</maml:name>
                     <maml:description>
-                        <maml:para>Get-SFNtpInfo is used to return the current network time protocol (NTP) configuration information.</maml:para>
+                        <maml:para>Gets the current network time protocol (NTP) configuration information.</maml:para>
                     </maml:description>
                     <command:parameterValue required="true" variableLength="False">List[SFConnection]</command:parameterValue>
                     <dev:defaultValue/>
@@ -8426,7 +8426,7 @@ This currently only supports the vvol feature, but it will support others at a l
         <command:details>
             <command:name>Get-SFNvramInfo</command:name>
             <maml:description>
-                <maml:para>GetNvramInfo allows you to retrieve information from each node about the NVRAM card.</maml:para>
+                <maml:para>Gets information from each node about the NVRAM card.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -8581,7 +8581,7 @@ This currently only supports the vvol feature, but it will support others at a l
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>Name</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a pending node name or list of pending node names
+                    <maml:para>Enter a pending node name or list of pending node names.
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">string[]</command:parameterValue>
@@ -8594,7 +8594,7 @@ This currently only supports the vvol feature, but it will support others at a l
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>PendingNodeID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a pending node ID or list of pending node IDs
+                    <maml:para>Enter a pending node ID or list of pending node IDs.
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">long[]</command:parameterValue>
@@ -8703,7 +8703,7 @@ This currently only supports the vvol feature, but it will support others at a l
         <command:details>
             <command:name>Get-SFPendingOperation</command:name>
             <maml:description>
-                <maml:para>[Node] Used to detect an operation on a node that is currently in progress</maml:para>
+                <maml:para>[Node] Detects an operation on a node that is currently in progress.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -8999,7 +8999,7 @@ are returned. Else the supplied protocolEndpointIDs are.</maml:para>
             <dev:version/>
         </command:details>
         <maml:description>
-            <maml:para>Used to retrieve the current list of log servers.</maml:para>
+            <maml:para>Retrieves the current list of log servers.</maml:para>
         </maml:description>
         <command:syntax>
             <command:syntaxItem>
@@ -9007,7 +9007,7 @@ are returned. Else the supplied protocolEndpointIDs are.</maml:para>
                 <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                     <maml:name>Target</maml:name>
                     <maml:description>
-                        <maml:para>Used to retrieve the current list of log servers.</maml:para>
+                        <maml:para>Retrieves the current list of log servers.</maml:para>
                     </maml:description>
                     <command:parameterValue required="true" variableLength="False">List[string]</command:parameterValue>
                     <dev:defaultValue/>
@@ -9015,7 +9015,7 @@ are returned. Else the supplied protocolEndpointIDs are.</maml:para>
                 <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                     <maml:name>SFConnection</maml:name>
                     <maml:description>
-                        <maml:para>Used to retrieve the current list of log servers.</maml:para>
+                        <maml:para>Retrieves the current list of log servers.</maml:para>
                     </maml:description>
                     <command:parameterValue required="true" variableLength="False">List[SFConnection]</command:parameterValue>
                     <dev:defaultValue/>
@@ -9121,7 +9121,7 @@ are returned. Else the supplied protocolEndpointIDs are.</maml:para>
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>ScheduleID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a schedule ID or list of schedule IDs
+                    <maml:para>Enter a schedule ID or list of schedule IDs.
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">long[]</command:parameterValue>
@@ -9298,7 +9298,7 @@ are returned. Else the supplied protocolEndpointIDs are.</maml:para>
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>SnapshotID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a snapshot ID or list of snapshot IDs
+                    <maml:para>Enter a snapshot ID or list of snapshot IDs.
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">long[]</command:parameterValue>
@@ -9311,7 +9311,7 @@ are returned. Else the supplied protocolEndpointIDs are.</maml:para>
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>SnapshotName</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a snapshot name or list of snapshot names
+                    <maml:para>Enter a snapshot name or list of snapshot names.
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">string[]</command:parameterValue>
@@ -9336,7 +9336,7 @@ are returned. Else the supplied protocolEndpointIDs are.</maml:para>
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>Volume</maml:name>
                 <maml:description>
-                    <maml:para>Please specify volume object(s)
+                    <maml:para>Specify volume object(s)
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">Volume[]</command:parameterValue>
@@ -9349,7 +9349,7 @@ are returned. Else the supplied protocolEndpointIDs are.</maml:para>
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>VolumeID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a volume ID or list of volume IDs
+                    <maml:para>Enter a volume ID or list of volume IDs.
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">long[]</command:parameterValue>
@@ -9804,7 +9804,7 @@ are returned. Else the supplied protocolEndpointIDs are.</maml:para>
         <command:details>
             <command:name>Get-SFStorageContainerEfficiency</command:name>
             <maml:description>
-                <maml:para>GetStorageContainerEfficiency enables you to retrieve efficiency information about a virtual volume storage container.</maml:para>
+                <maml:para>Gets efficiency information about a virtual volume storage container.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -10183,7 +10183,7 @@ This object can be piped into many of the existing cmdlets in place of the Stora
         <command:details>
             <command:name>Get-SFTests</command:name>
             <maml:description>
-                <maml:para>[Node] Used to return the tests that are available to run on a node.</maml:para>
+                <maml:para>[Node] Gets the tests that are available to run on a node.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -10259,7 +10259,7 @@ This object can be piped into many of the existing cmdlets in place of the Stora
         <command:details>
             <command:name>Get-SFUtilities</command:name>
             <maml:description>
-                <maml:para>[Node] Used to return the utilities that are available to run on a node.</maml:para>
+                <maml:para>[Node] Gets the utilities that are available to run on a node.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -10450,7 +10450,7 @@ This object can be piped into many of the existing cmdlets in place of the Stora
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>VirtualNetworkID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a VirtualNetworkID or list of VirtualNetworkIDs
+                    <maml:para>Enter a VirtualNetworkID or list of VirtualNetworkIDs.
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">long[]</command:parameterValue>
@@ -10463,7 +10463,7 @@ This object can be piped into many of the existing cmdlets in place of the Stora
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>VirtualNetworkTag</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a VirtualNetworkTag or list of VirtualNetworkTag
+                    <maml:para>Enter a VirtualNetworkTag or list of VirtualNetworkTag.
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">long[]</command:parameterValue>
@@ -10533,7 +10533,7 @@ This object can be piped into many of the existing cmdlets in place of the Stora
         <command:details>
             <command:name>Get-SFVirtualVolumeBinding</command:name>
             <maml:description>
-                <maml:para>ListVirtualVolumeBindings returns a list of VVol bindings.</maml:para>
+                <maml:para>Gets a list of VVol bindings.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -10636,7 +10636,7 @@ This object can be piped into many of the existing cmdlets in place of the Stora
         <command:details>
             <command:name>Get-SFVirtualVolumeCount</command:name>
             <maml:description>
-                <maml:para>Enables retrieval of the number of virtual volumes currently in the system.</maml:para>
+                <maml:para>Gets the number of virtual volumes currently in the system.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -10719,7 +10719,7 @@ This object can be piped into many of the existing cmdlets in place of the Stora
         <command:details>
             <command:name>Get-SFVirtualVolumeHost</command:name>
             <maml:description>
-                <maml:para>ListVirtualVolumeHosts returns a list of known ESX hosts.</maml:para>
+                <maml:para>Gets a list of known ESX hosts.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -10822,7 +10822,7 @@ This object can be piped into many of the existing cmdlets in place of the Stora
         <command:details>
             <command:name>Get-SFVirtualVolume</command:name>
             <maml:description>
-                <maml:para>ListVirtualVolumes enables you to list the virtual volumes currently in the system. You can use this method to list all virtual volumes, or only list a subset.</maml:para>
+                <maml:para>Gets a list of the virtual volumes currently in the system. You can use this method to list all virtual volumes, or only list a subset.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -10832,7 +10832,7 @@ This object can be piped into many of the existing cmdlets in place of the Stora
             <dev:version/>
         </command:details>
         <maml:description>
-            <maml:para>ListVirtualVolumes enables you to list the virtual volumes currently in the system. You can use this method to list all virtual volumes, or only list a subset.</maml:para>
+            <maml:para>Gets a list of the virtual volumes currently in the system. You can use this method to list all virtual volumes, or only list a subset.</maml:para>
         </maml:description>
         <command:syntax>
             <command:syntaxItem>
@@ -10880,7 +10880,7 @@ This object can be piped into many of the existing cmdlets in place of the Stora
                 <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                     <maml:name>Target</maml:name>
                     <maml:description>
-                        <maml:para>ListVirtualVolumes enables you to list the virtual volumes currently in the system. You can use this method to list all virtual volumes, or only list a subset.</maml:para>
+                        <maml:para>Gets a list of the virtual volumes currently in the system. You can use this method to list all virtual volumes, or only list a subset.</maml:para>
                     </maml:description>
                     <command:parameterValue required="true" variableLength="False">List[string]</command:parameterValue>
                     <dev:defaultValue/>
@@ -10888,7 +10888,7 @@ This object can be piped into many of the existing cmdlets in place of the Stora
                 <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                     <maml:name>SFConnection</maml:name>
                     <maml:description>
-                        <maml:para>ListVirtualVolumes enables you to list the virtual volumes currently in the system. You can use this method to list all virtual volumes, or only list a subset.</maml:para>
+                        <maml:para>Gets a list of the virtual volumes currently in the system. You can use this method to list all virtual volumes, or only list a subset.</maml:para>
                     </maml:description>
                     <command:parameterValue required="true" variableLength="False">List[SFConnection]</command:parameterValue>
                     <dev:defaultValue/>
@@ -11011,7 +11011,7 @@ This object can be piped into many of the existing cmdlets in place of the Stora
         <command:details>
             <command:name>Get-SFVirtualVolumeTask</command:name>
             <maml:description>
-                <maml:para>ListVirtualVolumeTasks returns a list of VVol Async Tasks.</maml:para>
+                <maml:para>Gets a list of VVol Async Tasks.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -11268,7 +11268,7 @@ This object can be piped into many of the existing cmdlets in place of the Stora
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>Account</maml:name>
                 <maml:description>
-                    <maml:para>Please specify account(s)
+                    <maml:para>Specify account(s).
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">Account[]</command:parameterValue>
@@ -11281,7 +11281,7 @@ This object can be piped into many of the existing cmdlets in place of the Stora
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>AccountID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter an Account ID or list of Account IDs
+                    <maml:para>Enter an Account ID or list of Account IDs.
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">long[]</command:parameterValue>
@@ -11306,7 +11306,7 @@ This object can be piped into many of the existing cmdlets in place of the Stora
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>Name</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a volume name or list of volume names
+                    <maml:para>Enter a volume name or list of volume names.
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">string[]</command:parameterValue>
@@ -11343,7 +11343,7 @@ This object can be piped into many of the existing cmdlets in place of the Stora
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>VolumeID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a VolumeID or list of VolumeIDs
+                    <maml:para>Enter a VolumeID or list of VolumeIDs.
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">long[]</command:parameterValue>
@@ -11529,7 +11529,7 @@ This object can be piped into many of the existing cmdlets in place of the Stora
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>Name</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a volume name or list of volume names
+                    <maml:para>Enter a volume name or list of volume names.
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">string[]</command:parameterValue>
@@ -11566,7 +11566,7 @@ This object can be piped into many of the existing cmdlets in place of the Stora
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>VolumeAccessGroupID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a volume access group ID or list of volume access group IDs
+                    <maml:para>Enter a volume access group ID or list of volume access group IDs.
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">long[]</command:parameterValue>
@@ -11767,7 +11767,7 @@ Efficiency metrics include:
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>VolumeAccessGroup</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a volume access group
+                    <maml:para>Enter a volume access group
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">VolumeAccessGroup[]</command:parameterValue>
@@ -11780,7 +11780,7 @@ Efficiency metrics include:
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>VolumeAccessGroupID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a volume access group ID
+                    <maml:para>Enter a volume access group ID
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">long[]</command:parameterValue>
@@ -11966,7 +11966,7 @@ To get the most recent metrics prior to a GC event is completed use the -ForceGe
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>VolumeID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a volume ID or list of volume IDs
+                    <maml:para>Enter a volume ID or list of volume IDs
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="False">long</command:parameterValue>
@@ -12029,7 +12029,7 @@ To get the most recent metrics prior to a GC event is completed use the -ForceGe
         <command:details>
             <command:name>Get-SFVolumePair</command:name>
             <maml:description>
-                <maml:para>[Cluster] Used to list all of the active paired volumes paired with a volume.</maml:para>
+                <maml:para>[Cluster] Gets a list of all of the active paired volumes paired with a volume.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -12206,7 +12206,7 @@ this method include volumes with active and pending pairings.</maml:para>
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>AccountID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter an AccountID or list of AccountIDs
+                    <maml:para>Enter an AccountID or list of AccountIDs
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">long[]</command:parameterValue>
@@ -12243,7 +12243,7 @@ this method include volumes with active and pending pairings.</maml:para>
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue)" position="0" aliases="None">
                 <maml:name>VolumeAccessGroupID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a volume access group ID or list of volume access group IDs
+                    <maml:para>Enter a volume access group ID or list of volume access group IDs
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">long[]</command:parameterValue>
@@ -12256,7 +12256,7 @@ this method include volumes with active and pending pairings.</maml:para>
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>VolumeID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a volume ID or list of volume IDs
+                    <maml:para>Enter a volume ID or list of volume IDs
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">long[]</command:parameterValue>
@@ -12358,7 +12358,7 @@ this method include volumes with active and pending pairings.</maml:para>
         <command:details>
             <command:name>Get-SFVolumeStatsByVirtualVolume</command:name>
             <maml:description>
-                <maml:para>A list of virtual volume  IDs for which to retrieve information. If you specify this parameter, the method returns information about only these virtual volumes.</maml:para>
+                <maml:para>Gets a list of virtual volume statistics for any virtual volume in system.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -12368,7 +12368,7 @@ this method include volumes with active and pending pairings.</maml:para>
             <dev:version/>
         </command:details>
         <maml:description>
-            <maml:para>A list of virtual volume  IDs for which to retrieve information. If you specify this parameter, the method returns information about only these virtual volumes.</maml:para>
+            <maml:para>A list of virtual volume  IDs used to retrieve information. If you specify this parameter, the method returns information about only these virtual volumes.</maml:para>
         </maml:description>
         <command:syntax>
             <command:syntaxItem>
@@ -12384,7 +12384,7 @@ this method include volumes with active and pending pairings.</maml:para>
                 <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                     <maml:name>Target</maml:name>
                     <maml:description>
-                        <maml:para>A list of virtual volume  IDs for which to retrieve information. If you specify this parameter, the method returns information about only these virtual volumes.</maml:para>
+                        <maml:para>A list of virtual volume IDs used to retrieve information. If you specify this parameter, the method returns information about only these virtual volumes.</maml:para>
                     </maml:description>
                     <command:parameterValue required="true" variableLength="False">List[string]</command:parameterValue>
                     <dev:defaultValue/>
@@ -12392,7 +12392,7 @@ this method include volumes with active and pending pairings.</maml:para>
                 <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                     <maml:name>SFConnection</maml:name>
                     <maml:description>
-                        <maml:para>A list of virtual volume  IDs for which to retrieve information. If you specify this parameter, the method returns information about only these virtual volumes.</maml:para>
+                        <maml:para>A list of virtual volume IDs used to retrieve information. If you specify this parameter, the method returns information about only these virtual volumes.</maml:para>
                     </maml:description>
                     <command:parameterValue required="true" variableLength="False">List[SFConnection]</command:parameterValue>
                     <dev:defaultValue/>
@@ -12427,7 +12427,7 @@ this method include volumes with active and pending pairings.</maml:para>
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="Named" aliases="None">
                 <maml:name>VirtualVolumeID</maml:name>
                 <maml:description>
-                    <maml:para>A list of virtual volume IDs for which to retrieve information. If you specify this parameter, the method returns information about only these virtual volumes.
+                    <maml:para>A list of virtual volume IDs used to retrieve information. If you specify this parameter, the method returns information about only these virtual volumes.
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">guid[]</command:parameterValue>
@@ -12522,7 +12522,7 @@ This cmdlet can be used against any target node or cluster.</maml:para>
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>Method</maml:name>
                 <maml:description>
-                    <maml:para>Please enter the API Method to call.
+                    <maml:para>Enter the API Method to call.
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="False">string</command:parameterValue>
@@ -12535,7 +12535,7 @@ This cmdlet can be used against any target node or cluster.</maml:para>
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="1" aliases="None">
                 <maml:name>Params</maml:name>
                 <maml:description>
-                    <maml:para>Please enter any parameters to be passed into this API Method in the form of a Hashtable.
+                    <maml:para>Enter any parameters to be passed into this API Method in the form of a Hashtable.
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="False">hashtable</command:parameterValue>
@@ -12703,7 +12703,7 @@ Nested Hashtable Example: @{&quot;NestedObject&quot; = @{&quot;One&quot; = 1; &q
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>VolumeID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a VolumeID for the deleted volume to restore.
+                    <maml:para>Enter a VolumeID for the deleted volume to restore.
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="False">long</command:parameterValue>
@@ -12869,7 +12869,7 @@ NOTE: Rolling back to snapshots creates a snapshot of each volume. Snapshots are
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>GroupSnapshotID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a GroupSnapshotID for the volume to restore.
+                    <maml:para>Enter a GroupSnapshotID for the volume to restore.
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="False">long</command:parameterValue>
@@ -13152,7 +13152,7 @@ NOTE: Creating a snapshot is allowed if cluster fullness is at stage 2 or 3. Sna
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="1" aliases="None">
                 <maml:name>SnapshotID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter the SnapshotID of a previously created snapshot on the given volume.
+                    <maml:para>Enter the SnapshotID of a previously created snapshot on the given volume.
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="False">long</command:parameterValue>
@@ -13177,7 +13177,7 @@ NOTE: Creating a snapshot is allowed if cluster fullness is at stage 2 or 3. Sna
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>VolumeID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a VolumeID for the volume to restore.
+                    <maml:para>Enter a VolumeID for the volume to restore.
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="False">long</command:parameterValue>
@@ -13389,7 +13389,7 @@ Use the Get-SFDrive method to obtain the DriveIDs for the drives you want to sec
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>DriveID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a drive ID or list of drive IDs
+                    <maml:para>Enter a drive ID or list of drive IDs
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">long[]</command:parameterValue>
@@ -15156,9 +15156,8 @@ Note: Snapshots are not created when cluster fullness is at stage 4 or 5.  You c
         <command:details>
             <command:name>New-SFInitiator</command:name>
             <maml:description>
-                <maml:para>CreateInitiators enables you to create multiple new initiator IQNs or World Wide Port Names (WWPNs) and optionally assign them aliases and attributes. When you use CreateInitiators to create new initiators, you can also add them to volume access groups.
+                <maml:para>Creates multiple new initiator IQNs or World Wide Port Names (WWPNs) and optionally assigns them aliases and attributes. 
 </maml:para>
-                <maml:para>If CreateInitiators fails to create one of the initiators provided in the parameter, the method returns an error and does not create any initiators (no partial completion is possible).</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -16352,7 +16351,7 @@ Note: Snapshots are not created when cluster fullness is at stage 4 or 5.  You c
         <command:details>
             <command:name>New-SFStorageContainer</command:name>
             <maml:description>
-                <maml:para>This allows you to make a new storage container.</maml:para>
+                <maml:para>Creates a new storage container.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -16362,9 +16361,9 @@ Note: Snapshots are not created when cluster fullness is at stage 4 or 5.  You c
             <dev:version/>
         </command:details>
         <maml:description>
-            <maml:para>This allows you to make a new storage container.
+            <maml:para>Creates a new storage container.
 </maml:para>
-            <maml:para>To make a new storage container, you need only a name. Everythign else will be populated for you. Alternatively, you can provide a CallingHostID in order to transform soemthing else into a storage container.</maml:para>
+            <maml:para>To make a new storage container, you need only a name. Everything else will be populated for you. Alternatively, you can provide a CallingHostID in order to transform something else into a storage container.</maml:para>
         </maml:description>
         <command:syntax>
             <command:syntaxItem>
@@ -16396,8 +16395,8 @@ Note: Snapshots are not created when cluster fullness is at stage 4 or 5.  You c
                 <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                     <maml:name>Target</maml:name>
                     <maml:description>
-                        <maml:para>This allows you to make a new storage container.
-To make a new storage container, you need only a name. Everythign else will be populated for you. Alternatively, you can provide a CallingHostID in order to transform soemthing else into a storage container.</maml:para>
+                        <maml:para>Creates a new storage container.
+To make a new storage container, you need only a name. Everything else will be populated for you. Alternatively, you can provide a CallingHostID in order to transform something else into a storage container.</maml:para>
                     </maml:description>
                     <command:parameterValue required="true" variableLength="False">List[string]</command:parameterValue>
                     <dev:defaultValue/>
@@ -17660,7 +17659,7 @@ Note that this volume access group contains no volumes or initiators at this poi
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>Account</maml:name>
                 <maml:description>
-                    <maml:para>Please enter an account ID
+                    <maml:para>Enter an account ID
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">Account[]</command:parameterValue>
@@ -17673,7 +17672,7 @@ Note that this volume access group contains no volumes or initiators at this poi
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>AccountID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter an account ID
+                    <maml:para>Enter an account ID
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">long[]</command:parameterValue>
@@ -18257,7 +18256,7 @@ Note that this volume access group contains no volumes or initiators at this poi
         <command:details>
             <command:name>Remove-SFClusterPair</command:name>
             <maml:description>
-                <maml:para>[Cluster] Used to disconnect the open connections between two clusters created by cluster pairing.</maml:para>
+                <maml:para>[Cluster] Disconnects the open connections between two clusters created by cluster pairing.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -18868,7 +18867,7 @@ Use the Get-SFDrive method to obtain the DriveIDs for the drives you want to rem
             <command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>DriveID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a drive ID or list of drive IDs
+                    <maml:para>Enter a drive ID or list of drive IDs
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">long[]</command:parameterValue>
@@ -19156,7 +19155,7 @@ Note: The default behavior is to remove both the group snapshot and the individu
         <command:details>
             <command:name>Remove-SFInitiator</command:name>
             <maml:description>
-                <maml:para>DeleteInitiators enables you to delete one or more initiators from the system (and from any associated volumes or volume access groups).
+                <maml:para>Deletes one or more initiators from the system (and from any associated volumes or volume access groups).
 </maml:para>
                 <maml:para>If DeleteInitiators fails to delete one of the initiators provided in the parameter, the system returns an error and does not delete any initiators (no partial completion is possible).</maml:para>
             </maml:description>
@@ -19479,7 +19478,7 @@ SolidFire.Element.Api.Initiator[]</maml:name>
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>VolumeAccessGroupID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a volume access group ID or list of volume access group IDs
+                    <maml:para>Enter a volume access group ID or list of volume access group IDs
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="False">long</command:parameterValue>
@@ -20168,7 +20167,7 @@ Once removed, a node registers itself as a pending node and can be added again, 
         <command:details>
             <command:name>Remove-SFStorageContainer</command:name>
             <maml:description>
-                <maml:para>This allows you to remove a storage container by providing an ID.</maml:para>
+                <maml:para>Removes a storage container when you provide an ID.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -20450,7 +20449,7 @@ The cmdlet allows for piping of multiple IDs as well. To get these IDs, use Get-
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>VirtualNetworkID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a VirtualNetworkID to remove.
+                    <maml:para>Enter a VirtualNetworkID to remove.
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="False">long</command:parameterValue>
@@ -20463,7 +20462,7 @@ The cmdlet allows for piping of multiple IDs as well. To get these IDs, use Get-
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="false" position="0" aliases="None">
                 <maml:name>VirtualNetworkTag</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a VirtualNetworkTag to remove.
+                    <maml:para>Enter a VirtualNetworkTag to remove.
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="False">long</command:parameterValue>
@@ -20658,7 +20657,7 @@ If the volume you delete is paired with a volume, replication between the paired
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>VolumeID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a volume ID
+                    <maml:para>Enter a volume ID
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">long[]</command:parameterValue>
@@ -21008,7 +21007,7 @@ If the volume you delete is paired with a volume, replication between the paired
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>VolumeAccessGroupID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a volume access group ID or list of volume access group IDs
+                    <maml:para>Enter a volume access group ID or list of volume access group IDs
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="False">long</command:parameterValue>
@@ -21097,7 +21096,7 @@ If the volume you delete is paired with a volume, replication between the paired
         <command:details>
             <command:name>Remove-SFVolumePair</command:name>
             <maml:description>
-                <maml:para>[Cluster] Used to remove the remote pairing between two volumes.</maml:para>
+                <maml:para>[Cluster] Removes the remote pairing between two volumes.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -21935,7 +21934,7 @@ Note: Changing the password on the account currently being used to connect to th
         <command:details>
             <command:name>Set-SFClusterFullThreshold</command:name>
             <maml:description>
-                <maml:para>[Cluster] Used to change the level at which an event is generated when the storage cluster approaches the capacity utilization requested.</maml:para>
+                <maml:para>[Cluster] Changes the level at which an event is generated when the storage cluster approaches the capacity utilization requested.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -22150,7 +22149,7 @@ Note: Changing the password on the account currently being used to connect to th
         <command:details>
             <command:name>Set-SFDefaultQoS</command:name>
             <maml:description>
-                <maml:para>SetDefaultQoS enables you to configure the default Quality of Service (QoS) values (measured in inputs and outputs per second, or IOPS) for all volumes not yet created.</maml:para>
+                <maml:para>Sets the default Quality of Service (QoS) values (measured in inputs and outputs per second, or IOPS) for all volumes not yet created.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -22488,9 +22487,7 @@ Note: Changing the password on the account currently being used to connect to th
         <command:details>
             <command:name>Set-SFInitiator</command:name>
             <maml:description>
-                <maml:para>ModifyInitiators enables you to change the attributes of an existing initiator. You cannot change the name of an existing initiator. If you need to change the name of an initiator, delete the existing initiator with DeleteInitiators and create a new one with CreateInitiators.
-</maml:para>
-                <maml:para>If ModifyInitiators fails to change one of the initiators provided in the parameter, the method returns an error and does not create any initiators (no partial completion is possible).</maml:para>
+                <maml:para>Sets the attributes of an existing initiator. </maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -22500,7 +22497,7 @@ Note: Changing the password on the account currently being used to connect to th
             <dev:version/>
         </command:details>
         <maml:description>
-            <maml:para>ModifyInitiators enables you to change the attributes of an existing initiator. You cannot change the name of an existing initiator. If you need to change the name of an initiator, delete the existing initiator with DeleteInitiators and create a new one with CreateInitiators.
+            <maml:para>Set-SFInitiator enables you to change the attributes of an existing initiator. You cannot change the name of an existing initiator. If you need to change the name of an initiator, delete the existing initiator with DeleteInitiators and create a new one with CreateInitiators.
 </maml:para>
             <maml:para>If ModifyInitiators fails to change one of the initiators provided in the parameter, the method returns an error and does not create any initiators (no partial completion is possible).</maml:para>
         </maml:description>
@@ -23043,7 +23040,7 @@ If disabling, this method will disable LDAP authentication and remove all LDAP c
         <command:details>
             <command:name>Set-SFLoginSessionInfo</command:name>
             <maml:description>
-                <maml:para>[Cluster] Used to configure remote logging from the nodes in the storage cluster to a centralized log server or servers</maml:para>
+                <maml:para>[Cluster] Sets remote logging from the nodes in the storage cluster to a centralized log server or servers.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -23338,7 +23335,7 @@ Caution: If a LUN assignment is changed for a volume with active I/O, the I/O co
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="1" aliases="None">
                 <maml:name>LunAssignment</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a LunAssignment
+                    <maml:para>Enter a LunAssignment
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="True">LunAssignment[]</command:parameterValue>
@@ -23375,7 +23372,7 @@ Caution: If a LUN assignment is changed for a volume with active I/O, the I/O co
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>VolumeAccessGroup</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a volume access group
+                    <maml:para>Enter a volume access group
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="False">VolumeAccessGroup</command:parameterValue>
@@ -23388,7 +23385,7 @@ Caution: If a LUN assignment is changed for a volume with active I/O, the I/O co
             <command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue, ByPropertyName)" position="0" aliases="None">
                 <maml:name>VolumeAccessGroupID</maml:name>
                 <maml:description>
-                    <maml:para>Please enter a volume access group ID
+                    <maml:para>Enter a volume access group ID
 </maml:para>
                 </maml:description>
                 <command:parameterValue required="true" variableLength="False">long</command:parameterValue>
@@ -24015,7 +24012,7 @@ WARNING! Changing the IP Address on a node can cause a loss of network connectiv
         <command:details>
             <command:name>Set-SFRemoteLoggingHost</command:name>
             <maml:description>
-                <maml:para>[Cluster] Used to configure remote logging from the nodes in the storage cluster to a centralized log server or servers</maml:para>
+                <maml:para>[Cluster] Configures remote logging from the nodes in the storage cluster to a centralized log server or servers.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -25877,7 +25874,7 @@ Set-SFVirtualNetwork -VirtualNetworkID $origVN.VirtualNetworkID -AddressBlocks $
         <command:details>
             <command:name>Set-SFVolume</command:name>
             <maml:description>
-                <maml:para>[Cluster] Configures settings of an existing volume.</maml:para>
+                <maml:para>[Cluster] Modifies settings of an existing volume.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -26755,7 +26752,7 @@ To add or remove volumes in a volume access group use CmdLets:
         <command:details>
             <command:name>Set-SFVolumePair</command:name>
             <maml:description>
-                <maml:para>[Cluster] Used to pause or restart replication between a pair of volumes.</maml:para>
+                <maml:para>[Cluster] Pauses or restarts replication between a pair of volumes.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -26929,7 +26926,7 @@ To add or remove volumes in a volume access group use CmdLets:
         <command:details>
             <command:name>Start-SFClusterPairing</command:name>
             <maml:description>
-                <maml:para>[Cluster] Used to create an encoded key from a cluster that is used to pair with another cluster.</maml:para>
+                <maml:para>[Cluster] Creates an encoded key from a cluster that is used to pair with another cluster.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -26939,7 +26936,7 @@ To add or remove volumes in a volume access group use CmdLets:
             <dev:version/>
         </command:details>
         <maml:description>
-            <maml:para>Used to create an encoded key from a cluster that is used to pair with another cluster. The key created from this API method is used in the CompleteClusterPairing API method to establish a cluster pairing. A cluster can be paired with a maximum of four other SolidFire clusters.</maml:para>
+            <maml:para>Creates an encoded key from a cluster that is used to pair with another cluster. The key created from this API method is used in the CompleteClusterPairing API method to establish a cluster pairing. A cluster can be paired with a maximum of four other SolidFire clusters.</maml:para>
         </maml:description>
         <command:syntax>
             <command:syntaxItem>
@@ -26947,7 +26944,7 @@ To add or remove volumes in a volume access group use CmdLets:
                 <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                     <maml:name>Target</maml:name>
                     <maml:description>
-                        <maml:para>Used to create an encoded key from a cluster that is used to pair with another cluster. The key created from this API method is used in the CompleteClusterPairing API method to establish a cluster pairing. A cluster can be paired with a maximum of four other SolidFire clusters.</maml:para>
+                        <maml:para>Creates an encoded key from a cluster that is used to pair with another cluster. The key created from this API method is used in the CompleteClusterPairing API method to establish a cluster pairing. A cluster can be paired with a maximum of four other SolidFire clusters.</maml:para>
                     </maml:description>
                     <command:parameterValue required="true" variableLength="False">List[string]</command:parameterValue>
                     <dev:defaultValue/>
@@ -26955,7 +26952,7 @@ To add or remove volumes in a volume access group use CmdLets:
                 <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                     <maml:name>SFConnection</maml:name>
                     <maml:description>
-                        <maml:para>Used to create an encoded key from a cluster that is used to pair with another cluster. The key created from this API method is used in the CompleteClusterPairing API method to establish a cluster pairing. A cluster can be paired with a maximum of four other SolidFire clusters.</maml:para>
+                        <maml:para>Creates an encoded key from a cluster that is used to pair with another cluster. The key created from this API method is used in the CompleteClusterPairing API method to establish a cluster pairing. A cluster can be paired with a maximum of four other SolidFire clusters.</maml:para>
                     </maml:description>
                     <command:parameterValue required="true" variableLength="False">List[SFConnection]</command:parameterValue>
                     <dev:defaultValue/>
@@ -27004,7 +27001,7 @@ To add or remove volumes in a volume access group use CmdLets:
         <command:details>
             <command:name>Start-SFVolumeBackup</command:name>
             <maml:description>
-                <maml:para>[Cluster] Used to initialize a backup (aka: bulk volume read) session on a specified volume.</maml:para>
+                <maml:para>[Cluster] Initializes a backup (also known as a bulk volume read) session on a specified volume.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -27167,7 +27164,7 @@ Note: This process creates a new snapshot if the ID of an existing snapshot is n
         <command:details>
             <command:name>Start-SFVolumePairing</command:name>
             <maml:description>
-                <maml:para>[Cluster] Used to create an encoded key from a volume that is used to pair with another volume.</maml:para>
+                <maml:para>[Cluster] Creates an encoded key from a volume that is used to pair with another volume.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -27177,7 +27174,7 @@ Note: This process creates a new snapshot if the ID of an existing snapshot is n
             <dev:version/>
         </command:details>
         <maml:description>
-            <maml:para>Used to create an encoded key from a volume that is used to pair with another volume. The key created from this API method is used in the CompleteVolumePairing API method to establish a volume pairing.</maml:para>
+            <maml:para>Creates an encoded key from a volume that is used to pair with another volume. The key created from this API method is used in the CompleteVolumePairing API method to establish a volume pairing.</maml:para>
         </maml:description>
         <command:syntax>
             <command:syntaxItem>
@@ -27201,7 +27198,7 @@ Note: This process creates a new snapshot if the ID of an existing snapshot is n
                 <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                     <maml:name>Target</maml:name>
                     <maml:description>
-                        <maml:para>Used to create an encoded key from a volume that is used to pair with another volume. The key created from this API method is used in the CompleteVolumePairing API method to establish a volume pairing.</maml:para>
+                        <maml:para>Creates an encoded key from a volume that is used to pair with another volume. The key created from this API method is used in the CompleteVolumePairing API method to establish a volume pairing.</maml:para>
                     </maml:description>
                     <command:parameterValue required="true" variableLength="False">List[string]</command:parameterValue>
                     <dev:defaultValue/>
@@ -27209,7 +27206,7 @@ Note: This process creates a new snapshot if the ID of an existing snapshot is n
                 <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                     <maml:name>SFConnection</maml:name>
                     <maml:description>
-                        <maml:para>Used to create an encoded key from a volume that is used to pair with another volume. The key created from this API method is used in the CompleteVolumePairing API method to establish a volume pairing.</maml:para>
+                        <maml:para>Creates an encoded key from a volume that is used to pair with another volume. The key created from this API method is used in the CompleteVolumePairing API method to establish a volume pairing.</maml:para>
                     </maml:description>
                     <command:parameterValue required="true" variableLength="False">List[SFConnection]</command:parameterValue>
                     <dev:defaultValue/>
@@ -27284,7 +27281,7 @@ Note: This process creates a new snapshot if the ID of an existing snapshot is n
         <command:details>
             <command:name>Start-SFVolumeRestore</command:name>
             <maml:description>
-                <maml:para>[Cluster] Used to initialize a restore (aka: bulk volume write) session on a specified volume.</maml:para>
+                <maml:para>[Cluster] Initializes a restore (also known as a bulk volume write) session on a specified volume.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -27566,7 +27563,7 @@ Note: This process creates a new snapshot if the ID of an existing snapshot is n
         <command:details>
             <command:name>Stop-SFGroupClone</command:name>
             <maml:description>
-                <maml:para>CancelGroupClone enables you to stop an ongoing CloneMultipleVolumes process for a group of clones. When you cancel a group clone operation, the system completes and removes the operation&apos;s associated asyncHandle. This method does not return anything.</maml:para>
+                <maml:para>Stops an ongoing CloneMultipleVolumes process for a group of clones.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -27592,7 +27589,7 @@ Note: This process creates a new snapshot if the ID of an existing snapshot is n
                 <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                     <maml:name>Target</maml:name>
                     <maml:description>
-                        <maml:para>CancelGroupClone enables you to stop an ongoing CloneMultipleVolumes process for a group of clones. When you cancel a group clone operation, the system completes and removes the operation&amp;apos;s associated asyncHandle. This method does not return anything.</maml:para>
+                        <maml:para>Stops an ongoing CloneMultipleVolumes process for a group of clones. When you cancel a group clone operation, the system completes and removes the operation&amp;apos;s associated asyncHandle. This method does not return anything.</maml:para>
                     </maml:description>
                     <command:parameterValue required="true" variableLength="False">List[string]</command:parameterValue>
                     <dev:defaultValue/>
@@ -27600,7 +27597,7 @@ Note: This process creates a new snapshot if the ID of an existing snapshot is n
                 <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                     <maml:name>SFConnection</maml:name>
                     <maml:description>
-                        <maml:para>CancelGroupClone enables you to stop an ongoing CloneMultipleVolumes process for a group of clones. When you cancel a group clone operation, the system completes and removes the operation&amp;apos;s associated asyncHandle. This method does not return anything.</maml:para>
+                        <maml:para>Stops an ongoing CloneMultipleVolumes process for a group of clones. When you cancel a group clone operation, the system completes and removes the operation&amp;apos;s associated asyncHandle. This method does not return anything.</maml:para>
                     </maml:description>
                     <command:parameterValue required="true" variableLength="False">List[SFConnection]</command:parameterValue>
                     <dev:defaultValue/>
@@ -27674,7 +27671,7 @@ Note: This process creates a new snapshot if the ID of an existing snapshot is n
         <command:details>
             <command:name>Test-SFConnectEnsemble</command:name>
             <maml:description>
-                <maml:para>[Node] Used to verify connectivity with a sepcified database ensemble.</maml:para>
+                <maml:para>[Node] Verifies connectivity with a specified database ensemble.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -27684,7 +27681,7 @@ Note: This process creates a new snapshot if the ID of an existing snapshot is n
             <dev:version/>
         </command:details>
         <maml:description>
-            <maml:para>Used to verify connectivity with a sepcified database ensemble. By default it uses the ensemble for the cluster the node is associated with. Alternatively you can provide a different ensemble to test connectivity with.</maml:para>
+            <maml:para>Verifies connectivity with a specified database ensemble. By default it uses the ensemble for the cluster the node is associated with. Alternatively you can provide a different ensemble to test connectivity with.</maml:para>
         </maml:description>
         <command:syntax>
             <command:syntaxItem>
@@ -27700,7 +27697,7 @@ Note: This process creates a new snapshot if the ID of an existing snapshot is n
                 <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                     <maml:name>Target</maml:name>
                     <maml:description>
-                        <maml:para>Used to verify connectivity with a sepcified database ensemble. By default it uses the ensemble for the cluster the node is associated with. Alternatively you can provide a different ensemble to test connectivity with.</maml:para>
+                        <maml:para>Verifies connectivity with a specified database ensemble. By default it uses the ensemble for the cluster the node is associated with. Alternatively you can provide a different ensemble to test connectivity with.</maml:para>
                     </maml:description>
                     <command:parameterValue required="true" variableLength="False">List[string]</command:parameterValue>
                     <dev:defaultValue/>
@@ -27708,7 +27705,7 @@ Note: This process creates a new snapshot if the ID of an existing snapshot is n
                 <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                     <maml:name>SFConnection</maml:name>
                     <maml:description>
-                        <maml:para>Used to verify connectivity with a sepcified database ensemble. By default it uses the ensemble for the cluster the node is associated with. Alternatively you can provide a different ensemble to test connectivity with.</maml:para>
+                        <maml:para>Verifies connectivity with a specified database ensemble. By default it uses the ensemble for the cluster the node is associated with. Alternatively you can provide a different ensemble to test connectivity with.</maml:para>
                     </maml:description>
                     <command:parameterValue required="true" variableLength="False">List[SFConnection]</command:parameterValue>
                     <dev:defaultValue/>
@@ -27770,7 +27767,7 @@ Note: This process creates a new snapshot if the ID of an existing snapshot is n
         <command:details>
             <command:name>Test-SFConnectMvip</command:name>
             <maml:description>
-                <maml:para>[Node] Used to test the management connection to the cluster. The test pings the MVIP and executes a simple API method to verify connectivity.</maml:para>
+                <maml:para>[Node] Tests the management connection to the cluster. The test pings the MVIP and executes a simple API method to verify connectivity.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -27780,7 +27777,7 @@ Note: This process creates a new snapshot if the ID of an existing snapshot is n
             <dev:version/>
         </command:details>
         <maml:description>
-            <maml:para>The TestConnectMvip API method is used to test the management connection to the cluster. The test pings the MVIP and executes a simple API method to verify connectivity.</maml:para>
+            <maml:para>Tests the management connection to the cluster. The test pings the MVIP and executes a simple API method to verify connectivity.</maml:para>
             <maml:para>&lt;br/&gt;&lt;b&gt;Note&lt;/b&gt;: This method is available only through the per-node API endpoint 5.0 or later.</maml:para>
         </maml:description>
         <command:syntax>
@@ -27797,7 +27794,7 @@ Note: This process creates a new snapshot if the ID of an existing snapshot is n
                 <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                     <maml:name>Target</maml:name>
                     <maml:description>
-                        <maml:para>The TestConnectMvip API method is used to test the management connection to the cluster. The test pings the MVIP and executes a simple API method to verify connectivity.&amp;lt;br/&amp;gt;&amp;lt;b&amp;gt;Note&amp;lt;/b&amp;gt;: This method is available only through the per-node API endpoint 5.0 or later.</maml:para>
+                        <maml:para>Tests the the management connection to the cluster. The test pings the MVIP and executes a simple API method to verify connectivity.&amp;lt;br/&amp;gt;&amp;lt;b&amp;gt;Note&amp;lt;/b&amp;gt;: This method is available only through the per-node API endpoint 5.0 or later.</maml:para>
                     </maml:description>
                     <command:parameterValue required="true" variableLength="False">List[string]</command:parameterValue>
                     <dev:defaultValue/>
@@ -27805,7 +27802,7 @@ Note: This process creates a new snapshot if the ID of an existing snapshot is n
                 <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                     <maml:name>SFConnection</maml:name>
                     <maml:description>
-                        <maml:para>The TestConnectMvip API method is used to test the management connection to the cluster. The test pings the MVIP and executes a simple API method to verify connectivity.&amp;lt;br/&amp;gt;&amp;lt;b&amp;gt;Note&amp;lt;/b&amp;gt;: This method is available only through the per-node API endpoint 5.0 or later.</maml:para>
+                        <maml:para>Tests the management connection to the cluster. The test pings the MVIP and executes a simple API method to verify connectivity.&amp;lt;br/&amp;gt;&amp;lt;b&amp;gt;Note&amp;lt;/b&amp;gt;: This method is available only through the per-node API endpoint 5.0 or later.</maml:para>
                     </maml:description>
                     <command:parameterValue required="true" variableLength="False">List[SFConnection]</command:parameterValue>
                     <dev:defaultValue/>
@@ -27867,7 +27864,7 @@ Note: This process creates a new snapshot if the ID of an existing snapshot is n
         <command:details>
             <command:name>Test-SFConnectSvip</command:name>
             <maml:description>
-                <maml:para>[Node] Used to test the storage connection to the cluster. The test pings the SVIP and executes a simple API method to verify connectivity.</maml:para>
+                <maml:para>[Node] Tests the storage connection to the cluster. The test pings the SVIP and executes a simple API method to verify connectivity.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
@@ -27877,7 +27874,7 @@ Note: This process creates a new snapshot if the ID of an existing snapshot is n
             <dev:version/>
         </command:details>
         <maml:description>
-            <maml:para>The TestConnectSvip API method is used to test the storage connection to the cluster. The test pings the SVIP using ICMP packets and when successful connects as an iSCSI initiator.</maml:para>
+            <maml:para>Tests the storage connection to the cluster. The test pings the SVIP using ICMP packets and when successful connects as an iSCSI initiator.</maml:para>
             <maml:para>&lt;br/&gt;&lt;b&gt;Note&lt;/b&gt;: This method is available only through the per-node API endpoint 5.0 or later.</maml:para>
         </maml:description>
         <command:syntax>
@@ -27894,7 +27891,7 @@ Note: This process creates a new snapshot if the ID of an existing snapshot is n
                 <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                     <maml:name>Target</maml:name>
                     <maml:description>
-                        <maml:para>The TestConnectSvip API method is used to test the storage connection to the cluster. The test pings the SVIP using ICMP packets and when successful connects as an iSCSI initiator.&amp;lt;br/&amp;gt;&amp;lt;b&amp;gt;Note&amp;lt;/b&amp;gt;: This method is available only through the per-node API endpoint 5.0 or later.</maml:para>
+                        <maml:para>Tests the storage connection to the cluster. The test pings the SVIP using ICMP packets and when successful connects as an iSCSI initiator.&amp;lt;br/&amp;gt;&amp;lt;b&amp;gt;Note&amp;lt;/b&amp;gt;: This method is available only through the per-node API endpoint 5.0 or later.</maml:para>
                     </maml:description>
                     <command:parameterValue required="true" variableLength="False">List[string]</command:parameterValue>
                     <dev:defaultValue/>
@@ -27902,7 +27899,7 @@ Note: This process creates a new snapshot if the ID of an existing snapshot is n
                 <command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
                     <maml:name>SFConnection</maml:name>
                     <maml:description>
-                        <maml:para>The TestConnectSvip API method is used to test the storage connection to the cluster. The test pings the SVIP using ICMP packets and when successful connects as an iSCSI initiator.&amp;lt;br/&amp;gt;&amp;lt;b&amp;gt;Note&amp;lt;/b&amp;gt;: This method is available only through the per-node API endpoint 5.0 or later.</maml:para>
+                        <maml:para>Tests the storage connection to the cluster. The test pings the SVIP using ICMP packets and when successful connects as an iSCSI initiator.&amp;lt;br/&amp;gt;&amp;lt;b&amp;gt;Note&amp;lt;/b&amp;gt;: This method is available only through the per-node API endpoint 5.0 or later.</maml:para>
                     </maml:description>
                     <command:parameterValue required="true" variableLength="False">List[SFConnection]</command:parameterValue>
                     <dev:defaultValue/>
@@ -28102,7 +28099,7 @@ Note: This process creates a new snapshot if the ID of an existing snapshot is n
         <command:details>
             <command:name>Test-SFPing</command:name>
             <maml:description>
-                <maml:para>[Node] Used to validate the connection to all nodes in the cluster on both 1G and 10G interfaces using ICMP packets.</maml:para>
+                <maml:para>[Node] Validates the connection to all nodes in the cluster on both 1G and 10G interfaces using ICMP packets.</maml:para>
             </maml:description>
             <maml:copyright>
                 <maml:para/>
