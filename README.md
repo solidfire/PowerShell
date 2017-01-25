@@ -21,7 +21,7 @@ The SolidFire Powershell Module can be installed on the following systems:
 | Linux (Ubuntu/Centos)     | [Instructions](docs/linux/README.md)      |
 | Docker                    | [Instructions](docs/docker/README.md)     |
 
-[V1.3 Release Notes](https://github.com/solidfire/PowerShell/blob/master/Install/SolidFire%20PowerShell%20Tools%20Release%20Notes%20v1.3.pdf)
+[V1.3 Release Notes](https://github.com/solidfire/PowerShell/blob/master/Install/NetApp_SolidFire_PowerShell_Tools_Release_Notes_v1.3.pdf)
 
 ## Getting Started
 Files located in the [Getting Started](https://github.com/solidfire/PowerShell/blob/master/Getting%20Started) directory provide a self-paced lab guide providing basic functionality to get started.
