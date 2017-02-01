@@ -1,6 +1,6 @@
 # SolidFire PowerShell Tools
 
-### Version 1.3 (github)
+### Version 1.3.1.4 (github)
 
 ![logo](docs/product.png)
 
@@ -21,7 +21,7 @@ The SolidFire Powershell Module can be installed on the following systems:
 | Linux (Ubuntu/Centos)     | [Instructions](docs/linux/README.md)      |
 | Docker                    | [Instructions](docs/docker/README.md)     |
 
-[V1.3 Release Notes](https://github.com/solidfire/PowerShell/blob/master/Install/NetApp_SolidFire_PowerShell_Tools_Release_Notes_v1.3.pdf)
+[V1.3.1.4 Release Notes](https://github.com/solidfire/PowerShell/blob/master/Install/NetApp_SolidFire_PowerShell_Tools_v1_3_1_4_Release_Notes.pdf)
 
 ## Getting Started
 Files located in the [Getting Started](https://github.com/solidfire/PowerShell/blob/master/Getting%20Started) directory provide a self-paced lab guide providing basic functionality to get started.
@@ -48,10 +48,11 @@ If you have any questions or comments about this product, open an issue on our [
 
 | Version      | Release Date   |
 |--------------|----------------|
-| 1.3.0.124    | 25-JAN-2017 	  | 
+| 1.3.1.4      | 01-FEB-2017    |
+| 1.3.0.124    | 25-JAN-2017    |
 | 1.2.1.1      | 26-MAY-2016    |
 | 1.2.0.37     | 22-MAR-2016    |
-| 1.1.0.37     | 17-DEC-2015    |   
+| 1.1.0.37     | 17-DEC-2015    |
 
 ## Archive
 Previous versions of SolidFire PowerShell Tools can be found in the [archive](https://github.com/solidfire/PowerShell/tree/master/Install/Archive).
