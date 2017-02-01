@@ -92,9 +92,9 @@ sudo yum remove powershell
 
         mkdir -p /usr/local/share/powershell/Modules/SolidFire
 
-1. Download the SolidFire Powershell Module dlls from Jenkins (NOTE: must be on NetApp VPN while we're in alpha testing phase):
+1. Download the SolidFire Powershell Module dlls from Github:
 
-        cd /usr/local/share/powershell/Modules/SolidFire && curl --remote-name-all  https://raw.githubusercontent.com/solidfire/PowerShell/release1.3/packages/SolidFire.SDK.dll https://raw.githubusercontent.com/solidfire/PowerShell/release1.3/packages/Newtonsoft.Json.dll https://raw.githubusercontent.com/solidfire/PowerShell/release1.3/packages/SolidFire.dll https://raw.githubusercontent.com/solidfire/PowerShell/release1.3/packages/SolidFire.psd1 https://raw.githubusercontent.com/solidfire/PowerShell/release1.3/packages/Initialize-SFEnvironment.ps1 https://raw.githubusercontent.com/solidfire/PowerShell/release1.3/packages/SolidFire.dll-help.xml >/dev/null && cd -
+	cd /usr/local/share/powershell/Modules/SolidFire && curl --remote-name-all  https://raw.githubusercontent.com/solidfire/PowerShell/master/packages/SolidFire.SDK.dll https://raw.githubusercontent.com/solidfire/PowerShell/master/packages/Newtonsoft.Json.dll https://raw.githubusercontent.com/solidfire/PowerShell/master/packages/SolidFire.dll https://raw.githubusercontent.com/solidfire/PowerShell/master/packages/SolidFire.psd1 https://raw.githubusercontent.com/solidfire/PowerShell/master/packages/Initialize-SFEnvironment.ps1 https://raw.githubusercontent.com/solidfire/PowerShell/master/packages/SolidFire.dll-help.xml >/dev/null && cd -
    
 1. [OPTIONAL but recommended] Setup the SolidFire PowerShell initializer script:
 
