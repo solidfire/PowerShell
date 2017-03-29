@@ -1,4 +1,4 @@
-﻿#Create SolidFire volumes
+#Create SolidFire volumes
 
 #Collect credentials for connecting to SolidFire
 $creds = Get-Credential
@@ -13,7 +13,7 @@ $acct = Get-SFAccount -AccountID 1
 $vols = 1..20
 $vols = $vols | ForEach-Object {$_.ToString("00")}
 
-$vols | %{New-SFVolume -AccountID 1 -Name “pvs-desktop$_” -TotalSize 1000 -GiB -Enable512e:$false -miniops 2500 -maxiops 25000 -burstiops 25000; start-sleep -s 5}
+$vols | %{New-SFVolume -AccountID 1 -Name "pvs-desktop$_" -TotalSize 1000 -GiB -Enable512e:$false -miniops 2500 -maxiops 25000 -burstiops 25000; start-sleep -s 5}
 
 #Add volumes to volume access group
 $acct | Get-SFVolume | Add-SFVolumeToVolumeAccessGroup -VolumeAccessGroupID 1
