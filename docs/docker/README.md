@@ -14,6 +14,10 @@ Using a terminal, pull and run the latest SolidFire PowerShell image from our pu
 
 This will download that SolidFire Docker image, start a new container, and open a PowerShell shell from your terminal with the SolidFire module loaded and ready. 
 
-**NOTE:** Any scripts in your host's pwd* will be available at `/scripts` once you are in the powershell shell.
+**NOTE:** Any scripts in your host's pwd* will be available at `/scripts` once you are in the ?owerShell shell.
 
 *Present Working Directory
+
+**ProTip:**
+You can change the mounted directory for `/scripts` by modifying the left side of the ':'. Use " " when a space exists in the path.
+Ex: `docker run -it -v "/Users/<username>/Documents/Github/":/scripts netapp/solidfire-powershell`
