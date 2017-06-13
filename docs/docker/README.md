@@ -1,12 +1,12 @@
-# To install SolidFire PowerShell as Docker container:
+#To install SolidFire Powershell as Docker container:
 
-![solidfire-powershell-logo](../../docs/product.png) ![docker-logo](docker-logo-small.png)
+![solidfire-powershell-logo](../../Installer/product.png) ![docker-logo](docker-logo-small.png)
 
-### Prerequisite: 
+###Prerequisite: 
 
 You must have Docker engine installed and running on your host machine.  [Install the latest docker engine](https://www.docker.com/products/overview)
 
-### Run the SolidFire Powershell Container:
+###Run the SolidFire Powershell Container:
 
 Using a terminal, pull and run the latest SolidFire PowerShell image from our public Docker repo with this command:
 
