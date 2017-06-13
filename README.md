@@ -2,7 +2,7 @@
 
 ### Version 1.4 (bitbucket)
 
-![logo](Installerer/product.png)
+![logo](Install/product.png)
 
 ## Description
 

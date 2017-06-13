@@ -1,6 +1,6 @@
 # Install SolidFire PowerShell on Mac OS 10.11
 
-![solidfire-powershell-logo](../../Installer/product.png) ![apple-logo](apple-logo-small.png)
+![solidfire-powershell-logo](../../Install/product.png) ![apple-logo](apple-logo-small.png)
 
 ## Installation Instructions
 

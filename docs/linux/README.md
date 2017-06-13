@@ -1,6 +1,6 @@
 # Install SolidFire PowerShell on Linux
 
-![solidfire-powershell-logo](../../Installer/product.png) ![linux-logo](linux-logo-small.png)
+![solidfire-powershell-logo](../../Install/product.png) ![linux-logo](linux-logo-small.png)
 
 The commands should be run in a terminal session on the machine you want to install on. You don't have to be in a specific directory to execute any of these commands. You will need sudo access. 
 
