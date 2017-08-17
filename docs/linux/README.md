@@ -61,22 +61,22 @@ This works for Debian Stretch as well.
 #### CentOS 7
 
 Using [CentOS 7][], download the RPM package
-`powershell-6.0.0_beta.2-1.el7.centos.x86_64.rpm`
+`powershell-6.0.0_beta.2-1.el7.x86_64.rpm`
 from the [releases][] page onto the CentOS machine.
 
 Then execute the following in the terminal:
 
 ```sh
-sudo yum install ./powershell-6.0.0_beta.2-1.el7.centos.x86_64.rpm
+sudo yum install powershell-6.0.0_beta.2-1.el7.x86_64.rpm
 ```
 
 You can also install the RPM without the intermediate step of downloading it:
 
 ```sh
-sudo yum install https://github.com/PowerShell/PowerShell/releases/download/v6.0.0-beta.2/powershell-6.0.0_beta.2-1.el7.centos.x86_64.rpm
+sudo yum install https://github.com/PowerShell/PowerShell/releases/download/v6.0.0-beta.2/powershell-6.0.0_beta.2-1.el7.x86_64.rpm
 ```
 
-This package works on Oracle Linux 7. It should work on Red Hat Enterprise Linux 7 too.
+This package also works on RedHat Enterprise Linux 7 and Oracle Linux 7.
 
 **Uninstallation**
 
