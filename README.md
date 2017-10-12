@@ -12,7 +12,7 @@ Any user with a SolidFire storage system and Windows PowerShell can take advanta
 
 ## Installation
 
-The **preferred** way to install SolidFire PowerShell Tools is to download it from [PowerShell Gallery](powershellgallery.com) with the following command:
+The **preferred** way to install SolidFire PowerShell Tools is to download it from [PowerShell Gallery](powershellgallery.com) with the following command at a PowerShell prompt:
 
     PS> Install-Module -Name SolidFire
 
