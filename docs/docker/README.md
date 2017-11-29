@@ -14,7 +14,7 @@ Using a terminal, pull and run the latest SolidFire PowerShell image from our pu
 
 This will download that SolidFire Docker image, start a new container, and open a PowerShell shell from your terminal with the SolidFire module loaded and ready. 
 
-**NOTE:** Any scripts in your host's pwd* will be available at `/scripts` once you are in the ?owerShell shell.
+**NOTE:** Any scripts in your host's pwd* will be available at `/scripts` once you are in the PowerShell shell.
 
 *Present Working Directory
 
