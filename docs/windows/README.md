@@ -16,7 +16,7 @@ This page has instructions for installing the SolidFire PowerShell tools module 
 
 Download and launch the installer .msi file then follow the instructions in the install wizard. 
 
-[SolidFire PowerShell Installer](https://github.com/solidfire/PowerShell/raw/master/Install/SolidFire_PowerShell_1_4_0_98-install.msi) 
+[SolidFire PowerShell Installer](https://github.com/solidfire/PowerShell/raw/master/Install/SolidFire_PowerShell_1_5_0_119-install.msi) 
 
 ** Additional installation details can be found in the SolidFire PowerShell [User Guide Doc](https://github.com/solidfire/PowerShell/blob/master/Install/NetApp_SolidFire_PowerShell_Tools_v1.5_User_Guide.pdf)
 
