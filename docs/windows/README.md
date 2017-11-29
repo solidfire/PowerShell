@@ -6,11 +6,11 @@ This page has instructions for installing the SolidFire PowerShell tools module 
 
 ## Prerequisites
 
-| Component            | Version        |
-|----------------------|----------------|
-| PowerShell           | 4.0 or later   |
-| SolidFire Element OS | 7 through 9.1  |
-| .NET Framework       | 4.5.1 or later |
+| Component            | Version          |
+|----------------------|------------------|
+| PowerShell           | 4.0 or later     |
+| SolidFire Element OS | 7 through 10.0   |
+| .NET Framework       | 4.5.1 or later   |
 
 ## Installation Instructions
 
@@ -18,7 +18,7 @@ Download and launch the installer .msi file then follow the instructions in the 
 
 [SolidFire PowerShell Installer](https://github.com/solidfire/PowerShell/raw/master/Install/SolidFire_PowerShell_1_4_0_98-install.msi) 
 
-** Additional installation details can be found in the SolidFire PowerShell [User Guide Doc](https://github.com/solidfire/PowerShell/blob/master/Install/NetApp_SolidFire_PowerShell_Tools_v1.4_User_Guide.pdf)
+** Additional installation details can be found in the SolidFire PowerShell [User Guide Doc](https://github.com/solidfire/PowerShell/blob/master/Install/NetApp_SolidFire_PowerShell_Tools_v1.5_User_Guide.pdf)
 
 ## Supported Microsoft Operating Systems
 

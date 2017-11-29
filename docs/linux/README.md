@@ -6,112 +6,25 @@ The commands should be run in a terminal session on the machine you want to inst
 
 ## First, Install PowerShell bits
 
-#### Ubuntu 14.04
-
-Using [Ubuntu 14.04][], download the Debian package
-`powershell_6.0.0-beta.2-1ubuntu1.14.04.1_amd64.deb`
-from the [releases][] page onto the Ubuntu machine.
-
-Then execute the following in the terminal:
-
-```sh
-sudo dpkg -i powershell_6.0.0-beta.2-1ubuntu1.14.04.1_amd64.deb
-sudo apt-get install -f
-```
-
-> Please note that `dpkg -i` will fail with unmet dependencies;
-> the next command, `apt-get install -f` resolves these
-> and then finishes configuring the PowerShell package.
-
-**Uninstallation**
-
-```sh
-sudo apt-get remove powershell
-```
-
-[Ubuntu 14.04]: http://releases.ubuntu.com/14.04/
-
-#### Ubuntu 16.04
-
-Using [Ubuntu 16.04][], download the Debian package
-`powershell_6.0.0-beta.2-1ubuntu1.16.04.1_amd64.deb`
-from the [releases][] page onto the Ubuntu machine.
-
-Then execute the following in the terminal:
-
-```sh
-sudo dpkg -i powershell_6.0.0-beta.2-1ubuntu1.16.04.1_amd64.deb
-sudo apt-get install -f
-```
-
-> Please note that `dpkg -i` will fail with unmet dependencies;
-> the next command, `apt-get install -f` resolves these
-> and then finishes configuring the PowerShell package.
-
-**Uninstallation**
-
-```sh
-sudo apt-get remove powershell
-```
-
-[Ubuntu 16.04]: http://releases.ubuntu.com/16.04/
-
-This works for Debian Stretch as well.
-
-#### CentOS 7
-
-Using [CentOS 7][], download the RPM package
-`powershell-6.0.0_beta.2-1.el7.x86_64.rpm`
-from the [releases][] page onto the CentOS machine.
-
-Then execute the following in the terminal:
-
-```sh
-sudo yum install powershell-6.0.0_beta.2-1.el7.x86_64.rpm
-```
-
-You can also install the RPM without the intermediate step of downloading it:
-
-```sh
-sudo yum install https://github.com/PowerShell/PowerShell/releases/download/v6.0.0-beta.2/powershell-6.0.0_beta.2-1.el7.x86_64.rpm
-```
-
-This package also works on RedHat Enterprise Linux 7 and Oracle Linux 7.
-
-**Uninstallation**
-
-```sh
-sudo yum remove powershell
-```
-
-[CentOS 7]: https://www.centos.org/download/
+Follow the detailed instructions on the [PowerShell for Linux installation page](https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md). 
     
-## Next, Install SolidFire Bits
-1. Give yourself root acces:
+## Next, Install SolidFire bits
 
-        sudo su
+1. Once inside the PowerShell shell, install SolidFire PowerShell Tools by downloading it from the [PowerShell Gallery](powershellgallery.com) with the following command:
 
-1. Create a directory for the SolidFire module:
+        PS> Install-Module -Name SolidFire
 
-        mkdir -p /usr/local/share/powershell/Modules/SolidFire
+1. Then, import the SolidFire module with the following command:
 
-1. Download the SolidFire Powershell Module dlls from GitHub:
+        PS> Import-Module SolidFire
 
-        cd /usr/local/share/powershell/Modules/SolidFire && curl --remote-name-all https://raw.githubusercontent.com/solidfire/sdk-dotnet/master/package/SolidFire.SDK.dll https://raw.githubusercontent.com/solidfire/PowerShell/master/packages/Newtonsoft.Json.dll https://raw.githubusercontent.com/solidfire/PowerShell/master/packages/SolidFire.dll https://raw.githubusercontent.com/solidfire/PowerShell/master/packages/SolidFire.psd1 https://raw.githubusercontent.com/solidfire/PowerShell/master/packages/Initialize-SFEnvironment.ps1 https://raw.githubusercontent.com/solidfire/PowerShell/master/packages/SolidFire.dll-help.xml >/dev/null && cd -
-   
-1. [OPTIONAL but recommended] Setup the SolidFire PowerShell initializer script:
+1. To see a list of available commands, use:
 
-	    echo ". /usr/local/share/powershell/Modules/SolidFire/Initialize-SFEnvironment.ps1" > /opt/microsoft/powershell/6.0.0-beta.2/profile.ps1
-	
-	This will ensure the SolidFire PowerShell module is imported and initialized when you start up the PowerShell shell 
-
-1. Launch PowerShell shell:
-
-        powershell
+        PS> Get-Command -Module SolidFire
 
 ## Paths
 
-* `$PSHOME` is `/opt/microsoft/powershell/6.0.0-beta.2/`
+* `$PSHOME` is `/opt/microsoft/powershell/[version]/`
 * User profiles will be read from `~/.config/powershell/profile.ps1`
 * Default profiles will be read from `$PSHOME/profile.ps1`
 * User modules will be read from `~/.local/share/powershell/Modules`
@@ -124,5 +37,4 @@ so the default host-specific profiles exists at `Microsoft.PowerShell_profile.ps
 
 On Linux and macOS, the [XDG Base Directory Specification][xdg-bds] is respected.
 
-[releases]: https://github.com/PowerShell/PowerShell/releases/tag/v6.0.0-beta.2
 [xdg-bds]: https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
