@@ -12,7 +12,7 @@ Follow the detailed instructions on the [PowerShell for Mac installation page](h
     
 ### Next, Install SolidFire bits
 
-1. Once inside the PowerShell shell, install SolidFire PowerShell Tools by downloading it from the [PowerShell Gallery](powershellgallery.com) with the following command:
+1. Once inside the PowerShell shell, install SolidFire PowerShell Tools by downloading it from the [PowerShell Gallery](https://powershellgallery.com) with the following command:
 
         PS> Install-Module -Name SolidFire
 
