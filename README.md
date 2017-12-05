@@ -29,6 +29,6 @@ The SolidFire Powershell Module can be installed directly on multiple systems by
 
 ## Release Notes
 
-[Click here to download latest release notes](https://github.com/solidfire/PowerShell/blob/master/Install/NetApp_SolidFire_PowerShell_Tools_v1.5_Release_Notes.pdf)
+[Click here to download latest release notes](https://github.com/solidfire/PowerShell/blob/master/Install/NetApp_SolidFire_PowerShell_Tools%20_v1.5_Release_Notes.pdf)
 
 User guides are available for each system in the installation instruction pages.
