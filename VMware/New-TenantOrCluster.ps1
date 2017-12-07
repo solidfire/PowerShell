@@ -180,7 +180,7 @@ $volumes = $volnumbers | %{Get-SFVolume -Name ("$accountname-$_")}
 
 Write-Verbose "Creating the volume access group $($Cluster)"
 
-If(!(Get-SFVolumeAccessGroup -VolumeAccessGroupName $Cluster -ErrorAction SilentlyContinue)){
+If(!(Get-SFVolumeAccessGroup -Name $Cluster -ErrorAction SilentlyContinue)){
 
     New-SFVolumeAccessGroup -Name $Cluster -VolumeIDs $volumes.VolumeID
 
