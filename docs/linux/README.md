@@ -12,15 +12,15 @@ Follow the detailed instructions on the [PowerShell for Linux installation page]
 
 1. Once inside the PowerShell shell, install SolidFire PowerShell Tools by downloading it from the [PowerShell Gallery](powershellgallery.com) with the following command:
 
-        PS> Install-Module -Name SolidFire
+        PS> Install-Module -Name SolidFire.Linux
 
 1. Then, import the SolidFire module with the following command:
 
-        PS> Import-Module SolidFire
+        PS> Import-Module SolidFire.Linux
 
 1. To see a list of available commands, use:
 
-        PS> Get-Command -Module SolidFire
+        PS> Get-Command -Module SolidFire.Linux
 
 ## Paths
 
