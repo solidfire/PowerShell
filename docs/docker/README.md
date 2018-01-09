@@ -12,7 +12,11 @@ Using a terminal, pull and run the latest SolidFire PowerShell image from our pu
 
     docker run -it -v $(pwd):/scripts netapp/solidfire-powershell
 
-This will download that SolidFire Docker image, start a new container, and open a PowerShell shell from your terminal with the SolidFire module loaded and ready. 
+This will download that SolidFire Docker image, start a new container, and enter it in a bash shell from your terminal. Once there, run the command:
+
+    powershell
+
+Then you will be in a PowerShell shell with the SolidFire module loaded and ready. 
 
 **NOTE:** Any scripts in your host's pwd* will be available at `/scripts` once you are in the PowerShell shell.
 
