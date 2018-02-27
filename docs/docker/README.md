@@ -10,7 +10,7 @@ You must have Docker engine installed and running on your host machine.  [Instal
 
 Using a terminal, pull and run the latest SolidFire PowerShell image from our public Docker repo with this command:
 
-    docker run -it -v $(pwd):/scripts netapp/solidfire-powershell
+    docker run -it -v $(pwd):/scripts --rm netapp/solidfire-powershell
 
 This will download that SolidFire Docker image, start a new container, and enter it in a bash shell from your terminal. Once there, run the command:
 
