@@ -1,4 +1,4 @@
-# Install SolidFire PowerShell on Mac OS 10.11
+# Install SolidFire PowerShell on Mac OS
 
 ![solidfire-powershell-logo](../../Install/product.png) ![apple-logo](apple-logo-small.png)
 
@@ -12,17 +12,17 @@ Follow the detailed instructions on the [PowerShell for Mac installation page](h
     
 ### Next, Install SolidFire bits
 
-1. Once inside the PowerShell shell, install SolidFire PowerShell Tools by downloading it from the [PowerShell Gallery](https://powershellgallery.com) with the following command:
+1. Once inside the PowerShell shell, install SolidFire PowerShell Tools by downloading it from the [PowerShell Gallery](powershellgallery.com) with the following command:
 
-        PS> Install-Module -Name SolidFire
+        PS> Install-Module -Name SolidFire.Core
 
 1. Then, import the SolidFire module with the following command:
 
-        PS> Import-Module SolidFire
+        PS> Import-Module SolidFire.Core
 
 1. To see a list of available commands, use:
 
-        PS> Get-Command -Module SolidFire
+        PS> Get-Command -Module SolidFire.Core
 
 ## Paths
 
@@ -39,3 +39,7 @@ so the default host-specific profiles exists at `Microsoft.PowerShell_profile.ps
 
 `$PSHOME` is `/usr/local/microsoft/powershell/[version]/`,
 and the symlink is placed at `/usr/local/bin/powershell`.
+
+On Linux and macOS, the [XDG Base Directory Specification][xdg-bds] is respected.
+
+[xdg-bds]: https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html

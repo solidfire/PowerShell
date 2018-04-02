@@ -2,7 +2,7 @@
 
 ![solidfire-powershell-logo](../../Install/product.png) ![docker-logo](docker-logo-small.png)
 
-### Prerequisite: 
+##### Prerequisite: 
 
 You must have Docker engine installed and running on your host machine.  [Install the latest docker engine](https://www.docker.com/products/overview)
 
@@ -10,17 +10,17 @@ You must have Docker engine installed and running on your host machine.  [Instal
 
 Using a terminal, pull and run the latest SolidFire PowerShell image from our public Docker repo with this command:
 
-    docker run -it -v $(pwd):/scripts --rm netapp/solidfire-powershell
+    docker run -it netapp/solidfire-powershell
 
-This will download that SolidFire Docker image, start a new container, and enter it in a bash shell from your terminal. Once there, run the command:
+Or, run it with a mounted volume so you can access local scripts.
 
-    powershell
+    docker run -it -v $(pwd):/scripts netapp/solidfire-powershell
 
-Then you will be in a PowerShell shell with the SolidFire module loaded and ready. 
+This will download that SolidFire Docker image, start a new container, and open a PowerShell shell from your terminal with the SolidFire module loaded and ready. 
 
 **NOTE:** Any scripts in your host's pwd* will be available at `/scripts` once you are in the PowerShell shell.
 
-*Present Working Directory
+*`Present Working Directory`
 
 **ProTip:**
 You can change the mounted directory for `/scripts` by modifying the left side of the ':'. Use " " when a space exists in the path.
