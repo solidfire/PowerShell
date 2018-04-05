@@ -1,4 +1,4 @@
-# SolidFire PowerShell Tools
+# NetApp SolidFire PowerShell Tools
 
 ### Version 1.5.1 
 

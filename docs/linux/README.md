@@ -1,4 +1,4 @@
-# Install SolidFire PowerShell on Linux
+# Install NetApp SolidFire PowerShell Tools on Linux
 
 ![solidfire-powershell-logo](../../Install/product.png) ![linux-logo](linux-logo-small.png)
 

@@ -1,4 +1,4 @@
-# To install SolidFire Powershell as Docker container:
+# To install NetApp SolidFire Powershell as Docker container:
 
 ![solidfire-powershell-logo](../../Install/product.png) ![docker-logo](docker-logo-small.png)
 

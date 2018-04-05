@@ -1,4 +1,4 @@
-# To install SolidFire Powershell on Windows:
+# To install NetApp SolidFire Powershell on Windows:
 
 ![solidfire-powershell-logo](../../Install/product.png)   ![windows-logo](windows10-logo-small.png)
 
@@ -13,7 +13,7 @@ There are two different versions. One for PowerShell 5.1, and one for PowerShell
 | Component            | Version          |
 |----------------------|------------------|
 | PowerShell           | 6.0 or later     |
-| SolidFire Element OS | 7 through 11.0   |
+| SolidFire Element OS | 7 through 10.0   |
 
 ### Installation Instructions
 
@@ -36,9 +36,9 @@ The following versions of Microsoft operating systems are supported, and have ha
 | Version                |
 |------------------------|
 | Windows Server 2016    |
-| Mac 10.12              |
-| CentOS7                |
-| Linux Mint 18.1        |
+| Mac 10.13              |
+| CentOS 7.3             |
+| Ubuntu 16.04           |
 
 PowerShell 6 supports many more platforms, but extensive module testing has not been done. More than likely they work fine, but no guarantees are given.
 
