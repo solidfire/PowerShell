@@ -1,46 +1,28 @@
-# Install SolidFire PowerShell on Linux
+# Install NetApp SolidFire PowerShell Tools on Linux
 
 ![solidfire-powershell-logo](../../Install/product.png) ![linux-logo](linux-logo-small.png)
 
 The commands should be run in a terminal session on the machine you want to install on. You don't have to be in a specific directory to execute any of these commands. You will need sudo access. 
 
-## Uninstall Old Version of SolidFire
-
-If you previously installed SolidFire 1.4, you should uninstall it before installing SolidFire 1.5.
-
-1. Remove the old SolidFire module files:
-
-        $ sudo rm -rf /usr/local/share/powershell/Modules/SolidFire
-
-1. If you created a PowerShell profile file to initialize the SolidFire module on PowerShell startup, remove that file :
-
-        $ sudo rm /opt/microsoft/powershell/6.0.0-beta.2/profile.ps1
-
-1. If you will be upgrading to the latest PowerShell, you can also remove the directory where that profile file was located:
-
-        $ sudo rm -rf /opt/microsoft/powershell/6.0.0-beta.2
-
-## Install or Upgrade PowerShell bits
+## First, Install PowerShell bits
 
 Follow the detailed instructions on the [PowerShell for Linux installation page](https://github.com/PowerShell/PowerShell/blob/master/docs/installation/linux.md). 
     
-## Install SolidFire bits
+## Next, Install SolidFire bits
 
-1. Start a PowerShell shell:
+1. Once inside the PowerShell shell, install SolidFire PowerShell Tools for dotnet core by downloading it from the [PowerShell Gallery](powershellgallery.com) with the following command:
 
-        $ pwsh
-
-1. Inside the PowerShell shell, install SolidFire PowerShell Tools by downloading it from the [PowerShell Gallery](https://powershellgallery.com) with the following command:
-
-        PS> Install-Module -Name SolidFire.Linux
+        PS> Install-Module -Name SolidFire.Core
 
 1. Then, import the SolidFire module with the following command:
 
-        PS> Import-Module SolidFire.Linux
+        PS> Import-Module SolidFire.Core
 
 1. To see a list of available commands, use:
 
-        PS> Get-Command -Module SolidFire.Linux
+        PS> Get-Command -Module SolidFire.Core
+
+**NOTE:** This module used to be called `SolidFire.Linux`. That name has been deprecated and it is now `SolidFire.Core`
 
 ## Paths
 
@@ -58,4 +40,3 @@ so the default host-specific profiles exists at `Microsoft.PowerShell_profile.ps
 On Linux and macOS, the [XDG Base Directory Specification][xdg-bds] is respected.
 
 [xdg-bds]: https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
-
