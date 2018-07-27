@@ -1,6 +1,6 @@
-# NetApp SolidFire PowerShell Tools
+# SolidFire PowerShell Tools
 
-### Version 1.5.1 
+### Version 1.6 
 
 ![logo](Install/product.png)
 
@@ -12,7 +12,19 @@ Any user with a SolidFire storage system and Windows PowerShell can take advanta
 
 ## Installation
 
-The SolidFire Powershell Module can be installed directly on multiple systems by following these instructions:
+The **preferred** way to install SolidFire PowerShell Tools is to download it from [PowerShell Gallery](powershellgallery.com) with the following command:
+
+### PowerShell 5 on Windows
+
+    PS> Install-Module -Name SolidFire
+
+### PowerShell 6 on Windows, Mac, or Linux
+
+    PS> Install-Module -Name SolidFire.Core
+
+**-- or --**
+
+For more detailed instructions, the SolidFire Powershell Module can be installed directly on multiple systems by following these installation guides:
 
 | System                    | Installation                              |
 |---------------------------|-------------------------------------------|
@@ -23,6 +35,6 @@ The SolidFire Powershell Module can be installed directly on multiple systems by
 
 ## Release Notes
 
-[Click here to download latest release notes](Install/NetApp_SolidFire_PowerShell_Tools_v1.5.1_Release_Notes.pdf)
+[Click here to download latest release notes](https://github.com/solidfire/PowerShell/blob/master/Install/NetApp_SolidFire_PowerShell_Tools_v1.6_Release_Notes.pdf)
 
-[Click here to download User Guide Doc](Install/NetApp_SolidFire_PowerShell_Tools_v1.5.1_User_Guide.pdf)
+User guides are available for each system in the installation instruction pages.
