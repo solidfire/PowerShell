@@ -4,15 +4,16 @@
 
 This page has instructions for installing the SolidFire PowerShell Core tools module on a Windows client. 
 
-Note: Only Powershell Core is supported. 
+**Note**: Only Powershell Core is supported in Powershell Tools v1.6. 
 
-## Powershell 6.2
+## Powershell Core
 
 ##### Prerequisites
 
 | Component            | Version          |
 |----------------------|------------------|
-| PowerShell           | 6.2 or later     |
+| .NET Core SDK        | 3.1 or later     |
+| PowerShell Core      | 6.2 or later     |
 | SolidFire Element OS | 11               |
 
 ### Installation Instructions
