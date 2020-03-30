@@ -25,7 +25,7 @@ This page has instructions for installing the SolidFire PowerShell Core tools mo
 
 2. Download and install the PowerShell Core msi installer: 
 
-   [Powershell Core 6.2](https://github.com/PowerShell/PowerShell/)
+   Latest version : [Powershell Core 7.0](https://github.com/PowerShell/PowerShell/)
 
 3. Once inside the PowerShell Core shell, install SolidFire PowerShell Tools by downloading it from the [PowerShell Gallery](powershellgallery.com) with the following command:
 
