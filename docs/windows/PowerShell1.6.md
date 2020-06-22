@@ -35,7 +35,7 @@ This page has instructions for installing the SolidFire PowerShell Core tools mo
    
 4. Then, import the SolidFire module with the following command:
 
-        PS> Import-Module <directory cotaining zip filecontents>\SolidFire.dll
+        PS> Import-Module <directory cotaining zip file contents>\SolidFire.dll
 
 5. To see a list of available commands, use:
 
