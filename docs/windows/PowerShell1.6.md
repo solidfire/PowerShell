@@ -31,7 +31,7 @@ This page has instructions for installing the SolidFire PowerShell Core tools mo
 
 4. Open Windows PowerShell, or a command prompt, and run powershell core using the following command:
 
-   pwsh
+       pwsh
    
 4. Then, import the SolidFire module with the following command:
 
