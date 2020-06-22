@@ -26,14 +26,16 @@ This page has instructions for installing the SolidFire PowerShell Core tools mo
 2. Download and install the PowerShell Core msi installer: 
 
    Latest version : [Powershell Core 7.0](https://github.com/PowerShell/PowerShell/)
+   
+3. Download the PowerShell Core zip file from the NetApp Support Site and extract the contents to the directory you widsh to keep them in.   
 
-3. Once inside the PowerShell Core shell, install SolidFire PowerShell Tools by downloading it from the [PowerShell Gallery](powershellgallery.com) with the following command:
+4. Open Windows PowerShell, or a command prompt, and run powershell core using the following command:
 
-        PS> Install-Module -Name SolidFire.Core
-
+   pwsh
+   
 4. Then, import the SolidFire module with the following command:
 
-        PS> Import-Module SolidFire.Core
+        PS> Import-Module <directory cotaining zip filecontents>\SolidFire.dll
 
 5. To see a list of available commands, use:
 
