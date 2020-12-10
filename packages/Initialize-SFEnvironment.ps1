@@ -1,5 +1,5 @@
 ﻿<#
-# Copyright © 2014-2017 NetApp, Inc. All Rights Reserved.
+# Copyright © 2014-2020 NetApp, Inc. All Rights Reserved.
 #
 # CONFIDENTIALITY NOTICE: THIS SOFTWARE CONTAINS CONFIDENTIAL INFORMATION OF
 # NETAPP, INC. USE, DISCLOSURE OR REPRODUCTION IS PROHIBITED WITHOUT THE PRIOR
@@ -7,9 +7,9 @@
 #>
 
 # Launch text
-import-module SolidFire
+Import-Module SolidFire.Core
 
-$version = (Get-Module SolidFire).Version[0]
+$version = (Get-Module SolidFire.Core).Version[0]
 
 $host.ui.RawUI.WindowTitle ="SolidFire PowerShell Tools $version"
 
@@ -60,8 +60,8 @@ write-host "Get-SFCommand" -foregroundcolor blue
 write-host "       To get help for SolidFire commands use:        " -NoNewline
 write-host "Get-Help <SolidFire CmdLet>" -foregroundcolor blue
 write-host ""
-write-host "           Copyright © 2015 - 2017 NetApp, Inc. All Rights Reserved."
+write-host "           Copyright © 2014 - 2020 NetApp, Inc. All Rights Reserved."
 
 function global:Get-SFCommand([string] $Name = "*") {
-  get-command -Module SolidFire -Name $Name
+  get-command -Module SolidFire.Core -Name $Name
 }

@@ -38,7 +38,7 @@ RUN sudo apt-get install libcurl3 libunwind8 libicu55 -y
 RUN wget https://github.com/PowerShell/PowerShell/releases/download/v6.0.0-alpha.13/powershell_6.0.0-alpha.13-1ubuntu1.16.04.1_amd64.deb
 
 # Install Powershell 
-RUN sudo dpkg -i powershell_6.0.0-alpha.13-1ubuntu1.16.04.1_amd64.deb 
+RUN sudo dpkg -i powershell_6.0.4-1.ubuntu.16.04_amd64.deb
 RUN sudo apt-get install -f
 
 # Install Powershell 
