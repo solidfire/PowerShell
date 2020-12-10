@@ -1,6 +1,6 @@
 # Install NetApp SolidFire PowerShell Tools on Mac OS
 
-![solidfire-powershell-logo](../../Install/product.png) ![apple-logo](apple-logo-small.png)
+![solidfire-powershell-logo](../../docs/product.png) ![apple-logo](apple-logo-small.png)
 
 ## Installation Instructions
 
