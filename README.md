@@ -19,7 +19,6 @@ The SolidFire Powershell Module can be installed directly on multiple systems by
 | Windows                   | [Instructions](docs/windows/README.md)    |
 | Mac                       | [Instructions](docs/mac/README.md)        |
 | Linux (Ubuntu/Centos)     | [Instructions](docs/linux/README.md)      |
-| Docker                    | [Instructions](docs/docker/README.md)     |
 
 ## Release Notes
 
