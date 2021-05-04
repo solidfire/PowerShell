@@ -1600,7 +1600,7 @@ System.String[]
 				<maml:introduction>
 					<maml:para>PS C:\&gt;</maml:para>
 				</maml:introduction>
-				<dev:code>Start-SFClusterPairing | Complete-SFClusterPairing</dev:code>
+				<dev:code>Start-SFClusterPairing -Target 10.192.6.133 | Complete-SFClusterPairing -Target 10.192.6.135</dev:code>
 				<dev:remarks>
 					<maml:para>Completes the pairing process with the generated ClusterPairingKey.</maml:para>
 				</dev:remarks>
@@ -1610,8 +1610,8 @@ System.String[]
 				<maml:introduction>
 					<maml:para>PS C:\&gt;</maml:para>
 				</maml:introduction>
-				<dev:code>$key = Start-SFClusterPairing
-Complete-SFClusterPairing -ClusterPairingKey $key.ClusterPairingKey</dev:code>
+				<dev:code>$key = Start-SFClusterPairing -Target 10.192.6.133
+Complete-SFClusterPairing -ClusterPairingKey $key.ClusterPairingKey -Target 10.192.6.135</dev:code>
 				<dev:remarks>
 					<maml:para>Completes the pairing process with the generated ClusterPairingKey. Does the same as example 1 but also saves the data.</maml:para>
 				</dev:remarks>
@@ -2113,6 +2113,18 @@ Note:  Credentials stored in this manner can be saved to a file with the Export-
 				<dev:code>Connect-SFCluster 172.27.1.56 -VersionApi 7.0</dev:code>
 				<dev:remarks>
 					<maml:para>Connects to a cluster using a specific API end point.  For example, you could connect to a cluster running 8.2 on the 7.0 end point.</maml:para>
+				</dev:remarks>
+			</command:example>
+			<command:example>
+				<maml:title>-------------------------- EXAMPLE 6 --------------------------</maml:title>
+				<maml:introduction>
+					<maml:para>PS C:\&gt;</maml:para>
+				</maml:introduction>
+				<dev:code>Connect-SFCluster -Node 172.27.1.5</dev:code>
+				<dev:remarks>
+					<maml:para>This will create a connection to a specific node.  If a node is already in a cluster, then it will use the same cluster admin credentials as the cluster.  If the node has not yet been added to a cluster, then any username and password can be used.
+
+Using the Connect-SFCluster cmdlet in this manner will create an on-screen prompt requesting the cluster admin username and password.</maml:para>
 				</dev:remarks>
 			</command:example>
 		</command:examples>
@@ -8733,6 +8745,101 @@ System.String[]
 	</command:command>
 	<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10">
 		<command:details>
+			<command:name>Get-SFEncryptionAtRestInfo</command:name>
+			<maml:description>
+				<maml:para>[Cluster] Get details of the current Encryption At Rest configuration. Encryption At Rest feature is built upon the Self-Encrypting Drive&apos;s hardware encryption capability.</maml:para>
+			</maml:description>
+			<maml:copyright>
+				<maml:para/>
+			</maml:copyright>
+			<command:verb>Get</command:verb>
+			<command:noun>SFEncryptionAtRestInfo</command:noun>
+			<dev:version/>
+		</command:details>
+		<maml:description>
+			<maml:para>[Cluster] Get details of the current Encryption At Rest configuration.</maml:para>
+		</maml:description>
+		<command:syntax>
+			<command:syntaxItem>
+				<maml:name>Get-SFEncryptionAtRestInfo</maml:name>
+				<command:parameter required="false" pipelineInput="false" position="Named" aliases="None">
+					<maml:name>Target</maml:name>
+					<maml:description>
+					    <maml:para>Direct connection to specific Target</maml:para>
+					</maml:description>
+					<command:parameterValue required="true" variableLength="True">string[]</command:parameterValue>
+					<dev:defaultValue/>
+				</command:parameter>
+				<command:parameter required="false" pipelineInput="false" position="Named" aliases="None">
+					<maml:name>SFConnection</maml:name>
+					<maml:description>
+					    <maml:para>Direct connection to specific SFConnection</maml:para>
+					</maml:description>
+					<command:parameterValue required="true" variableLength="True">SFConnection[]</command:parameterValue>
+					<dev:defaultValue/>
+				</command:parameter>
+			</command:syntaxItem>
+		</command:syntax>
+		<command:parameters>
+			<command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
+				<maml:name>SFConnection</maml:name>
+				<maml:description>
+					<maml:para>Direct connection to specific SFConnection</maml:para>
+				</maml:description>
+				<command:parameterValue required="true" variableLength="True">SFConnection[]</command:parameterValue>
+				<dev:type>
+					<maml:name>SFConnection[]</maml:name>
+				</dev:type>
+				<dev:defaultValue/>
+			</command:parameter>
+			<command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
+				<maml:name>Target</maml:name>
+				<maml:description>
+					<maml:para>Direct connection to specific Target</maml:para>
+				</maml:description>
+				<command:parameterValue required="true" variableLength="True">string[]</command:parameterValue>
+				<dev:type>
+					<maml:name>string[]</maml:name>
+				</dev:type>
+				<dev:defaultValue/>
+			</command:parameter>
+		</command:parameters>
+		<command:inputTypes>
+			<command:inputType>
+				<dev:type>
+					<maml:name>None
+</maml:name>
+				</dev:type>
+				<maml:description>
+				</maml:description>
+			</command:inputType>
+		</command:inputTypes>
+		<command:returnValues>
+			<command:returnValue>
+				<maml:description>
+					<maml:para></maml:para>
+				</maml:description>
+				<dev:type>
+					<maml:name>GetEncryptionAtRestInfoResult</maml:name>
+					<maml:uri>http://solidfire.github.io/sdk-dotnet/help/html/T_SolidFire_Element_Api_GetEncryptionAtRestInfoResult.htm</maml:uri>
+				</dev:type>
+			</command:returnValue>
+		</command:returnValues>
+		<command:examples>
+			<command:example>
+				<maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+				<maml:introduction>
+					<maml:para>PS C:\&gt;</maml:para>
+				</maml:introduction>
+				<dev:code>Get-SFEncryptionAtRestInfo</dev:code>
+				<dev:remarks>
+					<maml:para>Get details of the current Encryption At Rest configuration.</maml:para>
+				</dev:remarks>
+			</command:example>
+		</command:examples>
+	</command:command>
+	<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10">
+		<command:details>
 			<command:name>Get-SFEvent</command:name>
 			<maml:description>
 				<maml:para>[Cluster] Gets events detected on the cluster.</maml:para>
@@ -11571,6 +11678,101 @@ SolidFire.Element.Api.VolumeAccessGroup[]
 	</command:command>
 	<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10">
 		<command:details>
+			<command:name>Get-SFNetworkInterfaceStats</command:name>
+			<maml:description>
+				<maml:para>[Node] List statistics for network statistics such as dropped packets and various types of errors.</maml:para>
+			</maml:description>
+			<maml:copyright>
+				<maml:para/>
+			</maml:copyright>
+			<command:verb>Get</command:verb>
+			<command:noun>SFNetworkInterfaceStats</command:noun>
+			<dev:version/>
+		</command:details>
+		<maml:description>
+			<maml:para>[Node] List statistics for network statistics such as dropped packets and various types of errors.</maml:para>
+		</maml:description>
+		<command:syntax>
+			<command:syntaxItem>
+				<maml:name>Get-SFNetworkInterfaceStats</maml:name>
+				<command:parameter required="false" pipelineInput="false" position="Named" aliases="None">
+					<maml:name>Target</maml:name>
+					<maml:description>
+					    <maml:para>Direct connection to specific Target</maml:para>
+					</maml:description>
+					<command:parameterValue required="true" variableLength="True">string[]</command:parameterValue>
+					<dev:defaultValue/>
+				</command:parameter>
+				<command:parameter required="false" pipelineInput="false" position="Named" aliases="None">
+					<maml:name>SFConnection</maml:name>
+					<maml:description>
+					    <maml:para>Direct connection to specific SFConnection</maml:para>
+					</maml:description>
+					<command:parameterValue required="true" variableLength="True">SFConnection[]</command:parameterValue>
+					<dev:defaultValue/>
+				</command:parameter>
+			</command:syntaxItem>
+		</command:syntax>
+		<command:parameters>
+			<command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
+				<maml:name>SFConnection</maml:name>
+				<maml:description>
+					<maml:para>Direct connection to specific SFConnection</maml:para>
+				</maml:description>
+				<command:parameterValue required="true" variableLength="True">SFConnection[]</command:parameterValue>
+				<dev:type>
+					<maml:name>SFConnection[]</maml:name>
+				</dev:type>
+				<dev:defaultValue/>
+			</command:parameter>
+			<command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
+				<maml:name>Target</maml:name>
+				<maml:description>
+					<maml:para>Direct connection to specific Target</maml:para>
+				</maml:description>
+				<command:parameterValue required="true" variableLength="True">string[]</command:parameterValue>
+				<dev:type>
+					<maml:name>string[]</maml:name>
+				</dev:type>
+				<dev:defaultValue/>
+			</command:parameter>
+		</command:parameters>
+		<command:inputTypes>
+			<command:inputType>
+				<dev:type>
+					<maml:name>None
+</maml:name>
+				</dev:type>
+				<maml:description>
+				</maml:description>
+			</command:inputType>
+		</command:inputTypes>
+		<command:returnValues>
+			<command:returnValue>
+				<maml:description>
+					<maml:para></maml:para>
+				</maml:description>
+				<dev:type>
+					<maml:name>NetworkInterfaceStats</maml:name>
+					<maml:uri>http://solidfire.github.io/sdk-dotnet/help/html/T_SolidFire_Element_Api_NetworkInterfaceStats.htm</maml:uri>
+				</dev:type>
+			</command:returnValue>
+		</command:returnValues>
+		<command:examples>
+			<command:example>
+				<maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+				<maml:introduction>
+					<maml:para>PS C:\&gt;</maml:para>
+				</maml:introduction>
+				<dev:code>Get-SFNetworkInterfaceStats</dev:code>
+				<dev:remarks>
+					<maml:para>List statistics for network statistics such as dropped packets and various types of errors.</maml:para>
+				</dev:remarks>
+			</command:example>
+		</command:examples>
+	</command:command>
+	<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10">
+		<command:details>
 			<command:name>Get-SFNodeActiveTlsCiphers</command:name>
 			<maml:description>
 				<maml:para>[Node] Get-SFNodeActiveTlsCiphers gets a list of the TLS ciphers that are currently accepted on the node.</maml:para>
@@ -12456,6 +12658,118 @@ SolidFire.Element.Api.VolumeAccessGroup[]
 				<dev:code>Get-SFOntapVersionInfo -SnapMirrorEndpointID 5</dev:code>
 				<dev:remarks>
 					<maml:para>Lists the OntapVersionInfo for the endpoint with ID 5.</maml:para>
+				</dev:remarks>
+			</command:example>
+		</command:examples>
+	</command:command>
+	<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10">
+		<command:details>
+			<command:name>Get-SFPatchInfo</command:name>
+			<maml:description>
+				<maml:para>[Node] GetPatchInfo enables you to display the details of D-patch information for the given node.</maml:para>
+			</maml:description>
+			<maml:copyright>
+				<maml:para/>
+			</maml:copyright>
+			<command:verb>Get</command:verb>
+			<command:noun>SFPatchInfo</command:noun>
+			<dev:version/>
+		</command:details>
+		<maml:description>
+			<maml:para>[Node] GetPatchInfo enables you to display the details of D-patch information for the given node.</maml:para>
+		</maml:description>
+		<command:syntax>
+			<command:syntaxItem>
+				<maml:name>Get-SFPatchInfo</maml:name>
+				<command:parameter required="false" pipelineInput="false" position="Named" aliases="None">
+					<maml:name>Force</maml:name>
+					<maml:description>
+					    <maml:para>Force this method to run on all nodes. Only needed when issuing the API to a cluster instead of a single node.</maml:para>
+					</maml:description>
+					<dev:defaultValue/>
+				</command:parameter>
+				<command:parameter required="false" pipelineInput="false" position="Named" aliases="None">
+					<maml:name>Target</maml:name>
+					<maml:description>
+					    <maml:para>Direct connection to specific Target</maml:para>
+					</maml:description>
+					<command:parameterValue required="true" variableLength="True">string[]</command:parameterValue>
+					<dev:defaultValue/>
+				</command:parameter>
+				<command:parameter required="false" pipelineInput="false" position="Named" aliases="None">
+					<maml:name>SFConnection</maml:name>
+					<maml:description>
+					    <maml:para>Direct connection to specific SFConnection</maml:para>
+					</maml:description>
+					<command:parameterValue required="true" variableLength="True">SFConnection[]</command:parameterValue>
+					<dev:defaultValue/>
+				</command:parameter>
+			</command:syntaxItem>
+		</command:syntax>
+		<command:parameters>
+			<command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
+				<maml:name>Force</maml:name>
+				<maml:description>
+					<maml:para>Force this method to run on all nodes. Only needed when issuing the API to a cluster instead of a single node.</maml:para>
+				</maml:description>
+				<dev:type>
+					<maml:name>switch</maml:name>
+				</dev:type>
+				<dev:defaultValue/>
+			</command:parameter>
+			<command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
+				<maml:name>SFConnection</maml:name>
+				<maml:description>
+					<maml:para>Direct connection to specific SFConnection</maml:para>
+				</maml:description>
+				<command:parameterValue required="true" variableLength="True">SFConnection[]</command:parameterValue>
+				<dev:type>
+					<maml:name>SFConnection[]</maml:name>
+				</dev:type>
+				<dev:defaultValue/>
+			</command:parameter>
+			<command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
+				<maml:name>Target</maml:name>
+				<maml:description>
+					<maml:para>Direct connection to specific Target</maml:para>
+				</maml:description>
+				<command:parameterValue required="true" variableLength="True">string[]</command:parameterValue>
+				<dev:type>
+					<maml:name>string[]</maml:name>
+				</dev:type>
+				<dev:defaultValue/>
+			</command:parameter>
+		</command:parameters>
+		<command:inputTypes>
+			<command:inputType>
+				<dev:type>
+					<maml:name>None
+</maml:name>
+				</dev:type>
+				<maml:description>
+				</maml:description>
+			</command:inputType>
+		</command:inputTypes>
+		<command:returnValues>
+			<command:returnValue>
+				<maml:description>
+					<maml:para></maml:para>
+				</maml:description>
+				<dev:type>
+					<maml:name>GetPatchInfoResult</maml:name>
+					<maml:uri>http://solidfire.github.io/sdk-dotnet/help/html/T_SolidFire_Element_Api_GetPatchInfoResult.htm</maml:uri>
+				</dev:type>
+			</command:returnValue>
+		</command:returnValues>
+		<command:examples>
+			<command:example>
+				<maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+				<maml:introduction>
+					<maml:para>PS C:\&gt;</maml:para>
+				</maml:introduction>
+				<dev:code>Get-SFPatchInfo</dev:code>
+				<dev:remarks>
+					<maml:para>Gives the details of D-patch information for the given node.</maml:para>
 				</dev:remarks>
 			</command:example>
 		</command:examples>
@@ -16054,6 +16368,101 @@ SolidFire.Element.Api.Volume[]
 	</command:command>
 	<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10">
 		<command:details>
+			<command:name>Get-SFSoftwareEncryptionAtRestInfo</command:name>
+			<maml:description>
+				<maml:para>[Cluster] Get details of the current Software Encryption At Rest configuration.</maml:para>
+			</maml:description>
+			<maml:copyright>
+				<maml:para/>
+			</maml:copyright>
+			<command:verb>Get</command:verb>
+			<command:noun>SFSoftwareEncryptionAtRestInfo</command:noun>
+			<dev:version/>
+		</command:details>
+		<maml:description>
+			<maml:para>[Cluster] Get details of the current Software Encryption At Rest configuration.</maml:para>
+		</maml:description>
+		<command:syntax>
+			<command:syntaxItem>
+				<maml:name>Get-SFSoftwareEncryptionAtRestInfo</maml:name>
+				<command:parameter required="false" pipelineInput="false" position="Named" aliases="None">
+					<maml:name>Target</maml:name>
+					<maml:description>
+					    <maml:para>Direct connection to specific Target</maml:para>
+					</maml:description>
+					<command:parameterValue required="true" variableLength="True">string[]</command:parameterValue>
+					<dev:defaultValue/>
+				</command:parameter>
+				<command:parameter required="false" pipelineInput="false" position="Named" aliases="None">
+					<maml:name>SFConnection</maml:name>
+					<maml:description>
+					    <maml:para>Direct connection to specific SFConnection</maml:para>
+					</maml:description>
+					<command:parameterValue required="true" variableLength="True">SFConnection[]</command:parameterValue>
+					<dev:defaultValue/>
+				</command:parameter>
+			</command:syntaxItem>
+		</command:syntax>
+		<command:parameters>
+			<command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
+				<maml:name>SFConnection</maml:name>
+				<maml:description>
+					<maml:para>Direct connection to specific SFConnection</maml:para>
+				</maml:description>
+				<command:parameterValue required="true" variableLength="True">SFConnection[]</command:parameterValue>
+				<dev:type>
+					<maml:name>SFConnection[]</maml:name>
+				</dev:type>
+				<dev:defaultValue/>
+			</command:parameter>
+			<command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
+				<maml:name>Target</maml:name>
+				<maml:description>
+					<maml:para>Direct connection to specific Target</maml:para>
+				</maml:description>
+				<command:parameterValue required="true" variableLength="True">string[]</command:parameterValue>
+				<dev:type>
+					<maml:name>string[]</maml:name>
+				</dev:type>
+				<dev:defaultValue/>
+			</command:parameter>
+		</command:parameters>
+		<command:inputTypes>
+			<command:inputType>
+				<dev:type>
+					<maml:name>None
+</maml:name>
+				</dev:type>
+				<maml:description>
+				</maml:description>
+			</command:inputType>
+		</command:inputTypes>
+		<command:returnValues>
+			<command:returnValue>
+				<maml:description>
+					<maml:para></maml:para>
+				</maml:description>
+				<dev:type>
+					<maml:name>GetSoftwareEncryptionAtRestInfoResult</maml:name>
+					<maml:uri>http://solidfire.github.io/sdk-dotnet/help/html/T_SolidFire_Element_Api_GetEncryptionAtRestInfoResult.htm</maml:uri>
+				</dev:type>
+			</command:returnValue>
+		</command:returnValues>
+		<command:examples>
+			<command:example>
+				<maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+				<maml:introduction>
+					<maml:para>PS C:\&gt;</maml:para>
+				</maml:introduction>
+				<dev:code>Get-SFSoftwareEncryptionAtRestInfo</dev:code>
+				<dev:remarks>
+					<maml:para>Get details of the current Software Encryption At Rest configuration.</maml:para>
+				</dev:remarks>
+			</command:example>
+		</command:examples>
+	</command:command>
+	<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10">
+		<command:details>
 			<command:name>Get-SFSshInfo</command:name>
 			<maml:description>
 				<maml:para>[Node] Returns SSH status for the node.</maml:para>
@@ -18804,16 +19213,6 @@ SolidFire.Element.Api.VolumeAccessGroup[]
 				<dev:code>Get-SFVolumeEfficiency -VolumeID 19</dev:code>
 				<dev:remarks>
 					<maml:para>Gets the values for the most recent automatic calculation of efficiency numbers for volume ID 19.</maml:para>
-				</dev:remarks>
-			</command:example>
-			<command:example>
-				<maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
-				<maml:introduction>
-					<maml:para>PS C:\&gt;</maml:para>
-				</maml:introduction>
-				<dev:code>Get-SFVolumeEfficiency -VolumeID 19 -ForceGet</dev:code>
-				<dev:remarks>
-					<maml:para>The -ForceGet parameter forces the cluster to recalculate the efficiency numbers for that volume immediately rather than returning the stored values from the most recent automatic run.</maml:para>
 				</dev:remarks>
 			</command:example>
 		</command:examples>
@@ -22377,7 +22776,7 @@ New-SFCluster -Mvip 172.27.153.46 -Svip 172.27.151.46 -Username clusteradmin -Pa
 				<command:parameter required="true" pipelineInput="true (ByValue)" position="Named" aliases="None">
 					<maml:name>Username</maml:name>
 					<maml:description>
-					    <maml:para>Unique username for this Cluster Admin.</maml:para>
+					    <maml:para>Unique username for this Cluster Admin. Username is not case sensitive.</maml:para>
 					</maml:description>
 					<command:parameterValue required="true" variableLength="False">string</command:parameterValue>
 					<dev:defaultValue/>
@@ -22524,7 +22923,7 @@ New-SFCluster -Mvip 172.27.153.46 -Svip 172.27.151.46 -Username clusteradmin -Pa
 			<command:parameter required="true" variableLength="" globbing="" pipelineInput="true (ByValue)" position="Named" aliases="None">
 				<maml:name>Username</maml:name>
 				<maml:description>
-					<maml:para>Unique username for this Cluster Admin.</maml:para>
+					<maml:para>Unique username for this Cluster Admin. Username is not case sensitive.</maml:para>
 				</maml:description>
 				<command:parameterValue required="true" variableLength="False">string</command:parameterValue>
 				<dev:type>
@@ -22642,6 +23041,13 @@ The most common access levels are:
 					<dev:defaultValue/>
 				</command:parameter>
 				<command:parameter required="false" pipelineInput="false" position="Named" aliases="None">
+					<maml:name>EnsureSerialCreation</maml:name>
+					<maml:description>
+					    <maml:para>Specify if the snapshot creation should be failed if a previous snapshot replication is in progress.</maml:para>
+					</maml:description>
+					<dev:defaultValue/>
+				</command:parameter>
+				<command:parameter required="false" pipelineInput="false" position="Named" aliases="None">
 					<maml:name>Target</maml:name>
 					<maml:description>
 					    <maml:para>Direct connection to specific Target</maml:para>
@@ -22675,6 +23081,16 @@ The most common access levels are:
 				<maml:name>EnableRemoteReplication</maml:name>
 				<maml:description>
 					<maml:para>Should the snapsnot be replicated to remote storage?</maml:para>
+				</maml:description>
+				<dev:type>
+					<maml:name>switch</maml:name>
+				</dev:type>
+				<dev:defaultValue/>
+			</command:parameter>
+			<command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
+				<maml:name>EnsureSerialCreation</maml:name>
+				<maml:description>
+					<maml:para>Specify if the snapshot creation should be failed if a previous snapshot replication is in progress.</maml:para>
 				</maml:description>
 				<dev:type>
 					<maml:name>switch</maml:name>
@@ -25769,6 +26185,13 @@ NOTE: parameters &quot;TimeIntervalDays&quot;,&quot;TimeIntervalHours&quot;, and
 					<dev:defaultValue/>
 				</command:parameter>
 				<command:parameter required="false" pipelineInput="false" position="Named" aliases="None">
+					<maml:name>EnsureSerialCreation</maml:name>
+					<maml:description>
+					    <maml:para>Specify if the snapshot creation should be failed if a previous snapshot replication is in progress.</maml:para>
+					</maml:description>
+					<dev:defaultValue/>
+				</command:parameter>
+				<command:parameter required="false" pipelineInput="false" position="Named" aliases="None">
 					<maml:name>Target</maml:name>
 					<maml:description>
 					    <maml:para>Direct connection to specific Target</maml:para>
@@ -25835,6 +26258,13 @@ NOTE: parameters &quot;TimeIntervalDays&quot;,&quot;TimeIntervalHours&quot;, and
 					<dev:defaultValue/>
 				</command:parameter>
 				<command:parameter required="false" pipelineInput="false" position="Named" aliases="None">
+					<maml:name>EnsureSerialCreation</maml:name>
+					<maml:description>
+					    <maml:para>Specify if the snapshot creation should be failed if a previous snapshot replication is in progress.</maml:para>
+					</maml:description>
+					<dev:defaultValue/>
+				</command:parameter>
+				<command:parameter required="false" pipelineInput="false" position="Named" aliases="None">
 					<maml:name>Target</maml:name>
 					<maml:description>
 					    <maml:para>Direct connection to specific Target</maml:para>
@@ -25868,6 +26298,16 @@ NOTE: parameters &quot;TimeIntervalDays&quot;,&quot;TimeIntervalHours&quot;, and
 				<maml:name>EnableRemoteReplication</maml:name>
 				<maml:description>
 					<maml:para>Should the snapshot be replicated to remote storage?</maml:para>
+				</maml:description>
+				<dev:type>
+					<maml:name>switch</maml:name>
+				</dev:type>
+				<dev:defaultValue/>
+			</command:parameter>
+			<command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
+				<maml:name>EnsureSerialCreation</maml:name>
+				<maml:description>
+					<maml:para>Specify if the snapshot creation should be failed if a previous snapshot replication is in progress.</maml:para>
 				</maml:description>
 				<dev:type>
 					<maml:name>switch</maml:name>
@@ -26618,6 +27058,22 @@ New-SFVirtualNetwork -VirtualNetworkTag 10 -Name &quot;VLAN10-Finance&quot; -Add
 					<command:parameterValue required="true" variableLength="False">string</command:parameterValue>
 					<dev:defaultValue/>
 				</command:parameter>
+				<command:parameter required="false" pipelineInput="true (ByPropertyName)" position="Named" aliases="None">
+					<maml:name>FifoSize</maml:name>
+					<maml:description>
+					    <maml:para>Specifies the maximum number of FIFO (First-In-First-Out) snapshots supported by the volume.</maml:para>
+					</maml:description>
+					<command:parameterValue required="true" variableLength="False">long</command:parameterValue>
+					<dev:defaultValue/>
+				</command:parameter>
+				<command:parameter required="false" pipelineInput="true (ByPropertyName)" position="Named" aliases="None">
+					<maml:name>MinFifoSize</maml:name>
+					<maml:description>
+					    <maml:para>Specifies the number of snapshot slots that are reserved for only FIFO (First-In-First-Out) snapshots.</maml:para>
+					</maml:description>
+					<command:parameterValue required="true" variableLength="False">long</command:parameterValue>
+					<dev:defaultValue/>
+				</command:parameter>
 				<command:parameter required="false" pipelineInput="false" position="Named" aliases="None">
 					<maml:name>Target</maml:name>
 					<maml:description>
@@ -26778,6 +27234,22 @@ New-SFVirtualNetwork -VirtualNetworkTag 10 -Name &quot;VLAN10-Finance&quot; -Add
 					<command:parameterValue required="true" variableLength="False">string</command:parameterValue>
 					<dev:defaultValue/>
 				</command:parameter>
+				<command:parameter required="false" pipelineInput="true (ByPropertyName)" position="Named" aliases="None">
+					<maml:name>FifoSize</maml:name>
+					<maml:description>
+					    <maml:para>Specifies the maximum number of FIFO (First-In-First-Out) snapshots supported by the volume.</maml:para>
+					</maml:description>
+					<command:parameterValue required="true" variableLength="False">long</command:parameterValue>
+					<dev:defaultValue/>
+				</command:parameter>
+				<command:parameter required="false" pipelineInput="true (ByPropertyName)" position="Named" aliases="None">
+					<maml:name>MinFifoSize</maml:name>
+					<maml:description>
+					    <maml:para>Specifies the number of snapshot slots that are reserved for only FIFO (First-In-First-Out) snapshots.</maml:para>
+					</maml:description>
+					<command:parameterValue required="true" variableLength="False">long</command:parameterValue>
+					<dev:defaultValue/>
+				</command:parameter>
 				<command:parameter required="false" pipelineInput="false" position="Named" aliases="None">
 					<maml:name>Target</maml:name>
 					<maml:description>
@@ -26895,6 +27367,17 @@ New-SFVirtualNetwork -VirtualNetworkTag 10 -Name &quot;VLAN10-Finance&quot; -Add
 				</dev:type>
 				<dev:defaultValue/>
 			</command:parameter>
+			<command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByPropertyName)" position="Named" aliases="None">
+				<maml:name>FifoSize</maml:name>
+				<maml:description>
+					<maml:para>Specifies the maximum number of FIFO (First-In-First-Out) snapshots supported by the volume.</maml:para>
+				</maml:description>
+				<command:parameterValue required="true" variableLength="False">long</command:parameterValue>
+				<dev:type>
+					<maml:name>long</maml:name>
+				</dev:type>
+				<dev:defaultValue/>
+			</command:parameter>
 			<command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="5" aliases="None">
 				<maml:name>GB</maml:name>
 				<maml:description>
@@ -26923,6 +27406,17 @@ New-SFVirtualNetwork -VirtualNetworkTag 10 -Name &quot;VLAN10-Finance&quot; -Add
 				<command:parameterValue required="true" variableLength="False">int</command:parameterValue>
 				<dev:type>
 					<maml:name>int</maml:name>
+				</dev:type>
+				<dev:defaultValue/>
+			</command:parameter>
+			<command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByPropertyName)" position="Named" aliases="None">
+				<maml:name>MinFifoSize</maml:name>
+				<maml:description>
+					<maml:para>Specifies the number of snapshot slots that are reserved for only FIFO (First-In-First-Out) snapshots.</maml:para>
+				</maml:description>
+				<command:parameterValue required="true" variableLength="False">long</command:parameterValue>
+				<dev:type>
+					<maml:name>long</maml:name>
 				</dev:type>
 				<dev:defaultValue/>
 			</command:parameter>
@@ -27022,6 +27516,7 @@ New-SFVirtualNetwork -VirtualNetworkTag 10 -Name &quot;VLAN10-Finance&quot; -Add
 System.Int64
 SolidFire.Element.Api.Account
 System.Management.Automation.SwitchParameter
+System.Nullable`1[[System.Int64, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]
 </maml:name>
 				</dev:type>
 				<maml:description>
@@ -34472,7 +34967,7 @@ Note: Changing the password on the account currently being used to connect to th
 				<maml:introduction>
 					<maml:para>PS C:\&gt;</maml:para>
 				</maml:introduction>
-				<dev:code>Set-SFClusterConfig -Name &quot;Node1&quot; -Cluster &quot;TestCluster</dev:code>
+				<dev:code>Set-SFClusterConfig -Name &quot;Node1&quot; -Cluster &quot;TestCluster&quot;</dev:code>
 				<dev:remarks>
 					<maml:para>Sets the node&apos;s hostname to &quot;Node1&quot; and adds it as a pending node for &quot;TestCluster&quot;.</maml:para>
 				</dev:remarks>
@@ -38295,6 +38790,17 @@ Set-SFRemoteLoggingHost -RemoteHosts $rh -Confirm:$false</dev:code>
 					<maml:para>Sets the RemoteLoggingHost with a LoggingServer with no confirmation prompt.</maml:para>
 				</dev:remarks>
 			</command:example>
+			<command:example>
+				<maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+				<maml:introduction>
+					<maml:para>PS C:\&gt;</maml:para>
+				</maml:introduction>
+				<dev:code>$server = @{&quot;Host&quot; = &quot;10.192.2.131&quot;; &quot;Port&quot; = 514;}
+Set-SFRemoteLoggingHost -RemoteHosts $server -Confirm:$false</dev:code>
+				<dev:remarks>
+					<maml:para>Sets the RemoteLoggingHost with a LoggingServer with no confirmation prompt.</maml:para>
+				</dev:remarks>
+			</command:example>
 		</command:examples>
 	</command:command>
 	<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10">
@@ -40073,6 +40579,149 @@ System.Boolean
 	</command:command>
 	<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10">
 		<command:details>
+			<command:name>Set-SFSoftwareEncryptionAtRestMasterKey</command:name>
+			<maml:description>
+				<maml:para>[Cluster] Rekey the Software Encryption At Rest Master Key used to encrypt the DEKs (Data Encryption Keys).</maml:para>
+			</maml:description>
+			<maml:copyright>
+				<maml:para/>
+			</maml:copyright>
+			<command:verb>Set</command:verb>
+			<command:noun>SFSoftwareEncryptionAtRestMasterKey</command:noun>
+			<dev:version/>
+		</command:details>
+		<maml:description>
+			<maml:para>[Cluster] Rekey the Software Encryption At Rest Master Key used to encrypt the DEKs (Data Encryption Keys).</maml:para>
+		</maml:description>
+		<command:syntax>
+			<command:syntaxItem>
+				<maml:name>Set-SFSoftwareEncryptionAtRestMasterKey</maml:name>
+				<command:parameter required="false" pipelineInput="false" position="Named" aliases="None">
+					<maml:name>KeyManagementType</maml:name>
+					<maml:description>
+					    <maml:para>The type of Key Management used to manage the Master Key. Possible values are: Internal: Rekey using Internal Key Management., External: Rekey using External Key Management.</maml:para>
+					</maml:description>
+					<command:parameterValue required="true" variableLength="False">string</command:parameterValue>
+					<dev:defaultValue/>
+				</command:parameter>
+				<command:parameter required="false" pipelineInput="false" position="Named" aliases="None">
+					<maml:name>KeyProviderID</maml:name>
+					<maml:description>
+					    <maml:para>The ID of the Key Provider to use. This is a unique value returned as part of one of the CreateKeyProvider* methods. Required when keyManagementType is &quot;External&quot;, invalid otherwise.</maml:para>
+					</maml:description>
+					<command:parameterValue required="true" variableLength="False">long</command:parameterValue>
+					<dev:defaultValue/>
+				</command:parameter>
+				<command:parameter required="false" pipelineInput="false" position="Named" aliases="None">
+					<maml:name>Target</maml:name>
+					<maml:description>
+					    <maml:para>Direct connection to specific Target</maml:para>
+					</maml:description>
+					<command:parameterValue required="true" variableLength="True">string[]</command:parameterValue>
+					<dev:defaultValue/>
+				</command:parameter>
+				<command:parameter required="false" pipelineInput="false" position="Named" aliases="None">
+					<maml:name>SFConnection</maml:name>
+					<maml:description>
+					    <maml:para>Direct connection to specific SFConnection</maml:para>
+					</maml:description>
+					<command:parameterValue required="true" variableLength="True">SFConnection[]</command:parameterValue>
+					<dev:defaultValue/>
+				</command:parameter>
+			</command:syntaxItem>
+		</command:syntax>
+		<command:parameters>
+			<command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
+				<maml:name>KeyManagementType</maml:name>
+				<maml:description>
+					<maml:para>The type of Key Management used to manage the Master Key. Possible values are: Internal: Rekey using Internal Key Management., External: Rekey using External Key Management.</maml:para>
+				</maml:description>
+				<command:parameterValue required="true" variableLength="False">string</command:parameterValue>
+				<dev:type>
+					<maml:name>string</maml:name>
+				</dev:type>
+				<dev:defaultValue/>
+			</command:parameter>
+			<command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
+				<maml:name>KeyProviderID</maml:name>
+				<maml:description>
+					<maml:para>The ID of the Key Provider to use. This is a unique value returned as part of one of the CreateKeyProvider* methods. Required when keyManagementType is &quot;External&quot;, invalid otherwise.</maml:para>
+				</maml:description>
+				<command:parameterValue required="true" variableLength="False">long</command:parameterValue>
+				<dev:type>
+					<maml:name>long</maml:name>
+				</dev:type>
+				<dev:defaultValue/>
+			</command:parameter>
+			<command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
+				<maml:name>SFConnection</maml:name>
+				<maml:description>
+					<maml:para>Direct connection to specific SFConnection</maml:para>
+				</maml:description>
+				<command:parameterValue required="true" variableLength="True">SFConnection[]</command:parameterValue>
+				<dev:type>
+					<maml:name>SFConnection[]</maml:name>
+				</dev:type>
+				<dev:defaultValue/>
+			</command:parameter>
+			<command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="Named" aliases="None">
+				<maml:name>Target</maml:name>
+				<maml:description>
+					<maml:para>Direct connection to specific Target</maml:para>
+				</maml:description>
+				<command:parameterValue required="true" variableLength="True">string[]</command:parameterValue>
+				<dev:type>
+					<maml:name>string[]</maml:name>
+				</dev:type>
+				<dev:defaultValue/>
+			</command:parameter>
+		</command:parameters>
+		<command:inputTypes>
+			<command:inputType>
+				<dev:type>
+					<maml:name>None
+</maml:name>
+				</dev:type>
+				<maml:description>
+				</maml:description>
+			</command:inputType>
+		</command:inputTypes>
+		<command:returnValues>
+			<command:returnValue>
+				<maml:description>
+					<maml:para></maml:para>
+				</maml:description>
+				<dev:type>
+					<maml:name>RekeySoftwareEncryptionAtRestMasterKeyResult</maml:name>
+					<maml:uri>http://solidfire.github.io/sdk-dotnet/help/html/T_SolidFire_Element_Api_RekeySoftwareEncryptionAtRestMasterKeyResult.htm</maml:uri>
+				</dev:type>
+			</command:returnValue>
+		</command:returnValues>
+		<command:examples>
+			<command:example>
+				<maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+				<maml:introduction>
+					<maml:para>PS C:\&gt;</maml:para>
+				</maml:introduction>
+				<dev:code>Set-SFSoftwareEncryptionAtRestMasterKey</dev:code>
+				<dev:remarks>
+					<maml:para>Rekeys the Software Encryption At Rest Master Key</maml:para>
+				</dev:remarks>
+			</command:example>
+			<command:example>
+				<maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+				<maml:introduction>
+					<maml:para>PS C:\&gt;</maml:para>
+				</maml:introduction>
+				<dev:code>Set-SFSoftwareEncryptionAtRestMasterKey -KeyManagementType &quot;Internal&quot;</dev:code>
+				<dev:remarks>
+					<maml:para>Rekeys the Software Encryption At Rest Master Key using Internal Key Management</maml:para>
+				</dev:remarks>
+			</command:example>
+		</command:examples>
+	</command:command>
+	<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10">
+		<command:details>
 			<command:name>Set-SFSSLCertificate</command:name>
 			<maml:description>
 				<maml:para>[Cluster] Sets the cluster&apos;s SSL certificate.</maml:para>
@@ -41031,6 +41680,22 @@ Set-SFVirtualNetwork -VirtualNetworkID $origVN.VirtualNetworkID -AddressBlocks $
 					<command:parameterValue required="true" variableLength="False">bool</command:parameterValue>
 					<dev:defaultValue/>
 				</command:parameter>
+				<command:parameter required="false" pipelineInput="true (ByPropertyName)" position="Named" aliases="None">
+					<maml:name>FifoSize</maml:name>
+					<maml:description>
+					    <maml:para>Specifies the maximum number of FIFO (First-In-First-Out) snapshots supported by the volume.</maml:para>
+					</maml:description>
+					<command:parameterValue required="true" variableLength="False">long</command:parameterValue>
+					<dev:defaultValue/>
+				</command:parameter>
+				<command:parameter required="false" pipelineInput="true (ByPropertyName)" position="Named" aliases="None">
+					<maml:name>MinFifoSize</maml:name>
+					<maml:description>
+					    <maml:para>Specifies the number of snapshot slots that are reserved for only FIFO (First-In-First-Out) snapshots.</maml:para>
+					</maml:description>
+					<command:parameterValue required="true" variableLength="False">long</command:parameterValue>
+					<dev:defaultValue/>
+				</command:parameter>
 				<command:parameter required="false" pipelineInput="false" position="Named" aliases="None">
 					<maml:name>Target</maml:name>
 					<maml:description>
@@ -41182,6 +41847,22 @@ Set-SFVirtualNetwork -VirtualNetworkID $origVN.VirtualNetworkID -AddressBlocks $
 					<command:parameterValue required="true" variableLength="False">bool</command:parameterValue>
 					<dev:defaultValue/>
 				</command:parameter>
+				<command:parameter required="false" pipelineInput="true (ByPropertyName)" position="Named" aliases="None">
+					<maml:name>FifoSize</maml:name>
+					<maml:description>
+					    <maml:para>Specifies the maximum number of FIFO (First-In-First-Out) snapshots supported by the volume.</maml:para>
+					</maml:description>
+					<command:parameterValue required="true" variableLength="False">long</command:parameterValue>
+					<dev:defaultValue/>
+				</command:parameter>
+				<command:parameter required="false" pipelineInput="true (ByPropertyName)" position="Named" aliases="None">
+					<maml:name>MinFifoSize</maml:name>
+					<maml:description>
+					    <maml:para>Specifies the number of snapshot slots that are reserved for only FIFO (First-In-First-Out) snapshots.</maml:para>
+					</maml:description>
+					<command:parameterValue required="true" variableLength="False">long</command:parameterValue>
+					<dev:defaultValue/>
+				</command:parameter>
 				<command:parameter required="false" pipelineInput="false" position="Named" aliases="None">
 					<maml:name>Target</maml:name>
 					<maml:description>
@@ -41302,6 +41983,17 @@ Set-SFVirtualNetwork -VirtualNetworkID $origVN.VirtualNetworkID -AddressBlocks $
 				</dev:type>
 				<dev:defaultValue/>
 			</command:parameter>
+			<command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByPropertyName)" position="Named" aliases="None">
+				<maml:name>FifoSize</maml:name>
+				<maml:description>
+					<maml:para>Specifies the maximum number of FIFO (First-In-First-Out) snapshots supported by the volume.</maml:para>
+				</maml:description>
+				<command:parameterValue required="true" variableLength="False">long</command:parameterValue>
+				<dev:type>
+					<maml:name>long</maml:name>
+				</dev:type>
+				<dev:defaultValue/>
+			</command:parameter>
 			<command:parameter required="false" variableLength="" globbing="" pipelineInput="false" position="11" aliases="None">
 				<maml:name>GB</maml:name>
 				<maml:description>
@@ -41330,6 +42022,17 @@ Set-SFVirtualNetwork -VirtualNetworkID $origVN.VirtualNetworkID -AddressBlocks $
 				<command:parameterValue required="true" variableLength="False">int</command:parameterValue>
 				<dev:type>
 					<maml:name>int</maml:name>
+				</dev:type>
+				<dev:defaultValue/>
+			</command:parameter>
+			<command:parameter required="false" variableLength="" globbing="" pipelineInput="true (ByPropertyName)" position="Named" aliases="None">
+				<maml:name>MinFifoSize</maml:name>
+				<maml:description>
+					<maml:para>Specifies the number of snapshot slots that are reserved for only FIFO (First-In-First-Out) snapshots.</maml:para>
+				</maml:description>
+				<command:parameterValue required="true" variableLength="False">long</command:parameterValue>
+				<dev:type>
+					<maml:name>long</maml:name>
 				</dev:type>
 				<dev:defaultValue/>
 			</command:parameter>
@@ -41425,7 +42128,8 @@ Set-SFVirtualNetwork -VirtualNetworkID $origVN.VirtualNetworkID -AddressBlocks $
 			<command:inputType>
 				<dev:type>
 					<maml:name>System.Int64[]
-System.Boolean
+System.Nullable`1[[System.Boolean, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]
+System.Nullable`1[[System.Int64, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]
 </maml:name>
 				</dev:type>
 				<maml:description>
@@ -41765,7 +42469,7 @@ Set-SFVolumeAccessGroup -VolumeAccessGroupID 1 -Initiators $inits.InitiatorName<
 		<command:details>
 			<command:name>Set-SFVolumePair</command:name>
 			<maml:description>
-				<maml:para>[Cluster] Pauses or restarts replication between a pair of volumes.</maml:para>
+				<maml:para>[Cluster] Enables you to Pause or Restart replication between a pair of volumes.</maml:para>
 			</maml:description>
 			<maml:copyright>
 				<maml:para/>
@@ -41943,7 +42647,7 @@ System.String
 				</maml:introduction>
 				<dev:code>Set-SFVolumePair -VolumeID 8,9 -Mode Sync -PausedManual:$true -Confirm:$false</dev:code>
 				<dev:remarks>
-					<maml:para>Sets the Mode to &apos;Synx&apos; and pauses data replication with no confirmation prompt.</maml:para>
+					<maml:para>Sets the Mode to &apos;Sync&apos; and pauses data replication with no confirmation prompt.</maml:para>
 				</dev:remarks>
 			</command:example>
 		</command:examples>
