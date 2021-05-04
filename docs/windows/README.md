@@ -4,14 +4,14 @@
 
 This page has instructions for installing the SolidFire PowerShell tools module on a Windows client. 
 
-## Powershell 6.0
+## Powershell 6.1
 
 ##### Prerequisites
 
 | Component            | Version          |
 |----------------------|------------------|
-| PowerShell           | 6.0 or later     |
-| SolidFire Element OS | 7 through 12.2   |
+| PowerShell           | 6.1 or later     |
+| SolidFire Element OS | 11.8 through 12.3|
 
 ### Installation Instructions
 

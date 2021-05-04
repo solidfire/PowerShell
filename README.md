@@ -1,6 +1,6 @@
 # NetApp SolidFire PowerShell Tools
 
-### Version 1.7.0
+### Version 12.3.0
 
 ![logo](docs/product.png)
 
@@ -22,6 +22,6 @@ The SolidFire Powershell Module can be installed directly on multiple systems by
 
 ## Release Notes
 
-[Click here to download latest release notes](docs/NetApp_Element_PowerShell_Release_Notes_1.7.pdf)
+[Click here to download latest release notes](docs/NetApp_Element_PowerShell_12.3_Release_Notes.pdf)
 
-[Click here to download User Guide Doc](docs/NetApp_Element_PowerShell_User_Guide_1.7.pdf)
+[Click here to download User Guide Doc](docs/NetApp_Element_PowerShell_12.3_User_Guide.pdf)

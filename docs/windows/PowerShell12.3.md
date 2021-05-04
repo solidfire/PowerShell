@@ -4,7 +4,7 @@
 
 This page has instructions for installing the SolidFire PowerShell Core tools module on a Windows client. 
 
-**Note**: Only Powershell Core is supported in Powershell Tools v1.7. 
+**Note**: Only Powershell Core is supported in Powershell Tools v12.3. 
 
 ## Powershell Core
 
@@ -12,8 +12,8 @@ This page has instructions for installing the SolidFire PowerShell Core tools mo
 
 | Component            | Version          |
 |----------------------|------------------|
-| PowerShell Core      | 6.0 or later     |
-| SolidFire Element OS | 11               |
+| PowerShell Core      | 6.1 or later     |
+| SolidFire Element OS | 11.8 through 12.3|
 
 ### Installation Instructions
 1. Download and install the PowerShell Core msi installer: 
