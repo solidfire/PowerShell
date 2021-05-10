@@ -13,7 +13,7 @@ This page has instructions for installing the SolidFire PowerShell Core tools mo
 | Component            | Version          |
 |----------------------|------------------|
 | PowerShell Core      | 6.1 or later     |
-| SolidFire Element OS | 11.8 through 12.3|
+| SolidFire Element OS | 11.0 through 12.3|
 
 ### Installation Instructions
 1. Download and install the PowerShell Core msi installer: 
