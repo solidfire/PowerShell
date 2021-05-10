@@ -11,7 +11,7 @@ This page has instructions for installing the SolidFire PowerShell tools module 
 | Component            | Version          |
 |----------------------|------------------|
 | PowerShell           | 6.1 or later     |
-| SolidFire Element OS | 11.8 through 12.3|
+| SolidFire Element OS | 11.0 through 12.3|
 
 ### Installation Instructions
 
