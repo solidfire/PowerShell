@@ -15,7 +15,7 @@ This page has instructions for installing the SolidFire PowerShell tools module 
 
 ### Installation Instructions
 
-1. Once inside the PowerShell shell, install SolidFire PowerShell Tools by downloading it from the [PowerShell Gallery](powershellgallery.com) with the following command:
+1. Once inside the PowerShell shell, install SolidFire PowerShell Tools by downloading it from the [PowerShell Gallery](https://powershellgallery.com) with the following command:
 
         PS> Install-Module -Name SolidFire.Core
 
